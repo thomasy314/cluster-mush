@@ -17,9 +17,8 @@ jobs:
         with:
           node-version: '17'
 
-      - name: Build
-        run: npm ci && npm run build
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      - run: npm ci && npm run build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLUSTER_MUSH }}'
