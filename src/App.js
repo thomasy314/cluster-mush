@@ -8,7 +8,7 @@ import ShiitakeInfo from './MushroomInfoPage/MushroomInfoPages/Shiitake.ts';
 
 function App() {
   return (
-    <Container>
+    <Container disableGutters maxWidth={false}>
       <BrowserRouter>
         <Routes>
           <Route index element={<ComingShroom />}></Route>

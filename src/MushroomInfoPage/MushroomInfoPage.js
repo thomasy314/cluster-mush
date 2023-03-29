@@ -16,10 +16,10 @@ const MushroomInfoPage = ({mushroomInfo}) => {
     const lessThanMd = useMediaQuery(theme.breakpoints.down('md'));
 
     const testCss = {
-        minHeight: '100vh',
+    /*    minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center'
+        justifyContent: 'center'*/
     }
 
 
@@ -35,19 +35,31 @@ const MushroomInfoPage = ({mushroomInfo}) => {
         <CollapseCard title="Agriculture">{formatList(mushroomInfo.agriculture)}</CollapseCard>
     </>
 
+    const styleThing = {
+        height: moreOrEqualToMd ? '100vh' : '90vh',
+        width: moreOrEqualToMd ? '50vw' : '100vw',
+        objectFit:'cover'
+    }
+
     return (
-        <Container>
-            {lessThanMd && <MushroomTitleName name={mushroomInfo.name} latinName={mushroomInfo.latinName} />}
+        <Container disableGutters maxWidth={false} style={{overflowX:'hidden'}}>
+            <Container>
+                {lessThanMd && <MushroomTitleName name={mushroomInfo.name} latinName={mushroomInfo.latinName} />}
+            </Container>
             <Grid container spacing={2}>
                 {moreOrEqualToMd && <Grid item style={testCss} sm={6}>
-                    <MushroomTitleName name={mushroomInfo.name} latinName={mushroomInfo.latinName} />
-                    {testDesc}
+                    <Container>
+                        <MushroomTitleName name={mushroomInfo.name} latinName={mushroomInfo.latinName} />
+                        {testDesc}
+                    </Container>
                 </Grid>}
                 <Grid item style={testCss} sm={12} md={6}>
-                    <img alt="Mushroom" src={mushroomInfo.images[0]} />
+                    <img style={styleThing} alt="Mushroom" src={mushroomInfo.images[0]} />
                 </Grid>
                 {lessThanMd && <Grid item style={testCss} sm={12}>
-                    {testDesc}
+                    <Container>
+                        {testDesc}
+                    </Container>
                 </Grid>}
             </Grid>
         </Container>
