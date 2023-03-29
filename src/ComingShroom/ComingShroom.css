@@ -1,0 +1,11 @@
+#ComingShroomContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#ComingShroomh1 {
+  color: #A5B987;
+}

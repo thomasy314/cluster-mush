@@ -1,13 +1,22 @@
+import { Container } from '@mui/material';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import ComingShroom from './ComingShroom/ComingShroom';
+import MushroomInfoPage from './MushroomInfoPage/MushroomInfoPage';
+import StyleGuide from './StyleGuide/StyleGuide';
+import ShiitakeInfo from './MushroomInfoPage/MushroomInfoPages/Shiitake.ts';
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">
-        <img src="/logos/logo.svg" className="App-logo" alt="logo" />
-        <h1 id="Coming-Soon">Coming Soon</h1>
-      </div>
-    </div>
+    <Container>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<ComingShroom />}></Route>
+          <Route path="/style-guide" element={<StyleGuide />}></Route>
+          <Route path="/shiitake" element={<MushroomInfoPage mushroomInfo={ShiitakeInfo}/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </Container>
   );
 }
 
