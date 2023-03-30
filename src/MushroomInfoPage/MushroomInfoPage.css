@@ -1,0 +1,9 @@
+#MushroomInfoPageContainer {
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+#MushroomInfoPageImage {
+    object-fit: cover;
+    z-index: -1;
+}

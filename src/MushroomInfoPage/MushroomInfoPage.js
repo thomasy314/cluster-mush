@@ -15,15 +15,13 @@ const MushroomInfoPage = ({mushroomInfo}) => {
     const moreOrEqualToMd = useMediaQuery(theme.breakpoints.up('md'));
     const lessThanMd = useMediaQuery(theme.breakpoints.down('md'));
 
-    const testCss = {
-    /*    minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center'*/
+    const mushroomInfoPageStyle = {
+        height: moreOrEqualToMd ? '100vh' : '90vh',
+        width: moreOrEqualToMd ? '50vw' : '100vw',
+        position: lessThanMd ? 'static' : 'fixed'
     }
 
-
-    const testDesc = 
+    const description = 
     <>
         <p><b>Other Common Names</b>:</p> {formatList(mushroomInfo.commonNames)}
         <p><b>Etymology</b>: {mushroomInfo.etymology}</p>
@@ -35,30 +33,24 @@ const MushroomInfoPage = ({mushroomInfo}) => {
         <CollapseCard title="Agriculture">{formatList(mushroomInfo.agriculture)}</CollapseCard>
     </>
 
-    const styleThing = {
-        height: moreOrEqualToMd ? '100vh' : '90vh',
-        width: moreOrEqualToMd ? '50vw' : '100vw',
-        objectFit:'cover'
-    }
-
     return (
-        <Container disableGutters maxWidth={false} style={{overflowX:'hidden'}}>
+        <Container disableGutters maxWidth={false} id='MushroomInfoPageContainer'>
             <Container>
                 {lessThanMd && <MushroomTitleName name={mushroomInfo.name} latinName={mushroomInfo.latinName} />}
             </Container>
             <Grid container spacing={2}>
-                {moreOrEqualToMd && <Grid item style={testCss} sm={6}>
+                {moreOrEqualToMd && <Grid item sm={6}>
                     <Container>
                         <MushroomTitleName name={mushroomInfo.name} latinName={mushroomInfo.latinName} />
-                        {testDesc}
+                        {description}
                     </Container>
                 </Grid>}
-                <Grid item style={testCss} sm={12} md={6}>
-                    <img style={styleThing} alt="Mushroom" src={mushroomInfo.images[0]} />
+                <Grid item sm={12} md={6}>
+                    <img id='MushroomInfoPageImage' style={mushroomInfoPageStyle} alt="Mushroom" src={mushroomInfo.images[0]} />
                 </Grid>
-                {lessThanMd && <Grid item style={testCss} sm={12}>
+                {lessThanMd && <Grid item sm={12}>
                     <Container>
-                        {testDesc}
+                        {description}
                     </Container>
                 </Grid>}
             </Grid>

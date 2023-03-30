@@ -3,13 +3,15 @@ import { useState } from 'react';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
+import './CollapseCard.css';
+
 const CollapseCard = ({children, title, collapseContent}) => {
 
     const [isChecked, setIsChecked] = useState(false);
 
     return  (
         <>
-            <p>
+            <p id='CollapseCardTitle'>
                 <b>{title}</b>
                 <IconButton size='small' onClick={() => setIsChecked(!isChecked)}>
                     {isChecked && <KeyboardArrowDownIcon />}
