@@ -1,0 +1,13 @@
+#FullSplitPageContainer {
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+#FullSplitPageImage {
+    object-fit: cover;
+    z-index: -1;
+}
+
+#FullSplitPageTitle {
+    padding-bottom: 1rem;
+}
