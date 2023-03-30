@@ -7,8 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-p, th, ul {
-  font-size: 1em;
+p, th, ul, ol {
+  font-size: 1.1em;
+}
+
+li {
+  padding: 0.5rem 0rem;
 }
 
 h1 {

@@ -1,11 +1,14 @@
+import Citation from "./Citation";
 
-class ValueWithReference<Type> {
-    content: Type;
-    link: string;
+class ValueWithCitation<Type> {
+    value: Type;
+    citations: Citation[];
 
-    constructor(content: Type, link: string) {
-        this.content = content;
+    constructor(value: Type, citations: Citation[]) {
+        this.value = value;
+        this.citations = citations;
     }
+
 }
 
-export default ValueWithReference;
+export default ValueWithCitation;

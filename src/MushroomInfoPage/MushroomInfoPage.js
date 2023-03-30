@@ -4,9 +4,27 @@ import MushroomTitleName from './MushroomInfoPageParts/MushroomTitleName';
 import './MushroomInfoPage.css';
 import CollapseCard from '../Common/CollapseCard';
 
-const formatList = (list) => {
+const formatStringList = (list) => {
     const ulItems = list.map((item, i) => <li key={i}>{item}</li>)
     return <ul>{ulItems}</ul>
+}
+
+const formatValueWithReferenceList = (list, citationList) => {
+    const ulItems = list.map((item, i) => {
+        const value = item.value;
+        return <li key={i}>{value}</li>
+    });
+    return <ul>{ulItems}</ul>
+}
+
+const formatCitationList = (list) => {
+    const olItems = list.map((item, i) => {
+        const citation = item.citation;
+        const link = item.link;
+        console.log(link)
+        return <li key={i}><a href={link}>{citation}</a></li>
+    });
+    return <ol>{olItems}</ol>
 }
 
 const MushroomInfoPage = ({mushroomInfo}) => {
@@ -21,21 +39,24 @@ const MushroomInfoPage = ({mushroomInfo}) => {
         position: lessThanMd ? 'static' : 'fixed'
     }
 
+    const citations = mushroomInfo.getCitations();
+
     const description = 
     <>
-        <p><b>Other Common Names</b>:</p> {formatList(mushroomInfo.commonNames)}
+        <p><b>Other Common Names</b>:</p> {formatStringList(mushroomInfo.commonNames)}
         <p><b>Etymology</b>: {mushroomInfo.etymology}</p>
         <p><b>Location</b>: {mushroomInfo.location}</p>
         <p><b>Ecological Group</b>: {mushroomInfo.ecologicalGroup}</p>
         <p><b>Edible?</b> {mushroomInfo.edible}</p>
-        <CollapseCard title='History and Culture'>{formatList(mushroomInfo.historyAndCulture)}</CollapseCard>
-        <CollapseCard title="Science">{formatList(mushroomInfo.science)}</CollapseCard>
-        <CollapseCard title="Agriculture">{formatList(mushroomInfo.agriculture)}</CollapseCard>
+        <CollapseCard title='History and Culture'>{formatValueWithReferenceList(mushroomInfo.historyAndCulture, citations)}</CollapseCard>
+        <CollapseCard title="Science">{formatValueWithReferenceList(mushroomInfo.science, citations)}</CollapseCard>
+        <CollapseCard title="Agriculture">{formatValueWithReferenceList(mushroomInfo.agriculture, citations)}</CollapseCard>
+        <CollapseCard title="Learn More!">{formatCitationList(citations)}</CollapseCard>
     </>
 
     return (
         <Container disableGutters maxWidth={false} id='MushroomInfoPageContainer'>
-            <Container>
+            <Container style={{paddingBottom:'1rem'}}>
                 {lessThanMd && <MushroomTitleName name={mushroomInfo.name} latinName={mushroomInfo.latinName} />}
             </Container>
             <Grid container spacing={2}>
@@ -45,7 +66,7 @@ const MushroomInfoPage = ({mushroomInfo}) => {
                         {description}
                     </Container>
                 </Grid>}
-                <Grid item sm={12} md={6}>
+                <Grid item sm={12} md={6} style={{paddingTop:0}}>
                     <img id='MushroomInfoPageImage' style={mushroomInfoPageStyle} alt="Mushroom" src={mushroomInfo.images[0]} />
                 </Grid>
                 {lessThanMd && <Grid item sm={12}>

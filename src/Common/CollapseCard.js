@@ -9,11 +9,16 @@ const CollapseCard = ({children, title, collapseContent}) => {
 
     const [isChecked, setIsChecked] = useState(false);
 
+    const toggle = () => {
+        const newVal = !isChecked;
+        setIsChecked(newVal);
+    }
+
     return  (
         <>
             <p id='CollapseCardTitle'>
                 <b>{title}</b>
-                <IconButton size='small' onClick={() => setIsChecked(!isChecked)}>
+                <IconButton size='small' onClick={toggle}>
                     {isChecked && <KeyboardArrowDownIcon />}
                     {!isChecked && <KeyboardArrowRightIcon />}
                 </IconButton>
