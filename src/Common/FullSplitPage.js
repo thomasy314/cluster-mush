@@ -15,16 +15,18 @@ const FullSplitPage = ({children, titleComponent, imageSrc, smallImage}) => {
     const height = (moreOrEqualToMd ? 100 : 90) - (smallImage ? smallImageBorderSize*2 : 0);
     const width = (moreOrEqualToMd ? 50 : 100) - (smallImage ? smallImageBorderSize*2 : 0);
 
+    const containerStyle = {
+        padding: smallImage ? '10vh' : 0
+    }
+
     const FullSplitPageImageStyle = {
         height: `${height}vh`,
         width: `${width}vw`,
         position: lessThanMd ? 'static' : 'fixed',
-        marginTop: smallImage ? `${smallImageBorderSize}vh` : 0,
-        marginLeft: smallImage ? `${smallImageBorderSize}vw` : 0
     }
 
     return (
-        <Container disableGutters maxWidth={false} id='FullSplitPageContainer'>
+        <Container disableGutters maxWidth={false} style={containerStyle} id='FullSplitPageContainer'>
             <Container id='FullSplitPageTitle'>
                 {lessThanMd && titleComponent}
             </Container>

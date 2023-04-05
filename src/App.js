@@ -5,8 +5,15 @@ import ComingShroom from './ComingShroom/ComingShroom';
 import MushroomInfoPage from './MushroomInfoPage/MushroomInfoPage';
 import StyleGuide from './StyleGuide/StyleGuide';
 import ShiitakeInfo from './MushroomInfoPage/MushroomInfoPages/Shiitake.ts';
+
 import Shop from './Shop/Shop';
 import ItemPage from './Shop/Itempage/ItemPage';
+
+import ShiitakeStorePageInfo from './Shop/Itempage/itemPages/ShiitakeStorePageInfo.ts'
+import PorciniStorePageInfo from './Shop/Itempage/itemPages/PorciniStorePageInfo.ts'
+import EnokiStorePageInfo from './Shop/Itempage/itemPages/EnokiStorePageInfo.ts'
+import MorelStorePageInfo from './Shop/Itempage/itemPages/MorelStorePageInfo.ts'
+import OysterStorePageInfo from './Shop/Itempage/itemPages/OysterStorePageInfo.ts'
 
 function App() {
 
@@ -22,7 +29,11 @@ function App() {
   const shopRoutes = 
     <>
       <Route index element={<Shop />} />
-      <Route path="/shiitake" element={<ItemPage/>} />
+      <Route path="/shiitake" element={<ItemPage storePageInfo={ShiitakeStorePageInfo}/>} />
+      <Route path="/porcini" element={<ItemPage storePageInfo={PorciniStorePageInfo}/>} />
+      <Route path="/enoki" element={<ItemPage storePageInfo={EnokiStorePageInfo}/>} />
+      <Route path="/morel" element={<ItemPage storePageInfo={MorelStorePageInfo}/>} />
+      <Route path="/oyster" element={<ItemPage storePageInfo={OysterStorePageInfo}/>} />
     </>
 
     return (
