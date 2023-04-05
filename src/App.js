@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Container, createTheme } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ComingShroom from './ComingShroom/ComingShroom';
@@ -9,11 +9,11 @@ import ShiitakeInfo from './MushroomInfoPage/MushroomInfoPages/Shiitake.ts';
 import Shop from './Shop/Shop';
 import ItemPage from './Shop/Itempage/ItemPage';
 
-import ShiitakeStorePageInfo from './Shop/Itempage/itemPages/ShiitakeStorePageInfo.ts'
-import PorciniStorePageInfo from './Shop/Itempage/itemPages/PorciniStorePageInfo.ts'
-import EnokiStorePageInfo from './Shop/Itempage/itemPages/EnokiStorePageInfo.ts'
-import MorelStorePageInfo from './Shop/Itempage/itemPages/MorelStorePageInfo.ts'
-import OysterStorePageInfo from './Shop/Itempage/itemPages/OysterStorePageInfo.ts'
+import ShiitakeStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/ShiitakeStorePageInfo.ts'
+import PorciniStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/PorciniStorePageInfo.ts'
+import EnokiStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/EnokiStorePageInfo.ts'
+import MorelStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/MorelStorePageInfo.ts'
+import OysterStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/OysterStorePageInfo.ts'
 
 function App() {
 

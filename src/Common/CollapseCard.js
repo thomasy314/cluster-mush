@@ -5,7 +5,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import './CollapseCard.css';
 
-const CollapseCard = ({children, title, collapseContent}) => {
+const CollapseCard = ({children, title, boldTitle=true}) => {
 
     const [isChecked, setIsChecked] = useState(false);
 
@@ -14,10 +14,15 @@ const CollapseCard = ({children, title, collapseContent}) => {
         setIsChecked(newVal);
     }
 
+    const titleStyle = {
+        fontWeight: boldTitle ? "bold" : "normal",
+        display: "inline-block"
+    }
+
     return  (
         <>
             <p id='CollapseCardTitle' onClick={toggle}>
-                <b>{title}</b>
+                <p style={titleStyle}>{title}</p>
                 <IconButton size='small'>
                     {isChecked && <KeyboardArrowDownIcon />}
                     {!isChecked && <KeyboardArrowRightIcon />}
