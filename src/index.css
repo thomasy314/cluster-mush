@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: #15201D;
+}
+
 p, th, ul, ol {
   font-size: 1.2em;
 }
