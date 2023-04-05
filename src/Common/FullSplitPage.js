@@ -4,16 +4,23 @@ import { Container, Grid, useMediaQuery, useTheme } from '@mui/material';
 import './FullSplitPage.css';
 
 
-const FullSplitPage = ({children, titleComponent, imageSrc}) => {
+const FullSplitPage = ({children, titleComponent, imageSrc, smallImage}) => {
 
     const theme = useTheme();
     const moreOrEqualToMd = useMediaQuery(theme.breakpoints.up('md'));
     const lessThanMd = useMediaQuery(theme.breakpoints.down('md'));
 
-    const FullSplitPageStyle = {
-        height: moreOrEqualToMd ? '100vh' : '90vh',
-        width: moreOrEqualToMd ? '50vw' : '100vw',
-        position: lessThanMd ? 'static' : 'fixed'
+    const smallImageBorderSize = 10;
+
+    const height = (moreOrEqualToMd ? 100 : 90) - (smallImage ? smallImageBorderSize*2 : 0);
+    const width = (moreOrEqualToMd ? 50 : 100) - (smallImage ? smallImageBorderSize*2 : 0);
+
+    const FullSplitPageImageStyle = {
+        height: `${height}vh`,
+        width: `${width}vw`,
+        position: lessThanMd ? 'static' : 'fixed',
+        marginTop: smallImage ? `${smallImageBorderSize}vh` : 0,
+        marginLeft: smallImage ? `${smallImageBorderSize}vw` : 0
     }
 
     return (
@@ -29,7 +36,7 @@ const FullSplitPage = ({children, titleComponent, imageSrc}) => {
                     </Container>
                 </Grid>}
                 <Grid item xs={12} md={6} style={{paddingTop:0}}>
-                    <img id='FullSplitPageImage' style={FullSplitPageStyle} alt="thing" src={imageSrc} />
+                    <img id='FullSplitPageImage' style={FullSplitPageImageStyle} alt="thing" src={imageSrc} />
                 </Grid>
                 {lessThanMd && <Grid item xs={12}>
                     <Container>

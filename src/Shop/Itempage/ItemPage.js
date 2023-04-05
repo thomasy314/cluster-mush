@@ -9,7 +9,7 @@ const ItemPage = ({itemInfo}) => {
     const title = <h1>Shiitake Earrings</h1>
 
     return (
-        <FullSplitPage titleComponent={title} imageSrc={shiitakeImage}>
+        <FullSplitPage titleComponent={title} imageSrc={shiitakeImage} smallImage>
             <p>Hey YOU! Buy some earrings here why don't ya?</p>
         </FullSplitPage>
     )

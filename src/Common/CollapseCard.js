@@ -16,9 +16,9 @@ const CollapseCard = ({children, title, collapseContent}) => {
 
     return  (
         <>
-            <p id='CollapseCardTitle'>
+            <p id='CollapseCardTitle' onClick={toggle}>
                 <b>{title}</b>
-                <IconButton size='small' onClick={toggle}>
+                <IconButton size='small'>
                     {isChecked && <KeyboardArrowDownIcon />}
                     {!isChecked && <KeyboardArrowRightIcon />}
                 </IconButton>
