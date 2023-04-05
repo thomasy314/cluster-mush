@@ -19,7 +19,7 @@ h1 {
   /*color: #5A5C35;*/
   color: #15201D;
   font-family: "eckmannpsych-Small", sans-serif;
-  font-size: 4em;
+  font-size: min(10vw, 4em);
   font-weight: 400;
   font-style: normal;
   margin: 0;

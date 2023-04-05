@@ -22,16 +22,16 @@ const FullSplitPage = ({children, titleComponent, imageSrc}) => {
                 {lessThanMd && titleComponent}
             </Container>
             <Grid container spacing={2}>
-                {moreOrEqualToMd && <Grid item sm={6}>
+                {moreOrEqualToMd && <Grid item xs={6}>
                     <Container>
                         {titleComponent}
                         {children}
                     </Container>
                 </Grid>}
-                <Grid item sm={12} md={6} style={{paddingTop:0}}>
+                <Grid item xs={12} md={6} style={{paddingTop:0}}>
                     <img id='FullSplitPageImage' style={FullSplitPageStyle} alt="thing" src={imageSrc} />
                 </Grid>
-                {lessThanMd && <Grid item sm={12}>
+                {lessThanMd && <Grid item xs={12}>
                     <Container>
                         {children}
                     </Container>
