@@ -20,6 +20,7 @@ const ItemPage = ({storePageInfo}) => {
             </ul>
             <br/>
             <hr style={{width:"30%", float:"left"}}/>
+            <br/>
             <CollapseCard boldTitle={false} title="Shipping and Returns">
                 <p>NO RETURNS</p>
             </CollapseCard>

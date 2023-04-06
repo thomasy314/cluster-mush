@@ -1,0 +1,19 @@
+
+
+.navBarItem {
+    height: 7vh;
+}
+
+.navBarButton {
+    background-color: white;
+    border-width: 0;
+    padding: 1rem;
+    font-size: 1em;
+}
+
+.navBarButton:hover {
+    height: calc(3px + 7);
+    border-color: black;
+    border-bottom-width: 3px;
+    margin-bottom: -3px
+}

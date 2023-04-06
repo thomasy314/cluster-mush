@@ -1,7 +1,9 @@
 
 const resinEarringBulletNotes = [
-    "3D printed",
-    "Hand painted"
+    "Resin",
+    "Hand painted",
+    "Titanium wire (Hypoallergenic)",
+    "20 gauge"
 ];
 
 export {resinEarringBulletNotes};

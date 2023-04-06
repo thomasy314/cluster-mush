@@ -41,7 +41,8 @@ const MushroomInfoPage = ({mushroomInfo}) => {
             <CollapseCard title='History and Culture'>{formatValueWithReferenceList(mushroomInfo.historyAndCulture, citations)}</CollapseCard>
             <CollapseCard title="Science">{formatValueWithReferenceList(mushroomInfo.science, citations)}</CollapseCard>
             <CollapseCard title="Agriculture">{formatValueWithReferenceList(mushroomInfo.agriculture, citations)}</CollapseCard>
-            <CollapseCard title="Learn More!">{formatCitationList(citations)}</CollapseCard>
+            <CollapseCard title="Learn More!">{formatCitationList(mushroomInfo.learnMore)}</CollapseCard>
+            <CollapseCard title="References">{formatCitationList(citations)}</CollapseCard>
         </FullSplitPage>
     )
 }

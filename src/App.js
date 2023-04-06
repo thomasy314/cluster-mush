@@ -15,6 +15,8 @@ import EnokiStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/EnokiStorePage
 import MorelStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/MorelStorePageInfo.ts'
 import OysterStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/OysterStorePageInfo.ts'
 
+import NavBar from './Common/NavBar/NavBar';
+
 function App() {
 
   const inShop = window.location.host.includes("shop");
@@ -38,6 +40,7 @@ function App() {
 
     return (
       <Container disableGutters maxWidth={false}>
+        <NavBar />
         <BrowserRouter>
           <Routes>
             {inShop ? shopRoutes : mainRoutes}

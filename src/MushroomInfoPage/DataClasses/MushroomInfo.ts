@@ -1,5 +1,5 @@
 import EcologicalGroup from "./EcologicalGroup";
-import ValueWithCitation from "./ValueWithReference";
+import ValueWithCitation from "./ValueWithCitation";
 import Citation from "./Citation";
 
 class MushroomInfo {
@@ -14,7 +14,7 @@ class MushroomInfo {
     historyAndCulture: ValueWithCitation<String>[];
     science: ValueWithCitation<String>[];
     agriculture: ValueWithCitation<String>[];
-    wikiPage: Citation;
+    learnMore: Citation[];
 
     constructor(
         name: String, 
@@ -28,7 +28,7 @@ class MushroomInfo {
         historyAndCulture: ValueWithCitation<String>[],
         science: ValueWithCitation<String>[],
         agriculture: ValueWithCitation<String>[],
-        wikiPage: Citation
+        learnMore: Citation[]
         ) {
             this.name = name;
             this.images = images;
@@ -41,7 +41,7 @@ class MushroomInfo {
             this.historyAndCulture = historyAndCulture;
             this.science = science;
             this.agriculture = agriculture
-            this.wikiPage = wikiPage;
+            this.learnMore = learnMore;
         }
 
     getHistoryAndCultureValues() : String[] {
@@ -70,7 +70,7 @@ class MushroomInfo {
                     return 0; 
                 })
 
-        return [...new Set<Citation>([this.wikiPage, ...citations])];
+        return [...new Set<Citation>(citations)];
     }
 }
 

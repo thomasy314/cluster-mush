@@ -16,13 +16,12 @@ const CollapseCard = ({children, title, boldTitle=true}) => {
 
     const titleStyle = {
         fontWeight: boldTitle ? "bold" : "normal",
-        display: "inline-block"
     }
 
     return  (
         <>
-            <p id='CollapseCardTitle' onClick={toggle}>
-                <p style={titleStyle}>{title}</p>
+            <p class='CollapseCard' onClick={toggle}>
+                <p class='CollapseCardTitle' style={titleStyle}>{title}</p>
                 <IconButton size='small'>
                     {isChecked && <KeyboardArrowDownIcon />}
                     {!isChecked && <KeyboardArrowRightIcon />}

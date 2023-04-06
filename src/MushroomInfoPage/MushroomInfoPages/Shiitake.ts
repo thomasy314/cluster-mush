@@ -5,9 +5,10 @@ import EcologicalGroup from "../DataClasses/EcologicalGroup.ts";
 // @ts-ignore - need to have .ts for some reason
 import MushroomInfo from "../DataClasses/MushroomInfo.ts";
 // @ts-ignore - need to have .ts for some reason
-import ValueWithReference from "../DataClasses/ValueWithReference.ts";
+import ValueWithReference from "../DataClasses/ValueWithCitation.ts";
 
 import shiitakePhoto from '../../Photos/Shiitake/shiitake.png';
+import { LeakRemoveRounded } from "@mui/icons-material";
 
 const wasserShiitake = new Citation('Wasser, S. P. (2005). Shiitake (Lentinus edodes). Encyclopedia of dietary supplements, 653-664.', 'https://xn--c1atere.xn--p1ai/upload/files/Wasser_2013_09_shiitake.pdf'); //6
 const wildAboutMushroomsSf = new Citation('Wild About Mushrooms: Shiitake. (n.d.).', 'https://www.mssf.org/cookbook/shiitake.html');
@@ -32,6 +33,11 @@ const agricultureFacts: string[] = [
     new ValueWithReference('The traditional method of cultivation practiced in China and Japan is called "Soak and Strike". This had cultivators lean logs against already infects trees and let the spores inoculate the fresh logs. These logs would then be buried for a year to allow for colonization of the mycelium throughout the log. Finally, after unburing the log, you strike it with other sticks. Once struck, this told the fungus to start fruiting.', [growingGourmetAndMedicinalMush])
 ];
 
+const learnMore: Citation[] = [
+    new Citation('Shiitake Wikipedia', 'https://en.wikipedia.org/wiki/Shiitake'),
+    new Citation('Wild About Mushrooms Cookbook: Shiitake', 'https://www.mssf.org/cookbook/shiitake.html')
+]
+
 const ShiitakeInfo = new MushroomInfo(
     "Shiitake",
     [shiitakePhoto],
@@ -44,7 +50,7 @@ const ShiitakeInfo = new MushroomInfo(
     historyAndCultureFacts,
     scienceFacts,
     agricultureFacts,
-    new Citation('Shiitake Wikipedia', 'https://en.wikipedia.org/wiki/Shiitake')
+    learnMore
 )
 
 export default ShiitakeInfo;
