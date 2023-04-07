@@ -3,10 +3,12 @@ import StorePageInfo from "../../../DataClasses/StorepageInfo.ts";
 
 import oysterPhoto from '../../../../Photos/Oyster/oyster.jpg';
 
-export default new StorePageInfo(
+const OysterStorePageInfo = new StorePageInfo(
     'Oyster',
     'Mushhi',
     [],
     [oysterPhoto],
     30.00
 );
+
+export default OysterStorePageInfo;

@@ -1,10 +1,10 @@
-import { Container, createTheme } from '@mui/material';
+import { Container } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ComingShroom from './ComingShroom/ComingShroom';
 import MushroomInfoPage from './MushroomInfoPage/MushroomInfoPage';
 import StyleGuide from './StyleGuide/StyleGuide';
-import ShiitakeInfo from './MushroomInfoPage/MushroomInfoPages/Shiitake.ts';
+import ShiitakeInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Shiitake.ts';
 
 import Shop from './Shop/Shop';
 import ItemPage from './Shop/Itempage/ItemPage';

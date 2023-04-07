@@ -3,10 +3,12 @@ import StorePageInfo from "../../../DataClasses/StorepageInfo.ts";
 
 import porciniPhoto from '../../../../Photos/Porcini/porcini.jpg';
 
-export default new StorePageInfo(
+const PorciniStorePageInfo = new StorePageInfo(
     'Porcini',
     'Mushhi',
     [],
     [porciniPhoto],
     30.00
 );
+
+export default PorciniStorePageInfo;

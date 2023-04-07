@@ -1,4 +1,7 @@
-
+#navBarContainer {
+    box-shadow: 0px;
+    background-color: white;
+}
 
 .navBarItem {
     height: 7vh;

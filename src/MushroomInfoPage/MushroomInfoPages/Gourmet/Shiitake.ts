@@ -1,14 +1,13 @@
 // @ts-ignore - need to have .ts for some reason
-import Citation from "../DataClasses/Citation.ts";
+import Citation from "../../DataClasses/Citation.ts";
 // @ts-ignore - need to have .ts for some reason
-import EcologicalGroup from "../DataClasses/EcologicalGroup.ts";
+import EcologicalGroup from "../../DataClasses/EcologicalGroup.ts";
 // @ts-ignore - need to have .ts for some reason
-import MushroomInfo from "../DataClasses/MushroomInfo.ts";
+import MushroomInfo from "../../DataClasses/MushroomInfo.ts";
 // @ts-ignore - need to have .ts for some reason
-import ValueWithReference from "../DataClasses/ValueWithCitation.ts";
+import ValueWithReference from "../../DataClasses/ValueWithCitation.ts";
 
-import shiitakePhoto from '../../Photos/Shiitake/shiitake.png';
-import { LeakRemoveRounded } from "@mui/icons-material";
+import shiitakePhoto from '../../../Photos/Shiitake/shiitake.png';
 
 const wasserShiitake = new Citation('Wasser, S. P. (2005). Shiitake (Lentinus edodes). Encyclopedia of dietary supplements, 653-664.', 'https://xn--c1atere.xn--p1ai/upload/files/Wasser_2013_09_shiitake.pdf'); //6
 const wildAboutMushroomsSf = new Citation('Wild About Mushrooms: Shiitake. (n.d.).', 'https://www.mssf.org/cookbook/shiitake.html');
