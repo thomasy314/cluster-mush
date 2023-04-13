@@ -4,6 +4,9 @@ import './App.css';
 import ComingShroom from './ComingShroom/ComingShroom';
 import MushroomInfoPage from './MushroomInfoPage/MushroomInfoPage';
 import StyleGuide from './StyleGuide/StyleGuide';
+
+import EnokiInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Enoki.ts';
+import MaitakeInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Maitake.ts';
 import ShiitakeInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Shiitake.ts';
 
 import Shop from './Shop/Shop';
@@ -25,6 +28,8 @@ function App() {
     <>
       <Route index element={<ComingShroom />} />
       <Route path="/style-guide" element={<StyleGuide />} />
+      <Route path="/enoki" element={<MushroomInfoPage mushroomInfo={EnokiInfo}/>} />
+      <Route path="/maitake" element={<MushroomInfoPage mushroomInfo={MaitakeInfo}/>} />
       <Route path="/shiitake" element={<MushroomInfoPage mushroomInfo={ShiitakeInfo}/>} />
     </>
   
