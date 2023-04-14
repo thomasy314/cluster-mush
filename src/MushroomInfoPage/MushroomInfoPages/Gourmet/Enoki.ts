@@ -32,11 +32,11 @@ const ecologicalGroup = EcologicalGroup.SAPROPHYTIC;
 const edible = 'Yes! When eaten raw, the mushroom has a crisp texture and peppery taste. It is common to see it added to soup to add more texture without an overpowering flavor.'
 
 // Citations
-const enokiMushroomBreeding = new Citation('Sharma, V. P., Barh, A., Bairwa, R., Annepu, S. K., Kumari, B., & Kamal, S. (2021). Enoki Mushroom (Flammulina velutipes (Curtis) Singer) Breeding. Springer EBooks, 423–441. https://doi.org/10.1007/978-3-030-66969-0_11', 'https://link.springer.com/chapter/10.1007/978-3-030-66969-0_11');
-const phylogenyAndSpeciesDelimination = new Citation('Wang, P., Liu, X. B., Dai, Y., Horak, E., Steffen, K., & Yang, Z. L. (2018b). Phylogeny and species delimitation of Flammulina: taxonomic status of winter mushroom in East Asia and a new European species identified using an integrated approach. Mycological Progress, 17(9), 1013–1030. https://doi.org/10.1007/s11557-018-1409-2', 'https://link.springer.com/article/10.1007/s11557-018-1409-2');
+const enokiMushroomBreeding = new Citation('Sharma, V. P., Barh, A., Bairwa, R., Annepu, S. K., Kumari, B., & Kamal, S. (2021). Enoki Mushroom (Flammulina velutipes (Curtis) Singer) Breeding. Springer EBooks, 423–441. https://doi.org/10.1007/978-3-030-66969-0_11', 'https://doi.org/10.1007/978-3-030-66969-0_11');
+const phylogenyAndSpeciesDelimination = new Citation('Wang, P., Liu, X. B., Dai, Y., Horak, E., Steffen, K., & Yang, Z. L. (2018b). Phylogeny and species delimitation of Flammulina: taxonomic status of winter mushroom in East Asia and a new European species identified using an integrated approach. Mycological Progress, 17(9), 1013–1030. https://doi.org/10.1007/s11557-018-1409-2', 'https://doi.org/10.1007/s11557-018-1409-2');
 const theTwoEnoki = new Citation('Jenny. (2022). The Two Enoki Mushrooms: Foraging, Identification, and Cultivation - Mushroom Appreciation. Mushroom Appreciation. https://www.mushroom-appreciation.com/the-two-enoki-mushrooms.html', 'https://www.mushroom-appreciation.com/the-two-enoki-mushrooms.html')
-const enokiHarvestVideo = new Citation('Southwest Mushrooms. (2021, February 22). Golden Enoki Mushroom Harvest | Southwest Mushrooms [Video]. YouTube. https://www.youtube.com/watch?v=Ozsp9SS6-tg', 'Southwest Mushrooms. (2021, February 22). Golden Enoki Mushroom Harvest | Southwest Mushrooms [Video]. YouTube. https://www.youtube.com/watch?v=Ozsp9SS6-tg')
-const mushOfTheMonthEnoki = new Citation('Flammulina velutipes, aka winter mushroom, velvet stem, velvet foot, enoki, enokitake, Tom Volk’s Fungus of the Month for March 1997. (n.d.). https://botit.botany.wisc.edu/toms_fungi/march97.html', 'Flammulina velutipes, aka winter mushroom, velvet stem, velvet foot, enoki, enokitake, Tom Volk’s Fungus of the Month for March 1997. (n.d.). https://botit.botany.wisc.edu/toms_fungi/march97.html')
+const enokiHarvestVideo = new Citation('Southwest Mushrooms. (2021, February 22). Golden Enoki Mushroom Harvest | Southwest Mushrooms [Video]. YouTube. https://www.youtube.com/watch?v=Ozsp9SS6-tg', 'https://www.youtube.com/watch?v=Ozsp9SS6-tg')
+const mushOfTheMonthEnoki = new Citation('Volk, T. (n.d.).Flammulina velutipes, aka winter mushroom, velvet stem, velvet foot, enoki, enokitake, Tom Volk’s Fungus of the Month for March 1997. (n.d.). https://botit.botany.wisc.edu/toms_fungi/march97.html', 'https://botit.botany.wisc.edu/toms_fungi/march97.html')
 
 const historyAndCultureFacts = [
     new ValueWithReference('Records show Enoki being first cultivated in China as far back as the 8th century.', [enokiMushroomBreeding])
@@ -55,7 +55,7 @@ const learnMore = [
     new Citation('Enoki Wikipedia', 'https://en.wikipedia.org/wiki/Flammulina_filiformis'),
     new Citation('Mushroom Appreciation', 'https://www.mushroom-appreciation.com/the-two-enoki-mushrooms.html'),
     new Citation('(video) Goden Enoki Mushroom Harvest | Southwest Mushrooms', 'https://www.youtube.com/watch?v=Ozsp9SS6-tg'),
-    new Citation('Tom Volk\'s Fungus of the Month', 'https://botit.botany.wisc.edu/toms_fungi/march97.html'),
+    new Citation('Tom Volk\'s Fungus of the Month: Enoki', 'https://botit.botany.wisc.edu/toms_fungi/march97.html'),
     new Citation('Wild About Mushrooms Cookbook: Enoki', 'https://www.mssf.org/cookbook/enoki.html')
 ];
 

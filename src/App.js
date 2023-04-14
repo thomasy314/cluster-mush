@@ -5,8 +5,10 @@ import ComingShroom from './ComingShroom/ComingShroom';
 import MushroomInfoPage from './MushroomInfoPage/MushroomInfoPage';
 import StyleGuide from './StyleGuide/StyleGuide';
 
+import CommonTableInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/CommonTable.ts';
 import EnokiInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Enoki.ts';
 import MaitakeInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Maitake.ts';
+import OysterInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Oyster.ts';
 import ShiitakeInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Shiitake.ts';
 
 import Shop from './Shop/Shop';
@@ -20,6 +22,8 @@ import OysterStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/OysterStorePa
 
 import NavBar from './Common/NavBar/NavBar';
 
+import ContextProvider from './Shop/CartContext';
+
 function App() {
 
   const inShop = window.location.host.includes("shop");
@@ -28,20 +32,20 @@ function App() {
     <>
       <Route index element={<ComingShroom />} />
       <Route path="/style-guide" element={<StyleGuide />} />
+      <Route path="/common-table" element={<MushroomInfoPage mushroomInfo={CommonTableInfo}/>} />
       <Route path="/enoki" element={<MushroomInfoPage mushroomInfo={EnokiInfo}/>} />
       <Route path="/maitake" element={<MushroomInfoPage mushroomInfo={MaitakeInfo}/>} />
+      <Route path="/oyster" element={<MushroomInfoPage mushroomInfo={OysterInfo}/>} />
       <Route path="/shiitake" element={<MushroomInfoPage mushroomInfo={ShiitakeInfo}/>} />
     </>
   
   const shopRoutes = 
-    <>
+    <ContextProvider>
       <Route index element={<Shop />} />
       <Route path="/shiitake" element={<ItemPage storePageInfo={ShiitakeStorePageInfo}/>} />
-      <Route path="/porcini" element={<ItemPage storePageInfo={PorciniStorePageInfo}/>} />
       <Route path="/enoki" element={<ItemPage storePageInfo={EnokiStorePageInfo}/>} />
-      <Route path="/morel" element={<ItemPage storePageInfo={MorelStorePageInfo}/>} />
       <Route path="/oyster" element={<ItemPage storePageInfo={OysterStorePageInfo}/>} />
-    </>
+    </ContextProvider>
 
     return (
       <Container disableGutters maxWidth={false}>

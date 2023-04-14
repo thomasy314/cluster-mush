@@ -29,10 +29,10 @@ const ecologicalGroup = EcologicalGroup.SAPROPHYTIC;
 const edible = 'Yes! Maitake around known for their woodsy and meaty felavor that lends itself well as a meat substitute.'
 
 // Citations
-const historyOfMaitake = new Citation('Mushrooms, G. (2018). The History of Maitake Cultivation — Mycopia Mushrooms. Mycopia Mushrooms. https://www.mycopia.com/blog/2013/08/12/the-history-of-maitake-cultivation', 'Mushrooms, G. (2018). The History of Maitake Cultivation — Mycopia Mushrooms. Mycopia Mushrooms. https://www.mycopia.com/blog/2013/08/12/the-history-of-maitake-cultivation');
-const hikersNotesbook = new Citation('Hen of the Woods – Grifola frondosa. (2018, August 10). Hiker’s Notebook. https://hikersnotebook.blog/fungi/polypores-and-puffballs/hen-of-the-woods-grifola-frondosa/', 'Hen of the Woods – Grifola frondosa. (2018, August 10). Hiker’s Notebook. https://hikersnotebook.blog/fungi/polypores-and-puffballs/hen-of-the-woods-grifola-frondosa/');
-const mushroomExpert = new Citation('MushroomExpert.Com. (n.d.). Grifola frondosa (MushroomExpert.Com). http://www.mushroomexpert.com/grifola_frondosa.html', 'MushroomExpert.Com. (n.d.). Grifola frondosa (MushroomExpert.Com). http://www.mushroomexpert.com/grifola_frondosa.html');
-const mushOfTheMonthMaitake = new Citation('Grifola frondosa, the hen of the woods, sheepshead or maitake-- Tom Volk’s Fungus of the Month for November 2006. (n.d.). http://botit.botany.wisc.edu/toms_fungi/nov2006.html', 'Grifola frondosa, the hen of the woods, sheepshead or maitake-- Tom Volk’s Fungus of the Month for November 2006. (n.d.). http://botit.botany.wisc.edu/toms_fungi/nov2006.html');
+const historyOfMaitake = new Citation('Mushrooms, G. (2018). The History of Maitake Cultivation — Mycopia Mushrooms. Mycopia Mushrooms. https://www.mycopia.com/blog/2013/08/12/the-history-of-maitake-cultivation', 'https://www.mycopia.com/blog/2013/08/12/the-history-of-maitake-cultivation');
+const hikersNotesbook = new Citation('Hen of the Woods – Grifola frondosa. (2018, August 10). Hiker’s Notebook. https://hikersnotebook.blog/fungi/polypores-and-puffballs/hen-of-the-woods-grifola-frondosa/', 'https://hikersnotebook.blog/fungi/polypores-and-puffballs/hen-of-the-woods-grifola-frondosa/');
+const mushroomExpert = new Citation('MushroomExpert.Com. (n.d.). Grifola frondosa (MushroomExpert.Com). http://www.mushroomexpert.com/grifola_frondosa.html', 'http://www.mushroomexpert.com/grifola_frondosa.html');
+const mushOfTheMonthMaitake = new Citation('Volk, T. (n.d.).Grifola frondosa, the hen of the woods, sheepshead or maitake-- Tom Volk’s Fungus of the Month for November 2006. (n.d.). http://botit.botany.wisc.edu/toms_fungi/nov2006.html', 'http://botit.botany.wisc.edu/toms_fungi/nov2006.html');
 
 const historyAndCultureFacts = [
     new ValueWithReference('Due to difficulties in cultivation, maitakes only started being cultivated in the mid 1980\'s in Japan.', [historyOfMaitake]),
