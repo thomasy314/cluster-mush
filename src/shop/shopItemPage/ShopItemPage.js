@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import FullSplitPage from '../../common/FullSplitPage.js'
+import FullSplitPage from '../../common/FullSplitPage.tsx'
 import CollapseCard from '../../common/CollapseCard.tsx';
 import './ShopItemPage.css';
 
