@@ -3,31 +3,31 @@ import ValueWithCitation from "./ValueWithCitation";
 import Citation from "./Citation";
 
 class MushroomInfo {
-    name: String; 
+    name: string; 
     images: File[];
-    latinName: String; 
-    commonNames: String; 
-    etymology: String; 
-    location: String;
+    latinName: string; 
+    commonNames: string[]; 
+    etymology: string; 
+    location: string;
     ecologicalGroup: EcologicalGroup;
-    edible: String;
-    historyAndCulture: ValueWithCitation<String>[];
-    science: ValueWithCitation<String>[];
-    agriculture: ValueWithCitation<String>[];
+    edible: string;
+    historyAndCulture: ValueWithCitation<string>[];
+    science: ValueWithCitation<string>[];
+    agriculture: ValueWithCitation<string>[];
     learnMore: Citation[];
 
     constructor(
-        name: String, 
+        name: string, 
         images: File[],
-        latinName: String, 
-        commonNames: String, 
-        etymology: String, 
-        location: String,
+        latinName: string, 
+        commonNames: string[], 
+        etymology: string, 
+        location: string,
         ecologicalGroup: EcologicalGroup,
-        edible: String,
-        historyAndCulture: ValueWithCitation<String>[],
-        science: ValueWithCitation<String>[],
-        agriculture: ValueWithCitation<String>[],
+        edible: string,
+        historyAndCulture: ValueWithCitation<string>[],
+        science: ValueWithCitation<string>[],
+        agriculture: ValueWithCitation<string>[],
         learnMore: Citation[]
         ) {
             this.name = name;
@@ -44,15 +44,15 @@ class MushroomInfo {
             this.learnMore = learnMore;
         }
 
-    getHistoryAndCultureValues() : String[] {
+    getHistoryAndCultureValues() : string[] {
         return this.historyAndCulture.map(valWithRef => valWithRef.value);
     }
 
-    getScienceValues(): String[] {
+    getScienceValues(): string[] {
         return this.science.map(valWithRef => valWithRef.value);
     }
 
-    getAgricultureValues(): String[] {
+    getAgricultureValues(): string[] {
         return this.agriculture.map(valWithRef => valWithRef.value);
     }
 

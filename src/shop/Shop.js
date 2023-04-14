@@ -1,10 +1,10 @@
 import { Container, Grid } from "@mui/material";
 
-import enokiImage from '../Photos/Enoki/enoki.jpg';
-import morelImage from '../Photos/Morel/morel.jpg';
-import oysterImage from '../Photos/Oyster/oyster.jpg';
-import porciniImage from '../Photos/Porcini/porcini.jpg';
-import shiitakeImage from '../Photos/Shiitake/shiitake.png';
+import enokiImage from '../resources/photos/enoki/enoki.jpg';
+import morelImage from '../resources/photos/morel/morel.jpg';
+import oysterImage from '../resources/photos/oyster/oyster.jpg';
+import porciniImage from '../resources/photos/porcini/porcini.jpg';
+import shiitakeImage from '../resources/photos/shiitake/shiitake.png';
 
 const itemData = [
   {

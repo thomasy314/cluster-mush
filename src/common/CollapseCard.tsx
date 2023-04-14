@@ -1,11 +1,20 @@
 import { Collapse, IconButton } from '@mui/material';
-import { useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import './CollapseCard.css';
 
-const CollapseCard = ({children, title, boldTitle=true}) => {
+type CollapseCardProps = {
+    title: string,
+    boldTitle?: boolean
+}
+
+const CollapseCardDefaultProps = {
+    boldTitle: true
+}
+
+const CollapseCard = (props: PropsWithChildren<CollapseCardProps>) => {
 
     const [isChecked, setIsChecked] = useState(false);
 
@@ -15,23 +24,24 @@ const CollapseCard = ({children, title, boldTitle=true}) => {
     }
 
     const titleStyle = {
-        fontWeight: boldTitle ? "bold" : "normal",
+        fontWeight: props.boldTitle ? "bold" : "normal",
     }
 
     return  (
         <>
-            <p class='CollapseCard' onClick={toggle}>
-                <p class='CollapseCardTitle' style={titleStyle}>{title}</p>
+            <p className='CollapseCard' onClick={toggle}>
+                <p className='CollapseCardTitle' style={titleStyle}>{props.title}</p>
                 <IconButton size='small'>
                     {isChecked && <KeyboardArrowDownIcon />}
                     {!isChecked && <KeyboardArrowRightIcon />}
                 </IconButton>
             </p>
             <Collapse in={isChecked}>
-                {children}
+                {props.children}
             </Collapse>
         </>
     )
 }
+CollapseCard.defaultProps = CollapseCardDefaultProps;
 
 export default CollapseCard;

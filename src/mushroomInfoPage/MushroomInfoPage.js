@@ -1,8 +1,8 @@
 
-import MushroomTitleName from './MushroomInfoPageParts/MushroomTitleName';
+import MushroomTitleName from './mushroomInfoPageComponents/MushroomTitleName';
 import './MushroomInfoPage.css';
-import CollapseCard from '../Common/CollapseCard';
-import FullSplitPage from '../Common/FullSplitPage';
+import CollapseCard from '../common/CollapseCard';
+import FullSplitPage from '../common/FullSplitPage';
 
 const formatStringList = (list) => {
     const ulItems = list.map((item, i) => <li key={i}>{item}</li>)

@@ -1,12 +1,11 @@
-
 import { Button } from '@mui/material';
-import FullSplitPage from '../../Common/FullSplitPage';
-import CollapseCard from '../../Common/CollapseCard';
-import './ItemPage.css';
+import FullSplitPage from '../../common/FullSplitPage.js'
+import CollapseCard from '../../common/CollapseCard.tsx';
+import './ShopItemPage.css';
 
-const ItemPage = ({storePageInfo}) => {
+const ShopItemPage = ({storePageInfo}) => {
 
-    const title = <h1>{storePageInfo.itemName}</h1>
+    const title = <h1>{storePageInfo.itemName}</h1>;
 
     return (
         <FullSplitPage titleComponent={title} imageSrc={storePageInfo.itemImages[0]} smallImage>
@@ -28,4 +27,4 @@ const ItemPage = ({storePageInfo}) => {
     )
 }
 
-export default ItemPage;
+export default ShopItemPage;

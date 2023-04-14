@@ -1,28 +1,27 @@
 import { Container } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import ComingShroom from './ComingShroom/ComingShroom';
-import MushroomInfoPage from './MushroomInfoPage/MushroomInfoPage';
-import StyleGuide from './StyleGuide/StyleGuide';
 
-import CommonTableInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/CommonTable.ts';
-import EnokiInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Enoki.ts';
-import MaitakeInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Maitake.ts';
-import OysterInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Oyster.ts';
-import ShiitakeInfo from './MushroomInfoPage/MushroomInfoPages/Gourmet/Shiitake.ts';
+import ComingShroom from './comingShroom/ComingShroom';
+import MushroomInfoPage from './mushroomInfoPage/MushroomInfoPage';
+import StyleGuide from './styleGuide/StyleGuide';
 
-import Shop from './Shop/Shop';
-import ItemPage from './Shop/Itempage/ItemPage';
+import CommonTableInfo from './mushroomInfoPage/mushroomInfoPages/Gourmet/CommonTable.ts';
+import EnokiInfo from './mushroomInfoPage/mushroomInfoPages/Gourmet/Enoki.ts';
+import MaitakeInfo from './mushroomInfoPage/mushroomInfoPages/Gourmet/Maitake.ts';
+import OysterInfo from './mushroomInfoPage/mushroomInfoPages/Gourmet/Oyster.ts';
+import ShiitakeInfo from './mushroomInfoPage/mushroomInfoPages/Gourmet/Shiitake.ts';
 
-import ShiitakeStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/ShiitakeStorePageInfo.ts'
-import PorciniStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/PorciniStorePageInfo.ts'
-import EnokiStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/EnokiStorePageInfo.ts'
-import MorelStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/MorelStorePageInfo.ts'
-import OysterStorePageInfo from './Shop/Itempage/ItemPages/Gourmet/OysterStorePageInfo.ts'
+import Shop from './shop/Shop';
+import ItemPage from './shop/shopItemPage/ShopItemPage';
 
-import NavBar from './Common/NavBar/NavBar';
+import ShiitakeStorePageInfo from './shop/shopItemPage/shopItemPages/gourmet/ShiitakeStorePageInfo.ts'
+import EnokiStorePageInfo from './shop/shopItemPage/shopItemPages/gourmet/EnokiStorePageInfo.ts'
+import OysterStorePageInfo from './shop/shopItemPage/shopItemPages/gourmet/OysterStorePageInfo.ts'
 
-import ContextProvider from './Shop/CartContext';
+import NavBar from './common/navBar/NavBar';
+
+import ContextProvider from './shop/CartContext';
 
 function App() {
 
