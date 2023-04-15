@@ -1,18 +1,18 @@
 
 class StorePageInfo {
 
-    itemName: String;
-    itemDescription: String;
-    itemBulletNotes: String[];
-    itemImages: File[];
-    itemPrice: Number;
+    itemName: string;
+    itemDescription: string;
+    itemBulletNotes: string[];
+    itemImages: string[];
+    itemPrice: number;
 
     constructor(
-        itemName: String,
-        itemDescription: String,
-        itemBulletNotes: String[],
-        itemImages: File[],
-        itemPrice: Number
+        itemName: string,
+        itemDescription: string,
+        itemBulletNotes: string[],
+        itemImages: string[],
+        itemPrice: number
         ) {
             this.itemName = itemName;
             this.itemDescription = itemDescription;

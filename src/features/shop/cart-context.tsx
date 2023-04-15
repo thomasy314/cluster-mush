@@ -1,4 +1,6 @@
 // https://github.com/coopercodes/ReactEcommerceStoreWithStripeAPI/blob/main/store/src/CartContext.js
+
+/*
 import { createContext, useState } from "react";
 
 export const CartContext = createContext({
@@ -103,3 +105,4 @@ export function CartProvider({children}) {
 }
 
 export default CartProvider;
+*/

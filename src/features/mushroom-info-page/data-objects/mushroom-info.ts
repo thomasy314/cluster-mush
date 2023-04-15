@@ -4,7 +4,7 @@ import Citation from "./citation";
 
 class MushroomInfo {
     name: string; 
-    images: File[];
+    images: string[];
     latinName: string; 
     commonNames: string[]; 
     etymology: string; 
@@ -18,7 +18,7 @@ class MushroomInfo {
 
     constructor(
         name: string, 
-        images: File[],
+        images: string[],
         latinName: string, 
         commonNames: string[], 
         etymology: string, 

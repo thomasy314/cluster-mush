@@ -1,12 +1,11 @@
 import { Container } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
+import './app.css';
 
 import ComingShroom from './pages/coming-shroom/coming-shroom';
 import StyleGuide from './pages/style-guide/style-guide';
 
 // Info Pages
-
 import { MushroomInfoPage } from './features/mushroom-info-page';
 import {
   CommonTableInfo,
@@ -16,7 +15,7 @@ import {
   ShiitakeInfo
 } from './pages/mushroom-info-page/gourmet'
 
-import { Shop, ShopItemPage, CartProvider } from './features/shop'
+import { Shop, ShopItemPage } from './features/shop'
 
 import { ShiitakeStorePageInfo, EnokiStorePageInfo, OysterStorePageInfo } from './pages/shop/gourmet';
 
@@ -38,12 +37,12 @@ function App() {
     </>
 
   const shopRoutes =
-    <CartProvider>
+    <>
       <Route index element={<Shop />} />
       <Route path="/shiitake" element={<ShopItemPage storePageInfo={ShiitakeStorePageInfo} />} />
       <Route path="/enoki" element={<ShopItemPage storePageInfo={EnokiStorePageInfo} />} />
       <Route path="/oyster" element={<ShopItemPage storePageInfo={OysterStorePageInfo} />} />
-    </CartProvider>
+    </>
 
   return (
     <Container disableGutters maxWidth={false}>

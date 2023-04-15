@@ -1,1 +1,1 @@
-export * from './StorepageInfo';
+export { default as StorePageInfo } from './StorepageInfo';
