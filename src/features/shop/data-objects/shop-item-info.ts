@@ -1,22 +1,11 @@
-import {v4 as uuid} from 'uuid';
-
-export class ShopItemInfo {
-
+export interface ShopItemInfo {
     name: string;
     price: number;
     image: string;
+}
 
-    id: string; 
-
-    constructor(
-        name: string,
-        price: number,
-        image: string
-    ) {
-        this.name = name;
-        this.price = price;
-        this.image = image;
-
-        this.id = uuid();
-    }
+export const compareShopItemInfo = (first: ShopItemInfo, second: ShopItemInfo): boolean => {
+    return first.name === second.name &&
+            first.price === second.price &&
+            first.image === second.image;
 }

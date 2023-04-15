@@ -1,28 +1,28 @@
 // https://github.com/coopercodes/ReactEcommerceStoreWithStripeAPI/blob/main/store/src/CartContext.js
 
 import { createContext, useState, PropsWithChildren } from "react";
-import { ShopItemInfo } from "../data-objects";
+import { compareShopItemInfo, ShopItemInfo } from "../data-objects";
 
-type BasketItem = {
+interface BasketItem {
     item: ShopItemInfo,
     quantity: number
 }
 
 type BasketContextType = {
     items: BasketItem[],
-    getProductQuantity: (id: string) => number,
-    addOneToCart: (item: ShopItemInfo) => void,
-    removeOneFromCart: (id: string) => void,
-    deleteFromCart: (id: string) => void,
+    getProductQuantity: (item: ShopItemInfo) => number,
+    addOneToBasket: (item: ShopItemInfo) => void,
+    removeOneFromBasket: (item: ShopItemInfo) => void,
+    deleteFromBasket: (item: ShopItemInfo) => void,
     getTotalCost: () => number
 };
 
 export const BasketContext = createContext<BasketContextType>({
     items: [],
-    getProductQuantity: (id: string) => 0,
-    addOneToCart: (item: ShopItemInfo) => {},
-    removeOneFromCart: (id: string) => {},
-    deleteFromCart: (id: string) => {},
+    getProductQuantity: (item: ShopItemInfo) => 0,
+    addOneToBasket: (item: ShopItemInfo) => {},
+    removeOneFromBasket: (item: ShopItemInfo) => {},
+    deleteFromBasket: (item: ShopItemInfo) => {},
     getTotalCost: () => 0
 });
 
@@ -30,12 +30,32 @@ type BasketProviderProps = {
 
 }
 
-export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) => {
-    const [basketProducts, getBasketProducts] = useState<BasketItem[]>([]);
+const basketKey = 'basket';
 
-    function getProductQuantity(id: string): number {
-        const quantity = basketProducts.find(product => product.item.id === id)?.quantity;
-        
+export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) => {
+    const [basketProducts, setBasketProducts] = useState<BasketItem[]>(getBasketFromStorage());
+
+    function getBasketFromStorage(): BasketItem[] {
+        const basketValue = localStorage.getItem(basketKey);
+
+        if (basketValue === null) {
+            return [];
+        }
+
+        return JSON.parse(basketValue);
+    }
+
+    function saveBasketToStorage(basketItems: BasketItem[]) {
+        localStorage.setItem(basketKey, JSON.stringify(basketItems));
+        setBasketProducts(basketItems);
+    }
+
+    function getProductQuantity(item: ShopItemInfo): number {
+
+        const basket: BasketItem[] = getBasketFromStorage();
+
+        const quantity = basket.find(product => compareShopItemInfo(product.item, item))?.quantity;
+
         if (quantity === undefined) {
             return 0;
         }
@@ -43,43 +63,40 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
         return quantity;
     }
 
-    function addOneToCart(item: ShopItemInfo) {
-        const quantity = getProductQuantity(item.id);
-
-        console.log("Adding to cart: ", item)
+    function addOneToBasket(item: ShopItemInfo) {
+        const quantity = getProductQuantity(item);
 
         if (quantity === 0) { // product is not in cart
-            getBasketProducts(
-                [
-                    ...basketProducts,
-                    {
-                        item,
-                        quantity: 1
-                    }
-                ]
-            )
+            saveBasketToStorage([
+                ...getBasketFromStorage(),
+                {
+                    item,
+                    quantity: 1
+                }
+            ]);
         } else { // product is in cart
-            getBasketProducts(
-                basketProducts.map(
-                    product =>
-                    product.item.id === item.id
+            saveBasketToStorage(
+                getBasketFromStorage().map(
+                    product => {
+
+                    return compareShopItemInfo(product.item, item)
                     ? { ...product, quantity: product.quantity + 1 } 
                     : product                                        
-                )
-            )
+                })
+            );
         }
     }
 
-    function removeOneFromCart(id: string) {
-        const quantity = getProductQuantity(id);
+    function removeOneFromBasket(item: ShopItemInfo) {
+        const quantity = getProductQuantity(item);
 
         if(quantity == 1) {
-            deleteFromCart(id);
+            deleteFromBasket(item);
         } else {
-            getBasketProducts(
-                basketProducts.map(
+            saveBasketToStorage(
+                getBasketFromStorage().map(
                     product =>
-                    product.item.id === id
+                    compareShopItemInfo(product.item, item)
                     ? { ...product, quantity: product.quantity - 1 }
                     : product
                 )
@@ -87,13 +104,14 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
         }
     }
 
-    function deleteFromCart(id: string) {
-        getBasketProducts(
-            cartProducts =>
-            cartProducts.filter(currentProduct => {
-                return currentProduct.item.id != id;
-            })  
-        )
+    function deleteFromBasket(item: ShopItemInfo) {
+        if (window.confirm(`Are you sure you want to remove ${item.name} from your cart?`)) {
+            saveBasketToStorage(
+                getBasketFromStorage().filter(product => {
+                    return !compareShopItemInfo(product.item, item);
+                })
+            );
+        }
     }
 
     function getTotalCost() {
@@ -104,12 +122,12 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
         return totalCost;
     }
 
-    const contextValue = {
+    const contextValue: BasketContextType = {
         items: basketProducts,
         getProductQuantity,
-        addOneToCart,
-        removeOneFromCart,
-        deleteFromCart,
+        addOneToBasket: addOneToBasket,
+        removeOneFromBasket: removeOneFromBasket,
+        deleteFromBasket: deleteFromBasket,
         getTotalCost
     }
 

@@ -3,11 +3,11 @@ import { ShopItemPageInfo } from '../../../features/shop/data-objects/shop-item-
 import porciniPhoto from '../../../assets/photos/porcini/porcini.jpg';
 import { ShopItemInfo } from '../../../features/shop/data-objects';
 
-const PorciniItemInfo: ShopItemInfo = new ShopItemInfo(
-    'Porcini Earring',
-    30.00,
-    porciniPhoto
-);
+const PorciniItemInfo: ShopItemInfo = {
+    name: 'Porcini Earring',
+    price: 30.00,
+    image: porciniPhoto
+};
 
 export const PorciniStorePageInfo = new ShopItemPageInfo(
     'Porcini',

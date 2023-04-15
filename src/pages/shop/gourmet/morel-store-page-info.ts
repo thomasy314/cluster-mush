@@ -3,11 +3,11 @@ import { ShopItemPageInfo } from '../../../features/shop/data-objects/shop-item-
 import morelPhoto from '../../../assets/photos/morel/morel.jpg';
 import { ShopItemInfo } from '../../../features/shop/data-objects';
 
-const MorelItemInfo: ShopItemInfo = new ShopItemInfo(
-    'Morel Earring',
-    30.00,
-    morelPhoto
-);
+const MorelItemInfo: ShopItemInfo = {
+    name: 'Morel Earring',
+    price: 30.00,
+    image: morelPhoto
+};
 
 export const MorelStorePageInfo = new ShopItemPageInfo(
     'Morel',

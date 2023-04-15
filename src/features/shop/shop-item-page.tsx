@@ -22,8 +22,8 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
 
     return (
         <FullSplitPageLayout titleComponent={title} imageSrc={selectedItem.image} smallImage>
-            <p>{selectedItem.price}</p>
-            <Button variant='outlined' style={{borderColor: 'black', color: 'black'}} onClick={() => basket.addOneToCart(selectedItem)}>Add to basket</Button>
+            <p>${selectedItem.price.toFixed(2)}</p>
+            <Button variant='outlined' style={{borderColor: 'black', color: 'black'}} onClick={() => basket.addOneToBasket(selectedItem)}>Add to basket</Button>
             <br/>
             <hr className="shopItemDivideLine"/>
             <br/>
@@ -31,7 +31,6 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
             <CollapseCard boldTitle={false} title="Shipping and Returns">
                 <p>NO RETURNS NO SHIPPING</p>
             </CollapseCard>
-            <BasketView />
         </FullSplitPageLayout>
     )
 
