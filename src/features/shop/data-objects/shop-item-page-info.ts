@@ -1,32 +1,26 @@
 
 export class ShopItemPageInfo { 
 
-    itemName: string;
-    itemDescription: string;
-    itemBulletNotes: string[];
-    itemImages: string[];
-    itemPrice: number;
+    name: string;
+    description: string;
+    items: ShopItemInfo[];
 
     constructor(
-        itemName: string,
-        itemDescription: string,
-        itemBulletNotes: string[],
-        itemImages: string[],
-        itemPrice: number
+            name: string,
+            description: string,
+            items: ShopItemInfo[]
         ) {
-            this.itemName = itemName;
-            this.itemDescription = itemDescription;
-            this.itemBulletNotes = itemBulletNotes;
-            this.itemImages = itemImages;
-            this.itemPrice = itemPrice;
+            this.name = name;
+            this.description = description;
+            this.items = items;
     }
 
-    getItemPriceText = () => {
+    /*getItemPriceText = () => {
         // TODO: Look into why dollar is not aligning with number
         return  `$${this.itemPrice.toFixed(2)}`
-    }
+    }*/
 
     getPath = (): string => {
-        return this.itemName.toLocaleLowerCase().replace(' ', '-')    
+        return this.name.toLocaleLowerCase().replace(' ', '-')    
     }
 }

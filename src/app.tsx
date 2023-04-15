@@ -5,6 +5,7 @@ import './app.css';
 import { MainRoutes, ShopRoutes } from './routing';
 
 import NavBar from './features/ui/nav-bar/nav-bar';
+import { BasketProvider } from './features/shop';
 
 function App() {
 
@@ -13,9 +14,11 @@ function App() {
   return (
     <Container disableGutters maxWidth={false}>
       <NavBar />
-      <BrowserRouter>
-        {inShop ? <ShopRoutes /> : <MainRoutes />}
-      </BrowserRouter>
+      <BasketProvider>
+        <BrowserRouter>
+          {inShop ? <ShopRoutes /> : <MainRoutes />}
+        </BrowserRouter>
+      </BasketProvider>
     </Container>
   );
 }

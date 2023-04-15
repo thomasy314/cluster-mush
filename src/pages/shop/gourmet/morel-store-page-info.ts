@@ -1,14 +1,16 @@
 import { ShopItemPageInfo } from '../../../features/shop/data-objects/shop-item-page-info';
-//import { resinEarringBulletNotes } from "../../../../features/shop/data-objects/common-resin-earring-values";
 
 import morelPhoto from '../../../assets/photos/morel/morel.jpg';
+import { ShopItemInfo } from '../../../features/shop/data-objects';
 
-const MorelStorePageInfo = new ShopItemPageInfo(
-    'Morel',
-    'Fungal earring inspired by the infomous morel',
-    [],
-    [morelPhoto],
-    30.00
+const MorelItemInfo: ShopItemInfo = new ShopItemInfo(
+    'Morel Earring',
+    30.00,
+    morelPhoto
 );
 
-export default MorelStorePageInfo;
+export const MorelStorePageInfo = new ShopItemPageInfo(
+    'Morel',
+    'Fungal earring inspired by the infomous morel',
+    [MorelItemInfo]
+);

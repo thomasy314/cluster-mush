@@ -18,8 +18,8 @@ type ShopItemListing = {
 
 const itemDataTest = shopItemPageList.map((shopItem: ShopItemPageInfo): ShopItemListing => {
   return {
-    img: shopItem.itemImages[0],
-    title: shopItem.itemName,
+    img: shopItem.items[0].image,
+    title: shopItem.name,
     path: shopItem.getPath()
   }
 });
