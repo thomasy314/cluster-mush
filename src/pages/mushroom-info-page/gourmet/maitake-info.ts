@@ -7,9 +7,9 @@ import {
 
 import maitakePhoto from '../../../assets/photos/maitake/maitake.jpg';
 
-const name: string = 'Maitake'
+const name: string = 'Maitake';
 
-const latinName: string = 'Grifola frondosa'
+const latinName: string = 'Grifola frondosa';
 
 const commonNames: string[] = [
     '舞茸 (maitake) (dancing mushroom)',
@@ -53,8 +53,7 @@ const learnMore: Citation[] = [
     new Citation('Mycopia: The History of Maitake Cultivation', 'https://www.mycopia.com/blog/2013/08/12/the-history-of-maitake-cultivation')
 ];
 
-
-const MaitakeInfo: MushroomInfo = new MushroomInfo(
+export const MaitakeInfo: MushroomInfo = new MushroomInfo(
     name,
     [maitakePhoto],
     latinName,
@@ -67,6 +66,4 @@ const MaitakeInfo: MushroomInfo = new MushroomInfo(
     scienceFacts,
     agricultureFacts,
     learnMore
-)
-
-export default MaitakeInfo;
+);

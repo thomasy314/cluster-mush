@@ -1,8 +1,8 @@
-import StorePageInfo from '../../../features/shop/data-objects/StorepageInfo';
+import { ShopItemPageInfo } from '../../../features/shop/data-objects/shop-item-page-info';
 
 import enokiPhoto from '../../../assets/photos/enoki/enoki.jpg';
 
-const EnokiStorePageInfo: StorePageInfo = new StorePageInfo(
+const EnokiStorePageInfo: ShopItemPageInfo = new ShopItemPageInfo(
     'Enoki',
     'Mushhi',
     [],

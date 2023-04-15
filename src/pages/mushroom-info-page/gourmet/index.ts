@@ -1,5 +1,19 @@
-export { default as CommonTableInfo } from './common-table-info';
-export { default as EnokiInfo } from './enoki-info';
-export { default as MaitakeInfo } from './maitake-info';
-export { default as OysterInfo } from './oyster-info';
-export { default as ShiitakeInfo } from './shiitake-info';
+import { CommonTableInfo } from './common-table-info';
+import { EnokiInfo } from './enoki-info';
+import { MaitakeInfo } from './maitake-info';
+import { OysterInfo } from './oyster-info';
+import { ShiitakeInfo } from './shiitake-info';
+
+export * from './common-table-info';
+export * from './enoki-info';
+export * from './maitake-info';
+export * from './oyster-info';
+export * from './shiitake-info';
+
+export const gourmetMushroomInfoList = [
+    CommonTableInfo,
+    EnokiInfo,
+    MaitakeInfo,
+    OysterInfo,
+    ShiitakeInfo
+]

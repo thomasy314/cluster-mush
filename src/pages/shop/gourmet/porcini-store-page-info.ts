@@ -1,8 +1,8 @@
-import StorePageInfo from '../../../features/shop/data-objects/StorepageInfo';
+import { ShopItemPageInfo } from '../../../features/shop/data-objects/shop-item-page-info';
 
 import porciniPhoto from '../../../assets/photos/porcini/porcini.jpg';
 
-const PorciniStorePageInfo = new StorePageInfo(
+const PorciniStorePageInfo = new ShopItemPageInfo(
     'Porcini',
     'Mushhi',
     [],

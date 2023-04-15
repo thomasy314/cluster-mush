@@ -2,13 +2,13 @@ import { Button } from '@mui/material';
 import FullSplitPageLayout from '../ui/full-split-layout/full-split-page-layout';
 import CollapseCard from '../ui/collapse-card/collapse-card';
 import './shop-item-page.css';
-import { StorePageInfo } from './data-objects';
+import { ShopItemPageInfo } from './data-objects/shop-item-page-info';
 
 type ShopItemPageProps = {
-    storePageInfo: StorePageInfo
+    storePageInfo: ShopItemPageInfo
 }
 
-const ShopItemPage = (props: ShopItemPageProps) => {
+export const ShopItemPage = (props: ShopItemPageProps) => {
 
     const title = <h1>{props.storePageInfo.itemName}</h1>;
 
@@ -31,5 +31,3 @@ const ShopItemPage = (props: ShopItemPageProps) => {
         </FullSplitPageLayout>
     )
 }
-
-export default ShopItemPage;

@@ -1,5 +1,5 @@
 
-class StorePageInfo {
+export class ShopItemPageInfo { 
 
     itemName: string;
     itemDescription: string;
@@ -25,6 +25,8 @@ class StorePageInfo {
         // TODO: Look into why dollar is not aligning with number
         return  `$${this.itemPrice.toFixed(2)}`
     }
-}
 
-export default StorePageInfo;
+    getPath = (): string => {
+        return this.itemName.toLocaleLowerCase().replace(' ', '-')    
+    }
+}

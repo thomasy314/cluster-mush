@@ -57,7 +57,7 @@ const learnMore: Citation[] = [
 ];
 
 
-const CommonTableInfo: MushroomInfo = new MushroomInfo(
+export const CommonTableInfo: MushroomInfo = new MushroomInfo(
     name,
     [portobelloPhoto],
     latinName,
@@ -70,6 +70,4 @@ const CommonTableInfo: MushroomInfo = new MushroomInfo(
     scienceFacts,
     agricultureFacts,
     learnMore
-)
-
-export default CommonTableInfo;
+);

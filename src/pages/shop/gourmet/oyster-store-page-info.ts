@@ -1,8 +1,8 @@
-import StorePageInfo from '../../../features/shop/data-objects/StorepageInfo';
+import { ShopItemPageInfo } from '../../../features/shop/data-objects/shop-item-page-info';
 
 import oysterPhoto from '../../../assets/photos/oyster/oyster.jpg';
 
-const OysterStorePageInfo = new StorePageInfo(
+const OysterStorePageInfo = new ShopItemPageInfo(
     'Oyster',
     'Mushhi',
     [],

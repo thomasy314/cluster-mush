@@ -7,9 +7,9 @@ import {
 
 import oysterPhoto from '../../../assets/photos/oyster/oyster.jpg';
 
-const name: string = 'Oyster Mushroom'
+const name: string = 'Oyster Mushroom';
 
-const latinName: string = 'Pleurotus ostreatus'
+const latinName: string = 'Pleurotus ostreatus';
 
 const commonNames: string[] = [
     '(Japan) Hiratake',
@@ -34,7 +34,7 @@ const mushOfTheMonthOyster: Citation = new Citation('Volk, T. (n.d.). Pleurotus 
 const breedingPotential: Citation = new Citation('Eger, G., Eden, G., & Wissig, E. T. (1976). Pleurotus Ostreatus ? breeding potential of a new cultivated mushroom. Theoretical and Applied Genetics, 47(4), 155–163. https://doi.org/10.1007/bf00278373', 'https://doi.org/10.1007/BF00278373');
 
 
-const historyAndCultureFacts: ValueWithCitation<string>[] = [
+export const historyAndCultureFacts: ValueWithCitation<string>[] = [
     new ValueWithCitation('The Oyster mushroom was first cultivated during World War 1 by the Germans as a subsistance measure', [breedingPotential])
 ];
 
@@ -58,7 +58,7 @@ const learnMore: Citation[] = [
 ];
 
 
-const OysterInfo: MushroomInfo = new MushroomInfo(
+export const OysterInfo: MushroomInfo = new MushroomInfo(
     name,
     [oysterPhoto],
     latinName,
@@ -71,6 +71,4 @@ const OysterInfo: MushroomInfo = new MushroomInfo(
     scienceFacts,
     agricultureFacts,
     learnMore
-)
-
-export default OysterInfo;
+);

@@ -3,7 +3,6 @@ import MushroomTitleName from './mushroom-info-page-title';
 import { CollapseCard, FullSplitPageLayout } from '../ui';
 import { Citation, MushroomInfo, ValueWithCitation } from './data-objects';
 
-
 import './mushroom-info-page.css';
 
 const formatStringList = (list: string[]) => {

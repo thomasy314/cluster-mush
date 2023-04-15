@@ -72,6 +72,10 @@ class MushroomInfo {
 
         return [...new Set<Citation>(citations)];
     }
+
+    getPath = (): string => {
+        return this.name.toLocaleLowerCase().replace(' ', '-');
+    }
 }
 
 export default MushroomInfo;

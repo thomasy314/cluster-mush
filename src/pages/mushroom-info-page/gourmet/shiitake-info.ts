@@ -57,7 +57,7 @@ const learnMore: Citation[] = [
     new Citation('Wild About Mushrooms Cookbook: Shiitake', 'https://www.mssf.org/cookbook/shiitake.html')
 ]
 
-const ShiitakeInfo: MushroomInfo = new MushroomInfo(
+export const ShiitakeInfo: MushroomInfo = new MushroomInfo(
     name,
     [shiitakePhoto],
     latinName,
@@ -71,5 +71,3 @@ const ShiitakeInfo: MushroomInfo = new MushroomInfo(
     agricultureFacts,
     learnMore
 )
-
-export default ShiitakeInfo;

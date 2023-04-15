@@ -58,7 +58,7 @@ const learnMore: Citation[] = [
 ];
 
 
-const EnokiInfo: MushroomInfo = new MushroomInfo(
+export const EnokiInfo: MushroomInfo = new MushroomInfo(
     name,
     [enokiPhoto],
     latinName,
@@ -71,6 +71,4 @@ const EnokiInfo: MushroomInfo = new MushroomInfo(
     scienceFacts,
     agricultureFacts,
     learnMore
-)
-
-export default EnokiInfo;
+);
