@@ -1,0 +1,56 @@
+
+import MushroomTitleName from './mushroom-info-page-title';
+import { CollapseCard, FullSplitPageLayout } from '../ui';
+import { Citation, MushroomInfo, ValueWithCitation } from './data-objects';
+
+
+import './mushroom-info-page.css';
+
+const formatStringList = (list: string[]) => {
+    const ulItems = list.map((item, i) => <li key={i}>{item}</li>)
+    return <ul>{ulItems}</ul>
+}
+
+const formatValueWithReferenceList = (list: ValueWithCitation<any>[], citationList: Citation[]) => {
+    const ulItems = list.map((item, i) => {
+        const value = item.value;
+        return <li key={i}>{value}</li>
+    });
+    return <ul>{ulItems}</ul>
+}
+
+const formatCitationList = (list: Citation[]) => {
+    const olItems = list.map((item, i) => {
+        const citation = item.citation;
+        const link = item.link;
+        return <li key={i}><a href={link.href}>{citation}</a></li>
+    });
+    return <ol>{olItems}</ol>
+}
+
+type MushroomInfoPageProps = {
+    mushroomInfo: MushroomInfo
+}
+
+const MushroomInfoPage = (props: MushroomInfoPageProps) => {
+    const citations = props.mushroomInfo.getCitations();
+
+    const titleComponent = <MushroomTitleName name={props.mushroomInfo.name} latinName={props.mushroomInfo.latinName} />;
+
+    return (
+        <FullSplitPageLayout titleComponent={titleComponent} imageSrc={props.mushroomInfo.images[0]}>
+            <p><b>Other Common Names</b>:</p> {formatStringList(props.mushroomInfo.commonNames)}
+            <p><b>Etymology</b>: {props.mushroomInfo.etymology}</p>
+            <p><b>Location</b>: {props.mushroomInfo.location}</p>
+            <p><b>Ecological Group</b>: {props.mushroomInfo.ecologicalGroup}</p>
+            <p><b>Edible?</b> {props.mushroomInfo.edible}</p>
+            <CollapseCard title='History and Culture'>{formatValueWithReferenceList(props.mushroomInfo.historyAndCulture, citations)}</CollapseCard>
+            <CollapseCard title="Science">{formatValueWithReferenceList(props.mushroomInfo.science, citations)}</CollapseCard>
+            <CollapseCard title="Agriculture">{formatValueWithReferenceList(props.mushroomInfo.agriculture, citations)}</CollapseCard>
+            <CollapseCard title="Learn More!">{formatCitationList(props.mushroomInfo.learnMore)}</CollapseCard>
+            <CollapseCard title="References">{formatCitationList(citations)}</CollapseCard>
+        </FullSplitPageLayout>
+    )
+}
+
+export default MushroomInfoPage;
