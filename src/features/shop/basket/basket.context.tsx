@@ -2,8 +2,9 @@
 
 import { createContext, useState, PropsWithChildren } from "react";
 import { compareShopItemInfo, ShopItemInfo } from "../data-objects";
+import { cacheBasketItems, getCachedBasketItems } from "./basket-cacher";
 
-interface BasketItem {
+export interface BasketItem {
     item: ShopItemInfo,
     quantity: number
 }
@@ -36,17 +37,13 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
     const [basketProducts, setBasketProducts] = useState<BasketItem[]>(getBasketFromStorage());
 
     function getBasketFromStorage(): BasketItem[] {
-        const basketValue = localStorage.getItem(basketKey);
+        const basketItem = getCachedBasketItems();
 
-        if (basketValue === null) {
-            return [];
-        }
-
-        return JSON.parse(basketValue);
+        return basketItem ?? [];
     }
 
     function saveBasketToStorage(basketItems: BasketItem[]) {
-        localStorage.setItem(basketKey, JSON.stringify(basketItems));
+        cacheBasketItems(basketItems);
         setBasketProducts(basketItems);
     }
 

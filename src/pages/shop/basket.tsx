@@ -1,5 +1,6 @@
 import { Button, Container } from "@mui/material";
 import { BasketView } from "../../features/shop/basket/basket-view";
+import { validateBasket } from "../../features/shop/checkout";
 
 export const Basket = () => {
     return (
@@ -7,7 +8,7 @@ export const Basket = () => {
             <h1>Basket</h1>
             <hr />
             <BasketView />
-            <Button variant="outlined">Checkout Out</Button>
+            <Button onClick={validateBasket} variant="outlined">Checkout Out</Button>
         </Container>
     )
 };

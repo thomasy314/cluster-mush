@@ -2,6 +2,8 @@ export interface ShopItemInfo {
     name: string;
     price: number;
     image: string;
+    available: boolean;
+    id: string;
 }
 
 export const compareShopItemInfo = (first: ShopItemInfo, second: ShopItemInfo): boolean => {

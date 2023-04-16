@@ -4,22 +4,23 @@ import CollapseCard from '../ui/collapse-card/collapse-card';
 import FullSplitPageLayout from '../ui/full-split-layout/full-split-page-layout';
 import { BasketContext } from './basket/basket.context';
 import { ShopItemInfo } from './data-objects';
-import { ShopItemPageInfo } from './data-objects/shop-item-page-info';
+import { getShopItemById } from './item-data';
+
 import './shop-item-page.css';
 
 type ShopItemPageProps = {
-    shopItemId: string
-    //itemPageInfo: ShopItemPageInfo
+    shopItemInfoId: string
 }
 
 export const ShopItemPage = (props: ShopItemPageProps) => {
 
     const [shopItemLoaded, setShopItemLoaded] = useState<Boolean>(false);
-    const [shopItemPageInfo, setShopItemPageInfo] = useState<ShopItemPageInfo>(new ShopItemPageInfo(props.shopItemId));
     const [selectedItem, setSelectedItem] = useState<ShopItemInfo>({
         name: '',
         price: 0,
-        image: ''
+        image: '',
+        available: false,
+        id: ''
     })
 
     const basket = useContext(BasketContext);
@@ -27,17 +28,12 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
     const title = <h1>{selectedItem.name}</h1>;
 
     useEffect(() => {
-
-        /*if (!shopItemLoaded) {
-            props.itemPageInfo.getItem()
-                .then(itemInfo => {
-                    setSelectedItem(itemInfo);
-                    setShopItemLoaded(true);
-                })
-                .catch(() => console.log('No shop item info found'));
-        }*/
-
-    }, [shopItemLoaded, setShopItemLoaded, selectedItem, setSelectedItem]);
+        getShopItemById(props.shopItemInfoId)
+            .then(shopItem => {
+                setSelectedItem(shopItem);
+                setShopItemLoaded(true);
+            });
+    }, []);
 
     // TODO: add description
     const test: JSX.Element = (
