@@ -1,62 +1,87 @@
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, ListItemSecondaryAction } from "@mui/material";
+import { getDocs, limit, query, where } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { firebaseStorage, shopItemInfoCollectionRef } from "../../features/firebase/firebase";
+import { stringToPath } from "../../routing/routing-path-helpers";
 
-import enokiImage from '../../assets/photos/enoki/enoki.jpg';
-import morelImage from '../../assets/photos/morel/morel.jpg';
-import oysterImage from '../../assets/photos/oyster/oyster.jpg';
-import porciniImage from '../../assets/photos/porcini/porcini.jpg';
+// TODO: replace with default image
 import shiitakeImage from '../../assets/photos/shiitake/shiitake.png';
-import { ShopItemPageInfo } from "../../features/shop/data-objects/shop-item-page-info";
-import { shopItemPageList } from "./shop-item-page-list";
 
 import './shop.css';
+import { getDownloadURL, ref } from "firebase/storage";
 
 type ShopItemListing = {
   img: string,
   title: string,
-  path: string
-}
+  path: string,
+  price: number
+};
 
-const itemDataTest = shopItemPageList.map((shopItem: ShopItemPageInfo): ShopItemListing => {
-  return {
-    img: shopItem.items[0].image,
-    title: shopItem.name,
-    path: shopItem.getPath()
-  }
-});
+const shopListingCacheName = 'shopListingCache';
 
-const itemData = [
-  {
-    img: enokiImage,
-    title: 'Enoki',
-    link: 'enoki'
-  },
-  {
-    img: morelImage,
-    title: 'Morel',
-    link: 'morel'
-  },
-  {
-    img: oysterImage,
-    title: 'Oyster',
-    link: 'oyster'
-  },
-  {
-    img: porciniImage,
-    title: 'Porcini',
-    link: 'porcini'
-  },
-  {
-    img: shiitakeImage,
-    title: 'Shiitake',
-    link: 'shiitake'
-  }
-];
+// TODO: use firestore
+const itemDataTest: ShopItemListing[] = [];
 
 export const Shop = () => {
+
+  const [shopItems, setShopItems] = useState<ShopItemListing[]>([]);
+
+  useEffect(() => {
+    console.log('getting info')
+    const itemQuery = query(shopItemInfoCollectionRef, where("available", "==", true), limit(10));
+
+    const cachedItems = localStorage.getItem(shopListingCacheName);
+    if (cachedItems === null) {
+      console.log('Not Cached');
+      getDocs(itemQuery)
+        .then(itemDocs => {
+          const shopItemsNoImage: ShopItemListing[] = itemDocs.docs.map(d => {
+            const itemName: string = d.get('name');
+            const itemPath: string = stringToPath(itemName);
+            const shopItem = {
+              img: shiitakeImage,
+              title: itemName,
+              path: itemPath,
+              price: d.get('price')
+            };
+            return shopItem;
+          });
+          setShopItems(shopItemsNoImage);
+
+
+          const thumbnailWithImagePromise = itemDocs.docs.map((d): Promise<ShopItemListing> => {
+            const itemName: string = d.get('name');
+            const itemPath: string = stringToPath(itemName);
+            const imageRef = ref(firebaseStorage, `shop-images/maitake.jpg`);
+            return new Promise((resolve, reject) => {
+              getDownloadURL(imageRef)
+                .then(url => resolve({
+                  img: url,
+                  title: itemName,
+                  path: itemPath,
+                  price: d.get('price')
+                }))
+            });
+          });
+
+          Promise.all(thumbnailWithImagePromise).then((itemListings: ShopItemListing[]) => {
+            setShopItems(itemListings);
+            localStorage.setItem(shopListingCacheName, JSON.stringify(itemListings.map(val => JSON.stringify(val))));
+          });
+        });
+    } else {
+      console.log('CACHED!')
+      console.log(JSON.parse(cachedItems));
+      const test: string[] = JSON.parse(cachedItems);
+      setShopItems(test.map(val => JSON.parse(val)));
+    }
+
+  }, []);
+
   return (
     <Container>
       <Grid container>
-        {itemDataTest.map((datum) => (
+        {shopItems.map((datum) => (
           <Grid item xs={6} md={4} lg={3} style={{ padding: "10px", textAlign: 'center' }}>
             <a href={datum.path} style={{ display: 'block', aspectRatio: '1/1' }}>
               <img
@@ -66,9 +91,8 @@ export const Shop = () => {
                 loading="lazy"
               />
             </a>
-            <p>
-              {datum.title}
-            </p>
+            <p>{datum.title}</p>
+            <p>${datum.price}</p>
           </Grid>
         ))}
       </Grid>
