@@ -1,6 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
 import { Analytics, getAnalytics } from "firebase/analytics";
+import { collection, CollectionReference, Firestore, getFirestore } from "firebase/firestore";
+import { FirebaseStorage, getStorage, ref } from "firebase/storage";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,3 +22,10 @@ const firebaseConfig: FirebaseOptions = {
 // Initialize Firebase
 const app: FirebaseApp = initializeApp(firebaseConfig);
 const analytics: Analytics = getAnalytics(app);
+
+// Firestore
+const firestoreDb: Firestore = getFirestore(app);
+export const shopItemInfoCollectionRef: CollectionReference = collection(firestoreDb, 'shop-item-info');
+
+// Firebase Storage
+export const firebaseStorage: FirebaseStorage = getStorage(app);

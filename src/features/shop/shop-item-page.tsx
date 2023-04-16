@@ -1,44 +1,69 @@
 import { Button } from '@mui/material';
-import FullSplitPageLayout from '../ui/full-split-layout/full-split-page-layout';
+import { useContext, useEffect, useState } from 'react';
 import CollapseCard from '../ui/collapse-card/collapse-card';
-import './shop-item-page.css';
-import { ShopItemPageInfo } from './data-objects/shop-item-page-info';
-import { useContext, useState } from 'react';
-import { ShopItemInfo } from './data-objects';
+import FullSplitPageLayout from '../ui/full-split-layout/full-split-page-layout';
 import { BasketContext } from './basket/basket.context';
-import { BasketView } from './basket/basket-view';
+import { ShopItemInfo } from './data-objects';
+import { ShopItemPageInfo } from './data-objects/shop-item-page-info';
+import './shop-item-page.css';
 
 type ShopItemPageProps = {
-    itemPageInfo: ShopItemPageInfo
+    shopItemId: string
+    //itemPageInfo: ShopItemPageInfo
 }
 
 export const ShopItemPage = (props: ShopItemPageProps) => {
 
-    const [selectedItem, setSelectedItem] = useState<ShopItemInfo>(props.itemPageInfo.items[0]);
+    const [shopItemLoaded, setShopItemLoaded] = useState<Boolean>(false);
+    const [shopItemPageInfo, setShopItemPageInfo] = useState<ShopItemPageInfo>(new ShopItemPageInfo(props.shopItemId));
+    const [selectedItem, setSelectedItem] = useState<ShopItemInfo>({
+        name: '',
+        price: 0,
+        image: ''
+    })
 
     const basket = useContext(BasketContext);
 
-    const title = <h1>{props.itemPageInfo.name}</h1>;
+    const title = <h1>{selectedItem.name}</h1>;
 
-    return (
+    useEffect(() => {
+
+        /*if (!shopItemLoaded) {
+            props.itemPageInfo.getItem()
+                .then(itemInfo => {
+                    setSelectedItem(itemInfo);
+                    setShopItemLoaded(true);
+                })
+                .catch(() => console.log('No shop item info found'));
+        }*/
+
+    }, [shopItemLoaded, setShopItemLoaded, selectedItem, setSelectedItem]);
+
+    // TODO: add description
+    const test: JSX.Element = (
         <FullSplitPageLayout titleComponent={title} imageSrc={selectedItem.image} smallImage>
             <p>${selectedItem.price.toFixed(2)}</p>
-            <Button variant='outlined' style={{borderColor: 'black', color: 'black'}} onClick={() => basket.addOneToBasket(selectedItem)}>Add to basket</Button>
-            <br/>
-            <hr className="shopItemDivideLine"/>
-            <br/>
-            <p>{props.itemPageInfo.description}</p>
+            <Button variant='outlined' style={{ borderColor: 'black', color: 'black' }} onClick={() => basket.addOneToBasket(selectedItem)}>Add to basket</Button>
+            <br />
+            <hr className="shopItemDivideLine" />
+            <br />
+            <p>{selectedItem.name}</p>
             <CollapseCard boldTitle={false} title="Shipping and Returns">
                 <p>NO RETURNS NO SHIPPING</p>
             </CollapseCard>
-        </FullSplitPageLayout>
+        </FullSplitPageLayout>)
+
+    return (
+        <>
+            {shopItemLoaded ? test : <p>LOADING</p>}
+        </>
     )
 
-        /*
-            <ul>
-                {props.storePageInfo.itemBulletNotes.map(bulletNote => 
-                    (<li>{bulletNote}</li>)
-                )}
-            </ul>
-        */
+    /*
+        <ul>
+            {props.storePageInfo.itemBulletNotes.map(bulletNote => 
+                (<li>{bulletNote}</li>)
+            )}
+        </ul>
+    */
 }
