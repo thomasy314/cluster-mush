@@ -4,9 +4,10 @@ import { gourmetEarringIds } from "../features/shop/item-data";
 import { Shop } from "../pages/shop";
 import { Basket } from "../pages/shop/basket";
 
-/*const shopPages = shopItemPageList.map(itemPageInfo =>
-    <Route path={itemPageInfo.path} element={<ShopItemPage itemPageInfo={itemPageInfo} />} />
-);*/
+
+const shopPages = Object.entries(gourmetEarringIds).map(([shopItemPath, id]) => 
+    <Route path={shopItemPath} element={<ShopItemPage shopItemInfoId={id} />} />
+);
 
 export const ShopRoutes = () => {
 
@@ -14,6 +15,7 @@ export const ShopRoutes = () => {
         <Routes>
             <Route index element={<Shop />} />
             <Route path='/basket' element={<Basket />} />
+            {shopPages}
         </Routes>
     )
 }

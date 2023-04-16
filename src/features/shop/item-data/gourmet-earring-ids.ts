@@ -1,8 +1,8 @@
 
 export const gourmetEarringIds = {
-    'enoki': '3bM0XQHkPGRcCLs6m2dH',
-    'morel': 'SuLNTq82eHmUlEU3cKEr',
-    'oyster': 'FoaDPPRpkYyBDvRp9nqj',
-    'porcini': 'yOdCqGs0ebDgyOTNagIg',
-    'shiitake': 'ExaREnftIJdyQQ672Urw'
+    'enoki-earrings': '3bM0XQHkPGRcCLs6m2dH',
+    'morel-earrings': 'SuLNTq82eHmUlEU3cKEr',
+    'oyster-earrings': 'FoaDPPRpkYyBDvRp9nqj',
+    'porcini-earrings': 'yOdCqGs0ebDgyOTNagIg',
+    'shiitake-earrings': 'ExaREnftIJdyQQ672Urw'
 }
