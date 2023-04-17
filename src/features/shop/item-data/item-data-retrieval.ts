@@ -23,7 +23,8 @@ export const getAvaiableItems = (): Promise<ShopItemInfo[]> => {
                         name: docSnap.get('name'),
                         price: docSnap.get('price'),
                         image: docSnap.get('image'),
-                        available: docSnap.get('available')
+                        available: docSnap.get('available'),
+                        stripeId: docSnap.get('stripe-id')
                     };
                     cacheShopItemInfo(shopItemInfo);
                     return shopItemInfo;
@@ -64,7 +65,8 @@ const requestShopItemById = (id: string): Promise<ShopItemInfo> => {
                         name: docSnap.get('name'),
                         price: docSnap.get('price'),
                         image: docSnap.get('image'),
-                        available: docSnap.get('available')
+                        available: docSnap.get('available'),
+                        stripeId: docSnap.get('stripe-id')
                     };
                     resolve(shopItem);
                 } else {

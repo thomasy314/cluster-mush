@@ -4,10 +4,9 @@ export interface ShopItemInfo {
     image: string;
     available: boolean;
     id: string;
+    stripeId: string;
 }
 
 export const compareShopItemInfo = (first: ShopItemInfo, second: ShopItemInfo): boolean => {
-    return first.name === second.name &&
-            first.price === second.price &&
-            first.image === second.image;
+    return JSON.stringify(first) === JSON.stringify(second);
 }

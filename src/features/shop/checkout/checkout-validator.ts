@@ -2,11 +2,11 @@ import { BasketItem, getCachedBasketItems } from "../basket"
 import { compareShopItemInfo } from "../data-objects";
 import { getShopItemById } from "../item-data";
 
-export const validateBasket = (): boolean => {
+export const validateBasket = (): Promise<Boolean> => {
     const basketItems: BasketItem[] = getCachedBasketItems() ?? [];
 
     if (basketItems.length === 0) {
-        return false;
+        return new Promise((resolve, reject) => resolve(false));
     }
 
     const checkingBasketPromiseList = basketItems.map((bItem): Promise<boolean> => {
@@ -23,8 +23,12 @@ export const validateBasket = (): boolean => {
         });
 
     });
-    Promise.all(checkingBasketPromiseList)
-        .then((values: boolean[]) => console.log('SUCCESS!: ', values.every(v => v === true)))
 
-    return true;
+    console.log('test')
+
+    return new Promise((resolve, reject) => {
+        Promise.all(checkingBasketPromiseList)
+            .then((values: boolean[]) => resolve(values.every(v => v === true)));
+    });
+
 }
