@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import { useContext } from "react"
-import { BasketContext } from "./basket.context"
+import { BasketContext, BasketItem } from "./basket.context"
 
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
@@ -10,8 +10,8 @@ export const BasketView = () => {
 
     return (
         <>
-            {basket.items.map(item => (
-                <div>
+            {basket.items.map((item: BasketItem) => (
+                <div key={item.item.id}>
                     <Button onClick={() => basket.deleteFromBasket(item.item)}>
                         <DeleteOutlineIcon/>
                     </Button> 

@@ -1,7 +1,5 @@
 import { Container, Grid } from "@mui/material";
-import { getDocs, limit, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { shopItemInfoCollectionRef } from "../../features/firebase/firebase";
 import { ShopItemInfo } from "../../features/shop/data-objects";
 import { getAvaiableItems } from "../../features/shop/item-data";
 import { stringToPath } from "../../routing/routing-path-helpers";

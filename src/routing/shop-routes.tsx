@@ -5,8 +5,8 @@ import { Shop } from "../pages/shop";
 import { Basket } from "../pages/shop/basket";
 
 
-const shopPages = Object.entries(gourmetEarringIds).map(([shopItemPath, id]) => 
-    <Route path={shopItemPath} element={<ShopItemPage shopItemInfoId={id} />} />
+const shopPages = Object.entries(gourmetEarringIds).map(([shopItemPath, id]: [string, string]) => 
+    <Route key={shopItemPath} path={shopItemPath} element={<ShopItemPage shopItemInfoId={id} />} />
 );
 
 export const ShopRoutes = () => {

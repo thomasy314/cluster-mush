@@ -31,8 +31,6 @@ type BasketProviderProps = {
 
 }
 
-const basketKey = 'basket';
-
 export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) => {
     const [basketProducts, setBasketProducts] = useState<BasketItem[]>(getBasketFromStorage());
 
@@ -87,7 +85,7 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
     function removeOneFromBasket(item: ShopItemInfo) {
         const quantity = getProductQuantity(item);
 
-        if(quantity == 1) {
+        if(quantity === 1) {
             deleteFromBasket(item);
         } else {
             saveBasketToStorage(
@@ -113,7 +111,7 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
 
     function getTotalCost() {
         let totalCost = 0;
-        basketProducts.map((cartItem) => {
+        basketProducts.forEach((cartItem: BasketItem) => {
             totalCost += (cartItem.item.price * cartItem.quantity);
         });
         return totalCost;

@@ -2,7 +2,7 @@
 import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
 import { Analytics, getAnalytics } from "firebase/analytics";
 import { collection, CollectionReference, Firestore, getFirestore } from "firebase/firestore";
-import { FirebaseStorage, getStorage, ref } from "firebase/storage";
+import { FirebaseStorage, getStorage } from "firebase/storage";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
