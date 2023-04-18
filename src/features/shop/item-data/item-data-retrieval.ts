@@ -1,4 +1,5 @@
 import { doc, getDoc, getDocs, limit, query, where } from "firebase/firestore";
+import { FailedToRequestShopItem, DatabaseDoesNotContainShopIdWithId, FailedToGetShopItemWithId } from "../../../errors";
 import { shopItemInfoCollectionRef } from "../../firebase/firebase";
 import { ShopItemInfo } from "../data-objects";
 
@@ -31,7 +32,7 @@ export const getAvaiableItems = (): Promise<ShopItemInfo[]> => {
                 });
                 resolve(shopItemInfo)
             })
-            .catch(() => reject('Could not find shop item info from id'));
+            .catch(() => reject(new FailedToRequestShopItem()));
     });
 };
 
@@ -39,11 +40,14 @@ export const getShopItemById = (id: string): Promise<ShopItemInfo> => {
     const cachedShopItem = getCachedShopItemInfo(id);
 
     const requestShopItemPromise: Promise<ShopItemInfo> = new Promise((resolve, reject) => {
-        requestShopItemById(id)
+        requestShopItemByIdFromFirebase(id)
             .then(shopItemInfo => {
                 cacheShopItemInfo(shopItemInfo);
                 resolve(shopItemInfo);
-            });
+            })
+            .catch(err => {
+                reject(new FailedToGetShopItemWithId(err));
+            })
     });
 
     if (cachedShopItem === null) {
@@ -53,13 +57,12 @@ export const getShopItemById = (id: string): Promise<ShopItemInfo> => {
     }
 };
 
-const requestShopItemById = (id: string): Promise<ShopItemInfo> => {
+const requestShopItemByIdFromFirebase = (id: string): Promise<ShopItemInfo> => {
     const docRef = doc(shopItemInfoCollectionRef, id);
     return new Promise((resolve, reject) => {
         getDoc(docRef)
             .then(docSnap => {
                 if (docSnap.exists()) {
-                    console.log("Document data:", docSnap.data());
                     const shopItem = {
                         id: docSnap.id,
                         name: docSnap.get('name'),
@@ -70,9 +73,9 @@ const requestShopItemById = (id: string): Promise<ShopItemInfo> => {
                     };
                     resolve(shopItem);
                 } else {
-                    reject('No shop item info document with that id exists');
+                    reject(new DatabaseDoesNotContainShopIdWithId(id));
                 }
             })
-            .catch(() => reject('Failed to query for shop item info'));
+            .catch(() => reject(new FailedToRequestShopItem()));
     })
 };

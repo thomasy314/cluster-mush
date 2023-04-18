@@ -28,13 +28,14 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
 
     const title = <h1>{selectedItem.name}</h1>;
 
+
     useEffect(() => {
         getShopItemById(props.shopItemInfoId)
             .then(shopItem => {
                 setSelectedItem(shopItem);
                 setShopItemLoaded(true);
             });
-    }, []);
+    }, [props.shopItemInfoId]);
 
     // TODO: add description
     const test: JSX.Element = (
