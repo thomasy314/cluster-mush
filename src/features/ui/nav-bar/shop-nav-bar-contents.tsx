@@ -22,6 +22,7 @@ export const ShopNavBarContents = () => {
 
     return (
         <>
+            <div style={{flexGrow: 1}}></div>
             <NavBarLink path='/basket'><ShoppingCartOutlined /></NavBarLink>
         </>
     )

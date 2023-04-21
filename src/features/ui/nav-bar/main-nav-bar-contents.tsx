@@ -7,7 +7,7 @@ export const MainNavBarContents = () => {
         return (
             <NavBarLink key={infoPage.name} path={`/${infoPage.getPath()}`}>{infoPage.name}</NavBarLink>
         )
-    })
+    });
 
     return (
         <>
