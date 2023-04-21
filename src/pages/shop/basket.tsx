@@ -6,6 +6,8 @@ import { validateBasket } from "../../features/shop/checkout";
 import { handleCheckout } from "../../features/shop/checkout/stripe";
 import { LoadingButton } from "../../features/ui";
 
+import './basket.css';
+
 export const Basket = () => {
 
     const [loadingCheckout, setLoadingCheckout] = useState<boolean>(false);
@@ -27,10 +29,9 @@ export const Basket = () => {
 
     return (
         <Container>
-            <h1>Basket</h1>
-            <hr />
+            <h1 id='basketTitle'>Basket</h1>
             <BasketView />
-            <LoadingButton onClick={validateAndCheckout} isLoading={loadingCheckout}>Checkout</LoadingButton>
+            <LoadingButton disabled={basket.items.length === 0} onClick={validateAndCheckout} isLoading={loadingCheckout}>Checkout</LoadingButton>
         </Container>
     )
 };

@@ -3,7 +3,8 @@ import { PropsWithChildren } from "react"
 
 type LoadingButtonProps = {
     isLoading: boolean,
-    onClick: () => void
+    onClick: () => void,
+    disabled?: boolean
 }
 
 export const LoadingButton = (props: PropsWithChildren<LoadingButtonProps>) => {
@@ -11,7 +12,7 @@ export const LoadingButton = (props: PropsWithChildren<LoadingButtonProps>) => {
     const buttonChildren = props.isLoading ? 'Loading...' : props.children;
 
     return (
-        <Button onClick={props.onClick} disabled={props.isLoading}>
+        <Button onClick={props.onClick} disabled={props.isLoading || props.disabled}>
             {buttonChildren}
         </Button>
     )

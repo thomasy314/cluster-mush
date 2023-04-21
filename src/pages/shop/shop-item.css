@@ -1,4 +1,5 @@
 .shopItemDivideLine {
-    width: 30%;
     float: left;
+    width: 100%;
+    opacity: 50%;
 }

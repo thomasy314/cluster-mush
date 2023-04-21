@@ -1,6 +1,7 @@
 #navBarContainer {
     box-shadow: 0px 0px;
     background-color: white;
+    padding: .1rem 0rem;
 }
 
 #navBarDrawer {
@@ -19,7 +20,7 @@
 }
 
 .navBarItem {
-    height: 2.5rem;
+    height: 4.5rem;
     cursor: pointer;
 }
 
@@ -32,7 +33,7 @@
 }
 
 .underlineOnHover:hover {
-    height: calc(3px + 7vh);
+    height: calc(3px + 4.5rem);
     border-color: black;
     border-bottom-width: 3px;
     margin-bottom: -3px
