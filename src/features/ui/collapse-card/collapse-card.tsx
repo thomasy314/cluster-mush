@@ -29,13 +29,13 @@ const CollapseCard = (props: PropsWithChildren<CollapseCardProps>) => {
 
     return  (
         <>
-            <p className='CollapseCard' onClick={toggle}>
+            <div className='CollapseCard' onClick={toggle}>
                 <p className='CollapseCardTitle' style={titleStyle}>{props.title}</p>
                 <IconButton size='small'>
                     {isChecked && <KeyboardArrowDownIcon />}
                     {!isChecked && <KeyboardArrowRightIcon />}
                 </IconButton>
-            </p>
+            </div>
             <Collapse in={isChecked}>
                 {props.children}
             </Collapse>
@@ -44,4 +44,4 @@ const CollapseCard = (props: PropsWithChildren<CollapseCardProps>) => {
 }
 CollapseCard.defaultProps = CollapseCardDefaultProps;
 
-export default CollapseCard;
+export { CollapseCard };

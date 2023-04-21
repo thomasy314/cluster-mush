@@ -1,12 +1,13 @@
-import { Theme } from '@mui/material';
-import { Container, Grid, useMediaQuery, useTheme } from '@mui/material';
+import { Container, Grid, Theme, useMediaQuery, useTheme } from '@mui/material';
 import { CSSProperties, PropsWithChildren } from 'react';
+import { LoadingPage } from '../loading/loading-page/loading-page';
 import './full-split-page-layout.css';
 
 type FullSplitPageLayoutProps = {
     titleComponent: JSX.Element,
     imageSrc: string,
-    smallImage?: boolean
+    smallImage?: boolean,
+    loading?: boolean | undefined
 }
 
 const FullSplitPageLayoutDefaultProps = {
@@ -21,8 +22,8 @@ const FullSplitPageLayout = (props: PropsWithChildren<FullSplitPageLayoutProps>)
 
     const smallImageBorderSize: number = 10;
 
-    const height: number = lessThanMd ? 90 : (100 - (props.smallImage ? smallImageBorderSize*2 : 0));
-    const width: number = lessThanMd ? 100 : (50 - (props.smallImage ? smallImageBorderSize*2 : 0));
+    const height: number = lessThanMd ? 90 : (100 - (props.smallImage ? smallImageBorderSize * 2 : 0));
+    const width: number = lessThanMd ? 100 : (50 - (props.smallImage ? smallImageBorderSize * 2 : 0));
 
     const containerStyle: CSSProperties = {
         paddingLeft: (props.smallImage && moreOrEqualToMd) ? '20vh' : 0,
@@ -36,29 +37,38 @@ const FullSplitPageLayout = (props: PropsWithChildren<FullSplitPageLayoutProps>)
     }
 
     return (
-        <Container disableGutters maxWidth={false} style={containerStyle} id='FullSplitPageContainer'>
-            {lessThanMd && <Container id='FullSplitPageTitle'>
-                {props.titleComponent}
-            </Container>}
-            <Grid container spacing={2}>
-                {moreOrEqualToMd && <Grid item xs={6}>
-                    <Container>
-                        {props.titleComponent}
-                        {props.children}
+        <>
+            {
+                (props.loading === undefined || props.loading === false) ?
+                    <Container disableGutters maxWidth={false} style={containerStyle} id='FullSplitPageContainer'>
+                        {lessThanMd && <Container id='FullSplitPageTitle'>
+                            {props.titleComponent}
+                        </Container>}
+                        <Grid container spacing={2}>
+                            {moreOrEqualToMd && <Grid item xs={6}>
+                                <Container>
+                                    {props.titleComponent}
+                                    {props.children}
+                                </Container>
+                            </Grid>}
+                            <Grid item xs={12} md={6} >
+                                <img id='FullSplitPageImage' style={FullSplitPageImageStyle} alt="thing" src={props.imageSrc} />
+                            </Grid>
+                            {lessThanMd && <Grid item xs={12}>
+                                <Container>
+                                    {props.children}
+                                </Container>
+                            </Grid>}
+                        </Grid>
                     </Container>
-                </Grid>}
-                <Grid item xs={12} md={6} >
-                    <img id='FullSplitPageImage' style={FullSplitPageImageStyle} alt="thing" src={props.imageSrc} />
-                </Grid>
-                {lessThanMd && <Grid item xs={12}>
-                    <Container>
-                        {props.children}
-                    </Container>
-                </Grid>}
-            </Grid>
-        </Container>
+                    :
+                    <LoadingPage />
+            }
+        </>
     )
+    /*return (
+    )*/
 }
 FullSplitPageLayout.defaultProps = FullSplitPageLayoutDefaultProps;
 
-export default FullSplitPageLayout;
+export { FullSplitPageLayout };

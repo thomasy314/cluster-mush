@@ -1,9 +1,15 @@
 
 export const stringToPath = (val: string): string => {
-    return val.toLowerCase().replace(' ', '-');
+    return val.toLowerCase().replace(/ /g, '-');
 }
 
 
 export const isLocalHost = (): boolean => {
-    return window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1');
+    return !window.location.hostname.includes('clustermush');
+}
+
+
+
+export const inShop = (): boolean => {
+  return window.location.host.includes("shop");
 }

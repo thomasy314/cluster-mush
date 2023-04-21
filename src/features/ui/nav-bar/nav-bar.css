@@ -17,7 +17,7 @@
 }
 
 .navBarButton:hover {
-    height: calc(3px + 7);
+    height: calc(3px + 7vh);
     border-color: black;
     border-bottom-width: 3px;
     margin-bottom: -3px

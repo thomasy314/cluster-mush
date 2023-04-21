@@ -19,8 +19,8 @@ export const BasketView = () => {
                         <p>Item: {item.item.name}</p>
                         <p>Quantity: {item.quantity}</p>
                     </div>
-                    <Button variant="outlined" onClick={() => basket.removeOneFromBasket(item.item)}>-</Button>
-                    <Button variant="outlined" onClick={() => basket.addOneToBasket(item.item)}>+</Button>
+                    <Button onClick={() => basket.removeOneFromBasket(item.item)}>-</Button>
+                    <Button onClick={() => basket.addOneToBasket(item.item)}>+</Button>
                 </div>
             ))}
         </>

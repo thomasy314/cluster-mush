@@ -1,8 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { ShopItemPage } from '../features/shop';
 import { gourmetEarringIds } from "../features/shop/item-data";
-import { Shop } from "../pages/shop";
-import { Basket } from "../pages/shop/basket";
+import { Shop, ShopItemPage } from "../pages/shop";
+import { Basket } from "../pages/shop";
 
 
 const shopPages = Object.entries(gourmetEarringIds).map(([shopItemPath, id]: [string, string]) => 

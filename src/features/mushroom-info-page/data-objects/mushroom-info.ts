@@ -1,6 +1,7 @@
 import EcologicalGroup from "./ecological-group";
 import ValueWithCitation from "./value-with-citation";
 import Citation from "./citation";
+import { stringToPath } from "../../../routing/routing-path-helpers";
 
 class MushroomInfo {
     name: string; 
@@ -74,7 +75,7 @@ class MushroomInfo {
     }
 
     getPath = (): string => {
-        return this.name.toLocaleLowerCase().replace(' ', '-');
+        return stringToPath(this.name);
     }
 }
 

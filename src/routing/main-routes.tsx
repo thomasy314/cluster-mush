@@ -9,7 +9,7 @@ import { mushroomInfoPageList } from '../pages/mushroom-info-page';
 
 
 const infoPages = mushroomInfoPageList.map(mushInfo => 
-    <Route path={mushInfo.getPath()} element={<MushroomInfoPage mushroomInfo={mushInfo}/>}/>
+    <Route key={mushInfo.name} path={mushInfo.getPath()} element={<MushroomInfoPage mushroomInfo={mushInfo}/>}/>
 );
 
 export const MainRoutes = () => {

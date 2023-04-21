@@ -1,9 +1,5 @@
 
 abstract class ShopError extends Error {
-
-    constructor(message: string) {
-        super(message);
-    }
 }
 
 // Stripe

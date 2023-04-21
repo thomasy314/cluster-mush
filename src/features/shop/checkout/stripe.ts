@@ -1,6 +1,7 @@
 import { loadStripe, Stripe, RedirectToCheckoutOptions } from '@stripe/stripe-js';
 import { FailedToRedirectToCheckout, FailedToRequestStripeClient, StripeClientIsNull } from '../../../errors';
 import { isLocalHost } from '../../../routing/routing-path-helpers';
+import { BasketItem } from '../basket';
 
 let stripePromise: Promise<Stripe>;
 
@@ -8,7 +9,12 @@ const stripePublishKey_TEST = 'pk_test_51MxqrTHgT1AABCbEpl4hep9DfirvaXUuit2kwXR8
 
 const completeUrl = isLocalHost() ? 'http://shop.localhost:3000' : 'https://shop.clustermush.com';
 const successUrl = completeUrl + '/success';
-const cancelUrl = completeUrl + '/cancel';
+const cancelUrl = completeUrl + '/basket';
+
+type CheckoutItem = {
+    price: string,
+    quantity: number
+}
 
 
 export const getStripe = () => {
@@ -34,19 +40,21 @@ export const getStripe = () => {
     return stripePromise;
 };
 
-export function handleCheckout(): Promise<void> {
+export function handleCheckout(basketItems: BasketItem[]): Promise<void> {
     return new Promise((resolve, reject) => {
         getStripe()
             .then(stripe => {
 
-                // TODO: Replace dummy values
+                const checkoutItems = basketItems.map((bItem: BasketItem): CheckoutItem => {
+
+                    return {
+                        price: bItem.item.stripeId,
+                        quantity: bItem.quantity
+                    }
+                });
+
                 const checkoutInputs: RedirectToCheckoutOptions = {
-                    lineItems: [
-                        {
-                            price: process.env.REACT_APP_NEXT_PUBLIC_STRIPE_PRICE_ID,
-                            quantity: 1,
-                        },
-                    ],
+                    lineItems: checkoutItems,
                     mode: 'payment',
                     successUrl: successUrl,
                     cancelUrl: cancelUrl,
@@ -54,7 +62,8 @@ export function handleCheckout(): Promise<void> {
                 }
 
                 stripe.redirectToCheckout(checkoutInputs)
-                    .catch(error => reject(new FailedToRedirectToCheckout(error)));
+                    .then(() => resolve())
+                    .catch(error => reject(new FailedToRedirectToCheckout(error)))
             })
     });
 }
