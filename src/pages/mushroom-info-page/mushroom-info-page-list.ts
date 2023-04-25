@@ -1,7 +1,7 @@
-import { CommonTableInfo, EnokiInfo, MaitakeInfo, OysterInfo, ShiitakeInfo } from "./gourmet";
+import { CommonStoreInfo, EnokiInfo, MaitakeInfo, OysterInfo, ShiitakeInfo } from "./gourmet";
 
 export const mushroomInfoPageList = [
-    CommonTableInfo,
+    CommonStoreInfo,
     EnokiInfo,
     MaitakeInfo,
     OysterInfo,

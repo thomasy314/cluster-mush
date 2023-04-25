@@ -6,6 +6,7 @@ import StyleGuide from '../pages/style-guide/style-guide'
 import { MushroomInfoPage } from '../features/mushroom-info-page';
 
 import { mushroomInfoPageList } from '../pages/mushroom-info-page';
+import { About } from '../pages/about/about';
 
 
 const infoPages = mushroomInfoPageList.map(mushInfo => 
@@ -17,6 +18,7 @@ export const MainRoutes = () => {
         <Routes>
             <Route index element={<ComingShroom />} />
             <Route path='/style-guide' element={<StyleGuide />} />
+            <Route path='/about' element={<About />} />
             {infoPages}
         </ Routes>
     )

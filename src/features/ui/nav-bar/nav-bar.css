@@ -1,7 +1,6 @@
 #navBarContainer {
     box-shadow: 0px 0px;
     background-color: white;
-    padding: .5rem 0rem;
 }
 
 #navBarDrawer {
@@ -12,12 +11,13 @@
 }
 
 .navBarItem {
-    height: 7vh;
+    height: 2.5rem;
     cursor: pointer;
 }
 
 .navBarButton {
     background-color: white;
+    height: 100%;
     border-width: 0;
     margin-right: .5rem;
     font-size: 1em;

@@ -5,9 +5,9 @@ import {
     ValueWithCitation
 } from '../../../features/mushroom-info-page/data-objects';
 
-import portobelloPhoto from '../../../assets/photos/commonTable/portobello.png';
+import portobelloPhoto from '../../../assets/photos/commonStore/portobello.png';
 
-const name: string = 'Common Table Mushroom'
+const name: string = 'Common Store Mushroom'
 
 const latinName: string = 'Agaricus bisporus'
 
@@ -37,8 +37,8 @@ const wildAboutMushroomSf: Citation = new Citation('Wild About Mushrooms: Button
 
 const historyAndCultureFacts: ValueWithCitation<string>[] = [
     new ValueWithCitation('Up until the mid 1990s, the only variety of Agricus bisporus consumers wanted were the immature what ones (aka Champignon)', [usda1996Report, washingtonPostMushBoom, nyTimesAfterThePortobello]),
-    new ValueWithCitation('Agricus bisporus was first cultivated in the early 1700s in France', [wildAboutMushroomSf]),
-    new ValueWithCitation('n 1926, a Pennsylvania mushroom farmer found a clump of Agaricus with white caps in his mushroom bed. Cultures were grown from this mutation and now most cream-colored store mushrooms are ancestors of those mushrooms.', [wildAboutMushroomSf])
+    new ValueWithCitation('The common store mushroom was first cultivated in the early 1700s in France', [wildAboutMushroomSf]),
+    new ValueWithCitation('In 1926, a Pennsylvania mushroom farmer found a clump of Agaricus with white caps in his mushroom bed. Cultures were grown from this mutation and now most cream-colored store mushrooms are ancestors of those mushrooms.', [wildAboutMushroomSf])
 ];
 
 const scienceFacts: ValueWithCitation<string>[] = [
@@ -50,14 +50,14 @@ const agricultureFacts: ValueWithCitation<string>[] = [
 ];
 
 const learnMore: Citation[] = [
-    new Citation('Common Table Mushroom Wikipedia', 'https://en.wikipedia.org/wiki/Agaricus_bisporus'),
+    new Citation('Common Store Mushroom Wikipedia', 'https://en.wikipedia.org/wiki/Agaricus_bisporus'),
     new Citation('Tom Volk\'s Fungus of the Month: Agaricus bisporus', 'https://botit.botany.wisc.edu/toms_fungi/apr2001.html'),
     new Citation('Wild About Mushrooms Cookbook: Common Store Mushroom', 'https://www.mssf.org/cookbook/button.html'),
     new Citation('Mushroom Revival Podcast: Commercial Button Mushroom Production & Myco-Materials with William Goss', 'https://www.mushroomrevival.com/blogs/podcast/commercial-button-mushroom-production-myco-materials-william-goss')
 ];
 
 
-export const CommonTableInfo: MushroomInfo = new MushroomInfo(
+export const CommonStoreInfo: MushroomInfo = new MushroomInfo(
     name,
     [portobelloPhoto],
     latinName,

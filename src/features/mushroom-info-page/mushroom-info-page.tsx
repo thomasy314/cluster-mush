@@ -43,9 +43,9 @@ const MushroomInfoPage = (props: MushroomInfoPageProps) => {
             <p><b>Location</b>: {props.mushroomInfo.location}</p>
             <p><b>Ecological Group</b>: {props.mushroomInfo.ecologicalGroup}</p>
             <p><b>Edible?</b> {props.mushroomInfo.edible}</p>
-            <CollapseCard title='History and Culture'>{formatValueWithReferenceList(props.mushroomInfo.historyAndCulture, citations)}</CollapseCard>
-            <CollapseCard title="Science">{formatValueWithReferenceList(props.mushroomInfo.science, citations)}</CollapseCard>
-            <CollapseCard title="Agriculture">{formatValueWithReferenceList(props.mushroomInfo.agriculture, citations)}</CollapseCard>
+            {props.mushroomInfo.historyAndCulture.length > 0 && <CollapseCard title='History and Culture'>{formatValueWithReferenceList(props.mushroomInfo.historyAndCulture, citations)}</CollapseCard>}
+            {props.mushroomInfo.science.length > 0 && <CollapseCard title="Science">{formatValueWithReferenceList(props.mushroomInfo.science, citations)}</CollapseCard>}
+            {props.mushroomInfo.agriculture.length > 0 && <CollapseCard title="Agriculture">{formatValueWithReferenceList(props.mushroomInfo.agriculture, citations)}</CollapseCard>}
             <CollapseCard title="Learn More!">{formatCitationList(props.mushroomInfo.learnMore)}</CollapseCard>
             <CollapseCard title="References">{formatCitationList(citations)}</CollapseCard>
         </FullSplitPageLayout>

@@ -22,7 +22,6 @@ export const NavBar = (props: NavBarProps) => {
     const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
 
     const theme: Theme = useTheme();
-    const moreOrEqualToMd: boolean = useMediaQuery(theme.breakpoints.up('md'));
     const lessThanMd: boolean = useMediaQuery(theme.breakpoints.down('md'));
 
     const navBarLookup = {
@@ -37,7 +36,7 @@ export const NavBar = (props: NavBarProps) => {
                 <Toolbar>
                     <NavBarLink path='/'><img alt="Logo" className="navBarItem" src="/logos/logo.svg" /></NavBarLink>
                     {
-                        lessThanMd && props.variation === NavBarVariation.MAIN ?
+                        NavBarVariation.MAIN ?
                             <>
                                 <div style={{flexGrow:1}}></div>
                                 <button className="navBarItem navBarButton" onClick={() => setDrawerOpen(true)}><MenuIcon /></button>
