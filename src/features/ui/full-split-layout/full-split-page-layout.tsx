@@ -66,8 +66,6 @@ const FullSplitPageLayout = (props: PropsWithChildren<FullSplitPageLayoutProps>)
             }
         </>
     )
-    /*return (
-    )*/
 }
 FullSplitPageLayout.defaultProps = FullSplitPageLayoutDefaultProps;
 

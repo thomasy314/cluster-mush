@@ -2,13 +2,14 @@ import EcologicalGroup from "./ecological-group";
 import ValueWithCitation from "./value-with-citation";
 import Citation from "./citation";
 import { stringToPath } from "../../../routing/routing-path-helpers";
+import React from "react";
 
 class MushroomInfo {
     name: string; 
     images: string[];
     latinName: string; 
     commonNames: string[]; 
-    etymology: string; 
+    etymology: React.ReactNode; 
     location: string;
     ecologicalGroup: EcologicalGroup;
     edible: string;
@@ -22,7 +23,7 @@ class MushroomInfo {
         images: string[],
         latinName: string, 
         commonNames: string[], 
-        etymology: string, 
+        etymology: React.ReactNode, 
         location: string,
         ecologicalGroup: EcologicalGroup,
         edible: string,

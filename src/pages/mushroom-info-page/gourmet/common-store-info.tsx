@@ -6,6 +6,7 @@ import {
 } from '../../../features/mushroom-info-page/data-objects';
 
 import portobelloPhoto from '../../../assets/photos/commonStore/portobello.png';
+import React from 'react';
 
 const name: string = 'Common Store Mushroom'
 
@@ -19,13 +20,13 @@ const commonNames: string[] = [
     '(Fully Grown) Portobello'
 ];
 
-const etymology: string = '(Portobello) It is unclear where the name Portobello comes from. Many say it is named after a famous road in london, some say it is named after the Italian word “pratarolo” meaning meadow, and some say that it means “Beautiful Door” in Italian.';
+const etymology: React.ReactNode = <p><u>Portobello</u>:  It is unclear where the name Portobello comes from. Many say it is named after a famous road in London, some say it is the Italian word “pratarolo” meaning meadow, and some say that it is just a marketing name</p>
 
-const location: string = 'This mushroom is native to Europe, Asia, and North America.'
+const location: string = 'The common store mushroom is native to Europe, Asia, and North America.'
 
 const ecologicalGroup: EcologicalGroup = EcologicalGroup.SAPROPHYTIC;
 
-const edible: string = 'that of aitake are common in eastern North America and can also be found in europe and Eastern Asia.'
+const edible: string = 'Yes! The mushroom has a rich and savory umami flavor and dense firm texture. This flavor is then intensified when cooked. When cooking the mature version of this mushroom, the portobello, it is popular to remove the gills as they can be bitter and add a dark brown coloration to the food.'
 
 // Citations
 const mushOfTheMonthAgric: Citation = new Citation('Volk, T., & Ivors, K. (n.d.). Agaricus bisporus, the white button pizza mushroom,  portabella, portobello, portabello, portobella, crimini, Tom Volk’s Fungus of the Month for April 2001. https://botit.botany.wisc.edu/toms_fungi/apr2001.html', 'https://botit.botany.wisc.edu/toms_fungi/apr2001.html');
@@ -36,17 +37,18 @@ const nyTimesAfterThePortobello: Citation = new Citation('O’Neill, M. (1998, N
 const wildAboutMushroomSf: Citation = new Citation('Wild About Mushrooms: Button Mushroom. (n.d.). https://www.mssf.org/cookbook/button.html', 'https://www.mssf.org/cookbook/button.html');
 
 const historyAndCultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Up until the mid 1990s, the only variety of Agricus bisporus consumers wanted were the immature what ones (aka Champignon)', [usda1996Report, washingtonPostMushBoom, nyTimesAfterThePortobello]),
-    new ValueWithCitation('The common store mushroom was first cultivated in the early 1700s in France', [wildAboutMushroomSf]),
-    new ValueWithCitation('In 1926, a Pennsylvania mushroom farmer found a clump of Agaricus with white caps in his mushroom bed. Cultures were grown from this mutation and now most cream-colored store mushrooms are ancestors of those mushrooms.', [wildAboutMushroomSf])
+    new ValueWithCitation('Up until the mid 1990s, the only variety of the store mushroom consumers wanted were Champignon, AKA the immature white variety. This was because of their more elegant white aesthetic.', [usda1996Report, washingtonPostMushBoom, nyTimesAfterThePortobello]),
+    new ValueWithCitation('The common store mushroom was first cultivated in the early 1700’s in France.', [wildAboutMushroomSf]),
+    new ValueWithCitation('In 1926, a Pennsylvania mushroom farmer found a clump of mushrooms with white caps in their mushroom bed. This mushroom would later be given the name Champignon or Button mushroom. Cultures were grown from this mutation and now most Champignon grown are ancestors of those mushrooms.', [wildAboutMushroomSf])
 ];
 
 const scienceFacts: ValueWithCitation<string>[] = [
+    new ValueWithCitation('The Common Store Mushroom is composed of the three mushrooms that you will most likely find in a western grocery store: Cremini, Champignon, and Portobello.', [mushOfTheMonthAgric])
 ];
 
 const agricultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Agaricus Bisporus is a secondary decomposer which means it consumes already decomposed material. This could be from another mushroom or compost.', [mushOfTheMonthAgric]),
-    new ValueWithCitation('As of 2022, Agaricus Bisporus accounts for 91% of the mushrooms grown in the United States, but only 40% worldwide.', [usda2022Report, mushOfTheMonthAgric])
+    new ValueWithCitation('The Common Store Mushroom is a secondary decomposer meaning it consumes already decomposed materials, such as compost or the substance left over by a previous mushroom.', [mushOfTheMonthAgric]),
+    new ValueWithCitation('As of 2022, The Common Store mushroom accounts for 91% of the mushrooms grown in the United States, but only 40% worldwide.', [usda2022Report, mushOfTheMonthAgric])
 ];
 
 const learnMore: Citation[] = [
