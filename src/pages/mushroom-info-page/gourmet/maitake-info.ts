@@ -12,13 +12,13 @@ const name: string = 'Maitake';
 const latinName: string = 'Grifola frondosa';
 
 const commonNames: string[] = [
-    '舞茸 (maitake) (dancing mushroom)',
+    '(Japan) 舞茸 (Maitake, dancing mushroom)',
     'Hen-of-the-woods',
     'Rams head',
-    'Sheaps head'
+    'Sheep\'s head'
 ];
 
-const etymology: string = 'There seems to be two explanations for the name "Dancing Mushroom". The first is that this mushroom was so rare that finding it would make you dance with joy. The second is that the fluttering cap shape resembles a dancing motion.';
+const etymology: string = '“Dancing Mushroom” from legend which says those who found this mushroom were so happy and excited that they would dance with joy when they came across it. The second theory is that due to the fluttering pattern on the fronds/caps, the mushroom resembled dancing.';
 
 const location: string = 'Maitake are common in eastern North America and can also be found in europe and Eastern Asia'
 
@@ -33,18 +33,18 @@ const mushroomExpert: Citation = new Citation('MushroomExpert.Com. (n.d.). Grifo
 const mushOfTheMonthMaitake: Citation = new Citation('Volk, T. (n.d.).Grifola frondosa, the hen of the woods, sheepshead or maitake-- Tom Volk’s Fungus of the Month for November 2006. (n.d.). http://botit.botany.wisc.edu/toms_fungi/nov2006.html', 'http://botit.botany.wisc.edu/toms_fungi/nov2006.html');
 
 const historyAndCultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Due to difficulties in cultivation, maitakes only started being cultivated in the mid 1980\'s in Japan.', [historyOfMaitake]),
-    new ValueWithCitation('Maitake has been used in east Asian cultures as medicine for milennia. It is specifically used to improve spleen and stomach ailments, calm nerves, and boost general immune system.', [mushOfTheMonthMaitake])
+    new ValueWithCitation('Due to a more challenging cultivation process, Maitakes only started being cultivated in the mid 1980\'s in Japan.', [historyOfMaitake, mushOfTheMonthMaitake]),
+    new ValueWithCitation('Maitake have been used in east Asian cultures as medicine for millennia. It is specifically used to improve spleen and stomach ailments, calm nerves, and generally boost the immune system.', [mushOfTheMonthMaitake])
 ];
 
 const scienceFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('This mushroom is a polypore. This means that instead of having gills, it has small holes called pores which produce spores.', [mushroomExpert]),
-    new ValueWithCitation('The maitake is slightly parasitic to Oak trees, getting nutrients from the roots. The positive part of this relationship is that the Maitake tries to keep the tree alive for as long as possible in order to maximize its own life. Evently, the host tree dies due to a combination of the fungal infection and environmental stresses as as drought and wind.', [mushOfTheMonthMaitake])
+    new ValueWithCitation('Maitake are polypore fungus. This means that instead of having gills, they have small holes called pores which produce spores.', [mushroomExpert]),
+    new ValueWithCitation('The Maitake is slightly parasitic to Oak trees, getting nutrients from the roots. This relationship is semi-positive for the tree as the fungus will try to keep the tree alive for as long as possible to maximize its own life. That being said, the host tree eventually dies due to a combination of fungal infection and other environmental stresses.', [mushOfTheMonthMaitake])
 ];
 
 const agricultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Maitake are a perennial fungus. This means it can continue to produce mushrooms during the proper season anywhere from 5 to 10 years!', [mushOfTheMonthMaitake]),
-    new ValueWithCitation('The fruiting body of the mushroom can grow up to 2 feet in diameter and weight upwards of 80 pounds (36kg).', [hikersNotesbook])
+    new ValueWithCitation('The Maitake is a perennial fungus, meaning it will continue to produce mushrooms anywhere from 5 to 10 years.', [mushOfTheMonthMaitake]),
+    new ValueWithCitation('The Maitake fruiting body (aka mushroom) can grow up to 2 feet (0.6 m) in diameter and weigh upwards of 80 pounds.', [hikersNotesbook])
 ];
 
 const learnMore: Citation[] = [

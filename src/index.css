@@ -14,6 +14,11 @@ a {
 p, th, ul, ol {
   font-size: 1em;
   word-wrap: break-word;
+  font-family: 'Fredoka', sans-serif;
+}
+
+button {
+  font-family: 'Fredoka', sans-serif;
 }
 
 li {

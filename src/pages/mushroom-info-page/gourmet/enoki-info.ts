@@ -21,13 +21,13 @@ const commonNames: string[] = [
     'Winter Mushroom'
 ];
 
-const etymology: string = 'Enoki refers to the enoki tree, also called the chinese hackberry tree, that is is often found growing on.'
+const etymology: string = 'Enoki refers to the Enoki tree or Chinese hackberry tree that it is often found growing on.';
 
-const location: string = 'Found in eastern and southern parts of asia with it being most popular in east asian countries like China, Japan, and Korea.'
+const location: string = 'Found in eastern and southern parts of Asia with it being most popular in East Asian countries like China, Japan, and Korea.';
 
 const ecologicalGroup: EcologicalGroup = EcologicalGroup.SAPROPHYTIC;
 
-const edible: string = 'Yes! When eaten raw, the mushroom has a crisp texture and peppery taste. It is common to see it added to soup to add more texture without an overpowering flavor.'
+const edible: string = 'Yes! The mushroom has a crisp texture and peppery taste when eaten raw. It is very popular in soup as it lends a great texture without an overpowering flavor.';
 
 // Citations
 const enokiMushroomBreeding: Citation = new Citation('Sharma, V. P., Barh, A., Bairwa, R., Annepu, S. K., Kumari, B., & Kamal, S. (2021). Enoki Mushroom (Flammulina velutipes (Curtis) Singer) Breeding. Springer EBooks, 423–441. https://doi.org/10.1007/978-3-030-66969-0_11', 'https://doi.org/10.1007/978-3-030-66969-0_11');
@@ -41,12 +41,12 @@ const historyAndCultureFacts: ValueWithCitation<string>[] = [
 ];
 
 const scienceFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Up until 2018, Flammulina filiformis was considered to be the same species as its european and north american counter part Flammulina velutipes ', [phylogenyAndSpeciesDelimination])
+    new ValueWithCitation('Up until 2018, The Enoki was considered to be the same species as its European and North American counterpart: Flammulina velutipes also referred to as the Velvet Foot.', [phylogenyAndSpeciesDelimination])
 ];
 
 const agricultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Enoki found in the wild versus those cultivated vary wildly in appearance. Cultivated Enoki are tall, with very small caps, and yellowish white whereas wild Enoki are short, have wide caps, and have an orange coloration. This difference is caused by methods used in cultivation and from genetics. When cultivated Enoki, they are given less oxygen and light leading to them elongating and whitening.', [theTwoEnoki, enokiHarvestVideo, enokiMushroomBreeding]),
-    new ValueWithCitation('Can be found during the winter months when other mushrooms would not grow. This is because Enoki fruiting can be triggered by a cold shock.', [enokiHarvestVideo, mushOfTheMonthEnoki])
+    new ValueWithCitation('Cultivated Enoki vary wildly in appearance from those found in nature. Cultivated Enoki are tall, with very small caps, and are white with an orange/yellow tint. Wild Enoki are short, have wide caps, and have a bright orange coloration. This difference is caused by genetics and a decrease in oxygen and light during cultivation, leading to elongation and whitening', [theTwoEnoki, enokiHarvestVideo, enokiMushroomBreeding]),
+    new ValueWithCitation('A decrease in temperature is one of the triggers that tell Enoki to start fruiting (aka growing mushrooms). Because of this, Enoki can be found during the winter months when it is too cold for other mushrooms to grow.', [enokiHarvestVideo, mushOfTheMonthEnoki])
 ];
 
 const learnMore: Citation[] = [
