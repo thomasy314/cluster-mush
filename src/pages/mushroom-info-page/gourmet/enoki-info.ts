@@ -21,7 +21,7 @@ const commonNames: string[] = [
     'Winter Mushroom'
 ];
 
-const etymology: string = 'Enoki refers to the Enoki tree or Chinese hackberry tree that it is often found growing on.';
+const etymology: string = 'The word “Enoki” refers to the Enoki tree or Chinese hackberry tree that it is often found growing on.';
 
 const location: string = 'Found in eastern and southern parts of Asia with it being most popular in East Asian countries like China, Japan, and Korea.';
 

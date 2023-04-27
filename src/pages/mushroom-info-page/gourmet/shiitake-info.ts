@@ -20,13 +20,13 @@ const commonNames: string[] = [
     'sawtooth oak mushroom'
 ];
 
-const etymology: string = '"Shii" comes from the Shii tree which was often used for cultivation. "Take" is the Japanese word for mushroom.';
+const etymology: string = 'The word “Shii” refers to the tree that it was originally cultivated on and “Take” is the Japanese word for mushroom.';
 
-const location: string = 'East Asia, very common on Japan and China';
+const location: string = 'Shiitake are found in East Asia, most commonly Japan and China.';
 
 const ecologicalGroup: EcologicalGroup = EcologicalGroup.SAPROPHYTIC;
 
-const edible: string = 'Yes! The mushroom cap has a meaty texture and a woodsy flavor that intensifies as it is cooked. The stem is very tough so it is commonly used for making broth';
+const edible: string = 'Yes! The mushroom cap has a meaty texture and a woodsy flavor that intensifies as it is cooked. The stem is very tough and difficult to eat so instead it is often used to make soups.';
 
 // Citations
 const wasserShiitake = new Citation('Wasser, S. P. (2005). Shiitake (Lentinus edodes). Encyclopedia of dietary supplements, 653-664.', 'https://xn--c1atere.xn--p1ai/upload/files/Wasser_2013_09_shiitake.pdf'); //6
@@ -35,21 +35,22 @@ const lentinanForCancer = new Citation('Zhang, M., Zhang, Y., Zhang, L., & Tian,
 const lentinanInhibatsTumor = new Citation('Deng, S., Zhang, G., Kuai, J., Fan, P., Wang, X., Zhou, P., ... & Huang, Y. (2018). Lentinan inhibits tumor angiogenesis via interferon γ and in a T cell independent manner. Journal of Experimental & Clinical Cancer Research, 37(1), 1-12.', 'https://jeccr.biomedcentral.com/articles/10.1186/s13046-018-0932-y')
 const extractLentinan = new Citation('Rao, Z., Dong, Y., Zheng, X., Tang, K., & Liu, J. (2021). Extraction, purification, bioactivities and prospect of lentinan: A review. Biocatalysis and Agricultural Biotechnology, 37, 102163.', 'https://www.sciencedirect.com/science/article/abs/pii/S1878818121002590#bib106')
 const growingGourmetAndMedicinalMush = new Citation('Stamets, P. (2011). Growing Gourmet and Medicinal Mushrooms. Ten Speed Press.', 'https://www.goodreads.com/en/book/show/53622')
+const mostCommonMushWorldwide = new Citation('Royse, D. J., Baars, J. J. P., & Tan, Q. (2017). Current Overview of Mushroom Production in the World. In John Wiley & Sons, Ltd eBooks (pp. 5–13). Wiley. https://doi.org/10.1002/9781119149446.ch2', 'https://onlinelibrary.wiley.com/doi/10.1002/9781119149446.ch2');
 
 const historyAndCultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('The cultivation of Shiitake mushrooms date back to the Sung Dynasty in China, around 960-1127 C.E.', [wasserShiitake]),
-    new ValueWithCitation('The technique for cultivating Shiitake was first writen down in 1313 by the Chinese author Wang Zhen in his book "Nong Shu" (農書) or "Book of Agriculture".', [wasserShiitake])
+    new ValueWithCitation('Shiitakes have been cultivated for over a thousand years, with the earliest recordings in the Sung Dynasty (960 -1127 CE).', [wasserShiitake]),
+    new ValueWithCitation('The oldest recorded guide on growing Shiitake dates back to 1313 in the Chinese author Wang Cheng’s  "Nong Shu" (農書) or “Book of Agriculture”. ', [wasserShiitake])
 ];
 
 const scienceFacts: ValueWithCitation<string>[] = [
     new ValueWithCitation('Shiitake mushrooms have shown to improve the quality of life and efficacy of chemotherapy and radiation therapy.', [lentinanForCancer]),
-    new ValueWithCitation('Shiitake contain a special type of polysacharide (carbohydrate) called Lentinan which helps stimulate the immune system. For this reason, scientists are exploring its potential to help people with acquired immunodeficiency syndrome (AIDS).', [lentinanForCancer, lentinanInhibatsTumor]),
-    new ValueWithCitation('The health benefits of Shiitake mushrooms can be obtained through eating them or through brewing a tea and letting the mushrooms soak in the hot water.', [extractLentinan])
+    new ValueWithCitation('Shiitake contains a special type of polysaccharide (carbohydrate) called Lentinan which helps stimulate the immune system. For this reason, scientists are exploring its potential to help people with acquired immunodeficiency syndrome (AIDS).', [lentinanForCancer, lentinanInhibatsTumor]),
 ];
 
 const agricultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Shiitake mushrooms are the second most cultivated mushroom in the world', [wildAboutMushroomsSf]),
-    new ValueWithCitation('The traditional method of cultivation practiced in China and Japan is called "Soak and Strike". This had cultivators lean logs against already infects trees and let the spores inoculate the fresh logs. These logs would then be buried for a year to allow for colonization of the mycelium throughout the log. Finally, after unburing the log, you strike it with other sticks. Once struck, this told the fungus to start fruiting.', [growingGourmetAndMedicinalMush])
+    new ValueWithCitation('As of 2017, Shiitake mushrooms are the most cultivated mushroom in the world.', [mostCommonMushWorldwide]),
+    new ValueWithCitation('The traditional method of growing Shiitake mushrooms in East Asia is called “Soak and Strike”. Fresh logs were leaned against already inoculated logs to propagate spores. The logs were then buried for a year to allow for colonization. Finally, when ready to fruit, the trees were unearthed and beaten with sticks.', [growingGourmetAndMedicinalMush]),
+    new ValueWithCitation('The processed material left over after shiitakes stop fruiting can then be used as a growth substrate for other saprophytic mushrooms such as the common table mushroom.', [growingGourmetAndMedicinalMush])
 ];
 
 const learnMore: Citation[] = [
