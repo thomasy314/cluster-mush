@@ -16,9 +16,9 @@ const commonNames: string[] = [
     'Pearl Oyster Mushroom'
 ];
 
-const etymology: string = 'Oyster refers to the shape of the cap resembling an oyster shell.';
+const etymology: string = 'This mushroom’s name refers to the shape of the cap resembling that of an oyster.';
 
-const location: string = 'that of aitake are common in eastern North America and can also be found in europe and Eastern Asia.'
+const location: string = 'Occurs throughout Britain and Ireland as well as in most parts of mainland Europe. It is also widely distributed throughout much of Asia, including Japan, and is present in parts of North America.';
 
 const ecologicalGroup: EcologicalGroup = EcologicalGroup.SAPROPHYTIC;
 
@@ -35,18 +35,18 @@ const breedingPotential: Citation = new Citation('Eger, G., Eden, G., & Wissig, 
 
 
 export const historyAndCultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('The Oyster mushroom was first cultivated during World War 1 by the Germans as a subsistance measure', [breedingPotential])
+    new ValueWithCitation('First cultivated for human consumption during World War 1 by the Germans as a subsistence measure.', [breedingPotential])
 ];
 
 const scienceFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Shown to be able to break down various types of oil, such as petroleum and diesel, into non-toxic compounds. This is possible due to its ability to break down lignin, a complex organic polymer used to strengthen the cell walls in wood and bark. Additionally, when analyzed after, the mushroom bodies were free of any oil residue.', [growingGourmetAndMedicinalMush, growToCleanEarth]),
-    new ValueWithCitation('Oyster mushroom can be used to break down certain biodegradable plastic bags suc has Oxo-Biodegradable plastic and Green polyurethane', [oxoBiodiodegradable, degradeGreenBag])
+    new ValueWithCitation('Often found on living trees, appearing to be parasitic but in reality it is only eating the dead parts of the tree.', [growingGourmetAndMedicinalMush]),
+    new ValueWithCitation('Oyster Mushrooms have been shown to be able to break down various types of oil, such as petroleum and diesel, into non-toxic compounds. It does this by producing enzymes that are normally used to break down the tough materials found in wood. Additionally, when analyzed after, the mushroom bodies were free of any oil residue.', [growingGourmetAndMedicinalMush, growToCleanEarth]),
 ];
 
 const agricultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Oyster mushrooms are able to capture and consume nematodes making them one of the few carnivorous mushroom species. Farmers can take advantage of this by mulching oyster ushrooms into garden soil to help reduce nematode populations', [nematodesAttackedByMush, growingGourmetAndMedicinalMush]),
-    new ValueWithCitation('Soaking left over oyster mushroom substrate in water can produce teas with different affets. Cold water is used to create a nutritious fertilizer. Hot water creates an herbicide', [growingGourmetAndMedicinalMush]),
-    new ValueWithCitation('Oyster mushrooms are one of the easiest mushrooms to cultivate and is often recommended to first time growers.', [mushOfTheMonthOyster])
+    new ValueWithCitation('Oyster mushrooms are carnivores and will consume nematodes. This is beneficial for farmers and gardeners as the fungus can be mulched into garden soil to help reduce costly nematode populations', [nematodesAttackedByMush, growingGourmetAndMedicinalMush]),
+    new ValueWithCitation('Soaking leftover Oyster mushroom substrate in water can produce various agricultural teas. Soaking in cold water can produce a nutritious fertilizer and insecticide, while hot water creates an herbicide.', [growingGourmetAndMedicinalMush]),
+    new ValueWithCitation('One of the easier mushrooms to cultivate and is often recommended to first time growers.', [mushOfTheMonthOyster])
 ];
 
 const learnMore: Citation[] = [
