@@ -5,9 +5,13 @@
 
 #navBarDrawer {
     padding: 1rem;
-    width: 100%;
     display: flex;
     flex-direction: column;
+    text-align: right;
+}
+
+#navBarDrawerTitle {
+    text-align: center;
 }
 
 .navBarItem {
@@ -19,7 +23,7 @@
     background-color: white;
     height: 100%;
     border-width: 0;
-    margin-right: .5rem;
+    margin-left: .5rem;
     font-size: 1em;
 }
 

@@ -1,18 +1,41 @@
-import { NavBarLink } from "./nav-bar-link";
+
+import MenuIcon from '@mui/icons-material/Menu';
+import { Drawer } from "@mui/material";
 import { mushroomInfoPageList } from "../../../pages/mushroom-info-page";
+import { NavBarLink } from "./nav-bar-link";
+import { useState } from 'react';
 
 export const MainNavBarContents = () => {
 
-    const test = mushroomInfoPageList.map(infoPage => {
+    const mushroomLinks = mushroomInfoPageList.map(infoPage => {
         return (
             <NavBarLink key={infoPage.name} path={`/${infoPage.getPath()}`}>{infoPage.name}</NavBarLink>
         )
     });
 
+    const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
+
     return (
         <>
-            {test}
-            {false && <a href="/about"><button className="navBarButton navBarItem">About</button></a>}
+
+
+            <>
+                <div style={{ flexGrow: 1 }}></div>
+                <button className="navBarItem navBarButton" onClick={() => setDrawerOpen(true)}><MenuIcon /></button>
+                <Drawer
+                    anchor='right'
+                    open={drawerOpen}
+                    onClose={() => setDrawerOpen(false)}
+                >
+                    <div id='navBarDrawer'>
+                        <h2 id="navBarDrawerTitle">Mushrooms</h2>
+                        {mushroomLinks}
+                        <h2>Other</h2>
+                        {false && <a href="/about"><button className="navBarButton navBarItem">About</button></a>}
+                        <NavBarLink path={'/about'}>About Cluster Mush</NavBarLink>
+                    </div>
+                </Drawer>
+            </>
         </>
     )
 };

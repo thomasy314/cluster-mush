@@ -24,7 +24,7 @@ export const BasketView = () => {
 
     return (
         <>
-            {basket.items.length ? {basketItems} : <p>Basket is empty</p>}
+            {basket.items.length ? basketItems : <p>Basket is empty</p>}
         </>
     )
 }
