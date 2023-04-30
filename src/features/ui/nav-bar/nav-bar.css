@@ -10,8 +10,12 @@
     text-align: right;
 }
 
-#navBarDrawerTitle {
+.navBarDrawerTitle {
     text-align: center;
+}
+
+.navBarDrawerDivider {
+    width: 100%;
 }
 
 .navBarItem {

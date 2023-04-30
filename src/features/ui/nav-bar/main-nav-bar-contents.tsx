@@ -28,10 +28,9 @@ export const MainNavBarContents = () => {
                     onClose={() => setDrawerOpen(false)}
                 >
                     <div id='navBarDrawer'>
-                        <h2 id="navBarDrawerTitle">Mushrooms</h2>
+                        <h2 className="navBarDrawerTitle">Mushrooms</h2>
                         {mushroomLinks}
-                        <h2>Other</h2>
-                        {false && <a href="/about"><button className="navBarButton navBarItem">About</button></a>}
+                        <hr className="navBarDrawerDivider" />
                         <NavBarLink path={'/about'}>About Cluster Mush</NavBarLink>
                     </div>
                 </Drawer>
