@@ -20,7 +20,7 @@ const commonNames: string[] = [
     '(Fully Grown) Portobello'
 ];
 
-const etymology: React.ReactNode = <p><u>Portobello</u>:  It is unclear where the name Portobello comes from. Many say it is named after a famous road in London, some say it is the Italian word “pratarolo” meaning meadow, and some say that it is just a marketing name</p>
+const etymology: React.ReactNode = <><br/><br/><u>Portobello</u>:  It is unclear where the name Portobello comes from. Many say it is named after a famous road in London, some say it is the Italian word “pratarolo” meaning meadow, and some say that it is just a marketing name</>
 
 const location: string = 'The common store mushroom is native to Europe, Asia, and North America.'
 

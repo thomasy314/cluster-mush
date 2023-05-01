@@ -17,7 +17,6 @@ const FullSplitPageLayoutDefaultProps = {
 const FullSplitPageLayout = (props: PropsWithChildren<FullSplitPageLayoutProps>) => {
 
     const theme: Theme = useTheme();
-    const moreOrEqualToMd: boolean = useMediaQuery(theme.breakpoints.up('md'));
     const lessThanMd: boolean = useMediaQuery(theme.breakpoints.down('md'));
 
     const smallImageBorderSize: number = 10;
@@ -26,7 +25,7 @@ const FullSplitPageLayout = (props: PropsWithChildren<FullSplitPageLayoutProps>)
     const width: number = lessThanMd ? 100 : (50 - (props.smallImage ? smallImageBorderSize * 2 : 0));
 
     const containerStyle: CSSProperties = {
-        paddingLeft: (props.smallImage && moreOrEqualToMd) ? '20vh' : 0,
+        paddingLeft: (props.smallImage && !lessThanMd) ? '20vh' : 0,
         paddingTop: props.smallImage ? '5vh' : 0
     }
 
@@ -45,7 +44,7 @@ const FullSplitPageLayout = (props: PropsWithChildren<FullSplitPageLayoutProps>)
                             {props.titleComponent}
                         </Container>}
                         <Grid container spacing={2}>
-                            {moreOrEqualToMd && <Grid item xs={6}>
+                            {!lessThanMd && <Grid item xs={6}>
                                 <Container>
                                     {props.titleComponent}
                                     {props.children}
