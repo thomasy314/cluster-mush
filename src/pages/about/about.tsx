@@ -1,6 +1,5 @@
 import { Container, Grid } from "@mui/material"
 import { SocialIcons } from "../../features/social-media"
-import { FullSplitPageLayout } from "../../features/ui"
 
 import portobelloImg from '../../assets/photos/commonStore/portobello.png';
 import shiitakeImg from '../../assets/photos/shiitake/shiitake.png';

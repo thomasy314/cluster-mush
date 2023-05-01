@@ -21,6 +21,7 @@ const firebaseConfig: FirebaseOptions = {
 
 // Initialize Firebase
 const app: FirebaseApp = initializeApp(firebaseConfig);
+// eslint-disable-next-line
 const analytics: Analytics = getAnalytics(app);
 
 // Firestore

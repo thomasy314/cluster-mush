@@ -1,4 +1,4 @@
-import { AppBar, Theme, Toolbar, useTheme } from '@mui/material';
+import { AppBar, Toolbar } from '@mui/material';
 import { MainNavBarContents } from './main-nav-bar-contents';
 import { NavBarLink } from './nav-bar-link';
 import { ShopNavBarContents } from './shop-nav-bar-contents';

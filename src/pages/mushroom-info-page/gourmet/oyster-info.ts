@@ -27,11 +27,14 @@ const edible: string = 'Yes! Has a meaty texture and an earthy flavor with anise
 // Citations
 const nematodesAttackedByMush: Citation = new Citation('Lee, C., Chang, H., Yang, C., Wali, N., Shie, J., & Hsueh, Y. (2020). Sensory cilia as the Achilles heel of nematodes when attacked by carnivorous mushrooms. Proceedings of the National Academy of Sciences of the United States of America, 117(11), 6014–6022. https://doi.org/10.1073/pnas.1918473117', 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7084146/');
 const growingGourmetAndMedicinalMush: Citation = new Citation('Stamets, P. (2000). Growing Gourmet and Medicinal Mushrooms. National Geographic Books.', 'https://fungi.com/products/growing-gourmet-and-medicinal-mushrooms');
-const oxoBiodiodegradable: Citation = new Citation('Da Luz, J. M. R., Paes, S. A., Nunes, M. D., De Cássia Soares Da Silva, M., & Kasuya, M. C. M. (2013). Degradation of Oxo-Biodegradable Plastic by Pleurotus ostreatus. PLOS ONE, 8(8), e69386. https://doi.org/10.1371/journal.pone.0069386', 'https://doi.org/10.1371/journal.pone.0069386');
 const growToCleanEarth: Citation = new Citation('Rhodes, C. J. (2014). Mycoremediation (bioremediation with fungi) – growing mushrooms to clean the earth. Chemical Speciation and Bioavailability, 26(3), 196–198. https://doi.org/10.3184/095422914x14047407349335', 'https://doi.org/10.3184/095422914x14047407349335');
-const degradeGreenBag: Citation = new Citation('Da Luz, J. M. R., Paes, S. A., Ribeiro, K. C. S., Mendes, I. C., & Kasuya, M. C. M. (2015). Degradation of Green Polyethylene by Pleurotus ostreatus. PLOS ONE, 10(6), e0126047. https://doi.org/10.1371/journal.pone.0126047', 'https://doi.org/10.1371/journal.pone.0126047');
 const mushOfTheMonthOyster: Citation = new Citation('Volk, T. (n.d.). Pleurotus ostreatus, the Oyster mushroom, Tom Volk’s Fungus of the Month for October 1998. https://botit.botany.wisc.edu/toms_fungi/oct98.html', 'https://botit.botany.wisc.edu/toms_fungi/oct98.html');
 const breedingPotential: Citation = new Citation('Eger, G., Eden, G., & Wissig, E. T. (1976). Pleurotus Ostreatus ? breeding potential of a new cultivated mushroom. Theoretical and Applied Genetics, 47(4), 155–163. https://doi.org/10.1007/bf00278373', 'https://doi.org/10.1007/BF00278373');
+
+// eslint-disable-next-line
+const oxoBiodiodegradable: Citation = new Citation('Da Luz, J. M. R., Paes, S. A., Nunes, M. D., De Cássia Soares Da Silva, M., & Kasuya, M. C. M. (2013). Degradation of Oxo-Biodegradable Plastic by Pleurotus ostreatus. PLOS ONE, 8(8), e69386. https://doi.org/10.1371/journal.pone.0069386', 'https://doi.org/10.1371/journal.pone.0069386');
+// eslint-disable-next-line
+const degradeGreenBag: Citation = new Citation('Da Luz, J. M. R., Paes, S. A., Ribeiro, K. C. S., Mendes, I. C., & Kasuya, M. C. M. (2015). Degradation of Green Polyethylene by Pleurotus ostreatus. PLOS ONE, 10(6), e0126047. https://doi.org/10.1371/journal.pone.0126047', 'https://doi.org/10.1371/journal.pone.0126047');
 
 
 export const historyAndCultureFacts: ValueWithCitation<string>[] = [

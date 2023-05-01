@@ -5,8 +5,6 @@ import { SocialIcons } from '../../features/social-media';
 
 const ComingShroom = () => {
 
-    const instagramLink: string = 'https://www.instagram.com/clustermush/';
-
     return (
         <Container id="ComingShroomContainer">
             <img src="/logos/logo.svg" className="App-logo" alt="logo" />

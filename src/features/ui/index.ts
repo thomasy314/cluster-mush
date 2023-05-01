@@ -5,3 +5,4 @@ export * from './loading/loading-button/loading-button';
 export * from './nav-bar/nav-bar-dropdown';
 export * from './loading/loading-page/loading-page';
 export * from './theme';
+export * from './url-image-grid/url-image-grid';

@@ -30,12 +30,15 @@ const edible: string = 'Yes! The mushroom cap has a meaty texture and a woodsy f
 
 // Citations
 const wasserShiitake = new Citation('Wasser, S. P. (2005). Shiitake (Lentinus edodes). Encyclopedia of dietary supplements, 653-664.', 'https://xn--c1atere.xn--p1ai/upload/files/Wasser_2013_09_shiitake.pdf'); //6
-const wildAboutMushroomsSf = new Citation('Wild About Mushrooms: Shiitake. (n.d.).', 'https://www.mssf.org/cookbook/shiitake.html');
 const lentinanForCancer = new Citation('Zhang, M., Zhang, Y., Zhang, L., & Tian, Q. (2019). Mushroom polysaccharide lentinan for treating different types of cancers: A review of 12 years clinical studies in China. Progress in molecular biology and translational science, 163, 297-328.', 'https://www.sciencedirect.com/science/article/abs/pii/S1877117319300341')
 const lentinanInhibatsTumor = new Citation('Deng, S., Zhang, G., Kuai, J., Fan, P., Wang, X., Zhou, P., ... & Huang, Y. (2018). Lentinan inhibits tumor angiogenesis via interferon γ and in a T cell independent manner. Journal of Experimental & Clinical Cancer Research, 37(1), 1-12.', 'https://jeccr.biomedcentral.com/articles/10.1186/s13046-018-0932-y')
-const extractLentinan = new Citation('Rao, Z., Dong, Y., Zheng, X., Tang, K., & Liu, J. (2021). Extraction, purification, bioactivities and prospect of lentinan: A review. Biocatalysis and Agricultural Biotechnology, 37, 102163.', 'https://www.sciencedirect.com/science/article/abs/pii/S1878818121002590#bib106')
 const growingGourmetAndMedicinalMush = new Citation('Stamets, P. (2011). Growing Gourmet and Medicinal Mushrooms. Ten Speed Press.', 'https://www.goodreads.com/en/book/show/53622')
 const mostCommonMushWorldwide = new Citation('Royse, D. J., Baars, J. J. P., & Tan, Q. (2017). Current Overview of Mushroom Production in the World. In John Wiley & Sons, Ltd eBooks (pp. 5–13). Wiley. https://doi.org/10.1002/9781119149446.ch2', 'https://onlinelibrary.wiley.com/doi/10.1002/9781119149446.ch2');
+
+// eslint-disable-next-line
+const wildAboutMushroomsSf = new Citation('Wild About Mushrooms: Shiitake. (n.d.).', 'https://www.mssf.org/cookbook/shiitake.html');
+// eslint-disable-next-line
+const extractLentinan = new Citation('Rao, Z., Dong, Y., Zheng, X., Tang, K., & Liu, J. (2021). Extraction, purification, bioactivities and prospect of lentinan: A review. Biocatalysis and Agricultural Biotechnology, 37, 102163.', 'https://www.sciencedirect.com/science/article/abs/pii/S1878818121002590#bib106')
 
 const historyAndCultureFacts: ValueWithCitation<string>[] = [
     new ValueWithCitation('Shiitakes have been cultivated for over a thousand years, with the earliest recordings in the Sung Dynasty (960 -1127 CE).', [wasserShiitake]),

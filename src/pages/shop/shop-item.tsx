@@ -1,4 +1,4 @@
-import { Button, Theme, useMediaQuery, useTheme } from '@mui/material';
+import { Button } from '@mui/material';
 import { useContext, useEffect, useState } from 'react';
 import { CollapseCard } from '../../features/ui/collapse-card/collapse-card';
 import { FullSplitPageLayout } from '../../features/ui/full-split-layout/full-split-page-layout';
@@ -25,9 +25,6 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
     })
 
     const basket = useContext(BasketContext);
-
-    const theme: Theme = useTheme();
-    const lessThanMd: boolean = useMediaQuery(theme.breakpoints.down('md'));
 
     const title = <h1>{selectedItem.name}</h1>;
 

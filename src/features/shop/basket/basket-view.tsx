@@ -1,4 +1,4 @@
-import { Button, Theme, useMediaQuery, useTheme } from "@mui/material";
+import { Button } from "@mui/material";
 import { useContext } from "react";
 import { BasketContext, BasketItem } from "./basket.context";
 
