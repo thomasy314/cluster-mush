@@ -24,7 +24,7 @@ export const NavBar = (props: NavBarProps) => {
     // TODO: Replace with unstyled menu
     return (
         <>
-            <AppBar id="navBarContainer" position='sticky'>
+            <AppBar elevation={0} id="navBarContainer" position='sticky'>
                 <Toolbar>
                     <NavBarLink path='/'><img alt="Logo" className="navBarItem" src="/logos/logo.svg" /></NavBarLink>
                     <>

@@ -22,7 +22,7 @@ export const MainRoutes = () => {
             <Route path='/style-guide' element={<StyleGuide />} />
             <Route path='/about' element={<About />} />
             <Route path='/gourmet-mushrooms' element={<BrowseMushroomInfoPage title='Gourmet Mushrooms' infoList={gourmetMushroomList}/>} />
-            <Route path='/browse-fungi' element={<BrowseMushroomInfoPage title='Mushroom Categories' infoList={mushroomCategoryList}/>} />
+            <Route path='/mushroom-catergories' element={<BrowseMushroomInfoPage title='Mushroom Categories' infoList={mushroomCategoryList}/>} />
             {infoPages}
         </ Routes>
     )

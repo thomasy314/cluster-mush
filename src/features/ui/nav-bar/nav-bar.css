@@ -1,5 +1,4 @@
 #navBarContainer {
-    box-shadow: 0px 0px;
     background-color: white;
     padding: .1rem 0rem;
 }
@@ -20,7 +19,7 @@
 }
 
 .navBarItem {
-    height: 4rem;
+    height: 3.5rem;
     cursor: pointer;
 }
 
@@ -33,7 +32,7 @@
 }
 
 .underlineOnHover:hover {
-    height: calc(3px + 4.5rem);
+    height: calc(3px + 3.5rem);
     border-color: black;
     border-bottom-width: 3px;
     margin-bottom: -3px

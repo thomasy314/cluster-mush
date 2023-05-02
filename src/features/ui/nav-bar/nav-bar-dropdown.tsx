@@ -20,16 +20,18 @@ export const Dropdown = (props: PropsWithChildren<DropdownProps>) => {
 
     return (
         <div>
-            <button className='navBarButton navBarItem' onClick={handleClick}>{props.buttonText}</button>
+            <button className='navBarButton navBarItem' onMouseOver={handleClick} onClick={handleClick}>{props.buttonText}</button>
             <Menu
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
                 transitionDuration={0}
                 elevation={1}
+                MenuListProps={{ onMouseLeave: handleClose }}
             >
                 {props.children}
             </Menu>
         </div>
     )
+
 };

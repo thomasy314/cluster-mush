@@ -1,7 +1,7 @@
 import MenuIcon from '@mui/icons-material/Menu';
-import { Drawer, Theme, useMediaQuery, useTheme } from "@mui/material";
+import { Drawer, Grid, Theme, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from 'react';
-import { mushroomInfoPageList } from "../../../pages/mushroom-info-page";
+import { mushroomCategoryList, mushroomInfoPageList } from "../../../pages/mushroom-info-page";
 import { Dropdown } from './nav-bar-dropdown';
 import { NavBarLink } from "./nav-bar-link";
 
@@ -10,14 +10,31 @@ export const MainNavBarContents = () => {
     const theme: Theme = useTheme();
     const lessThanMd: boolean = useMediaQuery(theme.breakpoints.down('md'));
 
-    const mushroomLinks = mushroomInfoPageList.map(infoPage => {
-        return (
-            <div key={`div-${infoPage.name}`}>
-                <NavBarLink key={infoPage.name} path={`/${infoPage.getPath()}`}>{infoPage.name}</NavBarLink>
-                {!lessThanMd && <br key={`br-${infoPage.name}`} />}
-            </div>
-        )
-    });
+    const [mushroomDropdownImage, setMushroomDropdownImage] = useState<string>(mushroomInfoPageList[0].images[0]);
+
+    const mushroomLinks = (
+        <Grid container maxHeight='50vh' overflow='hidden'>
+            <Grid item xs={6}>
+                {mushroomInfoPageList.map(infoPage => {
+                    return (
+                        <div onMouseEnter={() => setMushroomDropdownImage(infoPage.images[0])}>
+                            <Grid container key={`div-${infoPage.name}`}>
+                                <Grid item>
+                                    <NavBarLink key={infoPage.name} path={`/${infoPage.getPath()}`}>{infoPage.name}</NavBarLink>
+                                    {!lessThanMd && <br key={`br-${infoPage.name}`} />}
+                                </Grid>
+                            </Grid>
+                        </div>
+                    )
+                })}
+            </Grid>
+            <Grid item xs={6}>
+                <img style={{ aspectRatio: '1/1', maxHeight: '50vh', objectFit: 'cover' }} src={mushroomDropdownImage} />
+            </Grid>
+        </Grid>
+    )
+
+
 
     const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
 
@@ -45,7 +62,7 @@ export const MainNavBarContents = () => {
                     <Dropdown buttonText='Gourmet Mushrooms'>
                         {mushroomLinks}
                     </Dropdown>
-                    <NavBarLink path={'/about'}>About</NavBarLink>
+                    <NavBarLink underlineOnHover={true} path={'/about'}>About</NavBarLink>
                 </>
             }
         </>
