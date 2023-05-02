@@ -1,7 +1,7 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import { Drawer, Grid, Theme, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from 'react';
-import { mushroomCategoryList, mushroomInfoPageList } from "../../../pages/mushroom-info-page";
+import { mushroomInfoPageList } from "../../../pages/mushroom-info-page";
 import { Dropdown } from './nav-bar-dropdown';
 import { NavBarLink } from "./nav-bar-link";
 
@@ -29,7 +29,7 @@ export const MainNavBarContents = () => {
                 })}
             </Grid>
             <Grid item xs={6}>
-                <img style={{ aspectRatio: '1/1', maxHeight: '50vh', objectFit: 'cover' }} src={mushroomDropdownImage} />
+                <img alt='selection mushroom' style={{ aspectRatio: '1/1', maxHeight: '50vh', objectFit: 'cover' }} src={mushroomDropdownImage} />
             </Grid>
         </Grid>
     )
