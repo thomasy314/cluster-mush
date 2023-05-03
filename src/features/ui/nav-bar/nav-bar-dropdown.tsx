@@ -1,36 +1,25 @@
-import { Menu } from "@mui/material";
-import { PropsWithChildren, useState } from "react";
+import { Paper } from "@mui/material";
+import { PropsWithChildren } from "react";
 
 import './nav-bar-dropdown.css';
 
 type DropdownProps = {
-    buttonText: string
+    buttonText: string,
+    buttonLink?: string
 }
 
 export const Dropdown = (props: PropsWithChildren<DropdownProps>) => {
 
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
     return (
-        <div>
-            <button className='navBarButton navBarItem' onMouseOver={handleClick} onClick={handleClick}>{props.buttonText}</button>
-            <Menu
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                transitionDuration={0}
-                elevation={1}
-                MenuListProps={{ onMouseLeave: handleClose }}
-            >
+        <div className="dropdown">
+            {props.buttonLink ?
+                <a href={props.buttonLink}><button className='navBarButton navBarItem dropbtn' >{props.buttonText}</button></a>
+                :
+                <button className='navBarButton navBarItem dropbtn' >{props.buttonText}</button>
+            }
+            <Paper className="dropdown-content" >
                 {props.children}
-            </Menu>
+            </Paper>
         </div>
     )
 

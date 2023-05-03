@@ -8,11 +8,11 @@ import { MushroomInfoPage } from '../features/mushroom-info-page';
 import { mushroomCategoryList, mushroomInfoPageList } from '../pages/mushroom-info-page';
 import { About } from '../pages/about/about';
 import { BrowseMushroomInfoPage } from '../pages/mushroom-info-page';
-import { gourmetMushroomList } from '../pages/mushroom-info-page/gourmet';
+import { gourmetMushroomList } from '../pages/mushroom-info-page/definitions';
 import { Navigate } from 'react-router';
 import { Fragment } from 'react';
 import { createUnknownPathRedirect } from './routing-path-helpers';
-
+import { browseGourmetMushroomsDesc } from '../pages/mushroom-info-page/browse-mushroom-info-pages/browse-mushroom-info-pages-strings';
 
 const infoPages = mushroomInfoPageList.map(mushInfo =>
     <Fragment key={mushInfo.name}>
@@ -35,14 +35,21 @@ const redirectPages = mushroomInfoPageList.map(mushInfo =>
     />
 );
 
+export enum MainPagePaths  {
+    STYLE_GUIDE = '/style-guide',
+    ABOUT = '/about',
+    BROWSE_GOURMET_MUSHROOMS = '/gourmet-mushrooms',
+    BROWSE_MUSHROOM_CATEGORIES = '/mushroom-categories'
+}
+
 export const MainRoutes = () => {
     return (
         <Routes>
             <Route index element={<ComingShroom />} />
-            <Route path='/style-guide' element={<StyleGuide />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/gourmet-mushrooms' element={<BrowseMushroomInfoPage title='Gourmet Mushrooms' infoList={gourmetMushroomList} />} />
-            <Route path='/mushroom-catergories' element={<BrowseMushroomInfoPage title='Mushroom Categories' infoList={mushroomCategoryList} />} />
+            <Route path={MainPagePaths.STYLE_GUIDE} element={<StyleGuide />} />
+            <Route path={MainPagePaths.ABOUT} element={<About />} />
+            <Route path={MainPagePaths.BROWSE_GOURMET_MUSHROOMS} element={<BrowseMushroomInfoPage title='Gourmet Mushrooms' description={browseGourmetMushroomsDesc} infoList={gourmetMushroomList} />} />
+            <Route path={MainPagePaths.BROWSE_MUSHROOM_CATEGORIES} element={<BrowseMushroomInfoPage title='Mushroom Categories' infoList={mushroomCategoryList} />} />
             {redirectPages}
             {infoPages}
             {createUnknownPathRedirect()}

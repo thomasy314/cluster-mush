@@ -1,4 +1,4 @@
-import { gourmetMushroomList } from "./gourmet"
+import { gourmetMushroomList } from "./definitions"
 
 export type MushroomCategory = {
     name: string,

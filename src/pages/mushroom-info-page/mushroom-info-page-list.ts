@@ -1,4 +1,4 @@
-import { CommonStoreInfo, EnokiInfo, MaitakeInfo, OysterInfo, ShiitakeInfo } from "./gourmet";
+import { CommonStoreInfo, EnokiInfo, MaitakeInfo, OysterInfo, ShiitakeInfo } from "./definitions";
 
 export const mushroomInfoPageList = [
     CommonStoreInfo,
