@@ -4,10 +4,10 @@ import './app.css';
 
 import { MainRoutes, ShopRoutes } from './routing';
 
-import { NavBar, NavBarVariation } from './features/ui/nav-bar/nav-bar';
 import { BasketProvider } from './features/shop';
-import { inShop } from './routing/routing-path-helpers';
 import { theme } from './features/ui';
+import { NavBar, NavBarVariation } from './features/ui/nav-bar/nav-bar';
+import { inShop } from './routing/routing-path-helpers';
 
 function App() {
 

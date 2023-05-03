@@ -75,8 +75,12 @@ class MushroomInfo {
         return [...new Set<Citation>(citations)];
     }
 
-    getPath = (): string => {
+    getCommonNamePath = (): string => {
         return stringToPath(this.name);
+    }
+
+    getLatinNamePath = (): string => {
+        return stringToPath(this.latinName);
     }
 }
 

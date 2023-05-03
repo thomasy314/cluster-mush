@@ -41,7 +41,7 @@ const wildAboutMushroomsSf = new Citation('Wild About Mushrooms: Shiitake. (n.d.
 const extractLentinan = new Citation('Rao, Z., Dong, Y., Zheng, X., Tang, K., & Liu, J. (2021). Extraction, purification, bioactivities and prospect of lentinan: A review. Biocatalysis and Agricultural Biotechnology, 37, 102163.', 'https://www.sciencedirect.com/science/article/abs/pii/S1878818121002590#bib106')
 
 const historyAndCultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Shiitakes have been cultivated for over a thousand years, with the earliest recordings in the Sung Dynasty (960 -1127 CE).', [wasserShiitake]),
+    new ValueWithCitation('Shiitakes have been cultivated for over a thousand years, with the earliest recordings from the Sung Dynasty (960 -1127 CE).', [wasserShiitake]),
     new ValueWithCitation('The oldest recorded guide on growing Shiitake dates back to 1313 in the Chinese author Wang Cheng’s  "Nong Shu" (農書) or “Book of Agriculture”. ', [wasserShiitake])
 ];
 

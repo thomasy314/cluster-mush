@@ -17,10 +17,10 @@ export const MainNavBarContents = () => {
             <Grid item xs={6}>
                 {mushroomInfoPageList.map(infoPage => {
                     return (
-                        <div onMouseEnter={() => setMushroomDropdownImage(infoPage.images[0])}>
+                        <div key={`${infoPage.name}-nav-view`} onMouseEnter={() => setMushroomDropdownImage(infoPage.images[0])}>
                             <Grid container key={`div-${infoPage.name}`}>
                                 <Grid item>
-                                    <NavBarLink key={infoPage.name} path={`/${infoPage.getPath()}`}>{infoPage.name}</NavBarLink>
+                                    <NavBarLink key={infoPage.name} path={`/${infoPage.getCommonNamePath()}`}>{infoPage.name}</NavBarLink>
                                     {!lessThanMd && <br key={`br-${infoPage.name}`} />}
                                 </Grid>
                             </Grid>
