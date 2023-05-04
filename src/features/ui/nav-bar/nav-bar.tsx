@@ -21,7 +21,6 @@ export const NavBar = (props: NavBarProps) => {
         [NavBarVariation.SHOP]: <ShopNavBarContents />
     }
 
-    // TODO: Replace with unstyled menu
     return (
         <>
             <AppBar elevation={0} id="navBarContainer" position='sticky'>

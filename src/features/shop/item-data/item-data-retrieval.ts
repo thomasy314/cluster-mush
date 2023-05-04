@@ -22,6 +22,7 @@ export const getAvaiableItems = (): Promise<ShopItemInfo[]> => {
                     const shopItemInfo = {
                         id: docSnap.id,
                         name: docSnap.get('name'),
+                        description: docSnap.get('description'),
                         price: docSnap.get('price'),
                         image: docSnap.get('image'),
                         available: docSnap.get('available'),
@@ -66,6 +67,7 @@ const requestShopItemByIdFromFirebase = (id: string): Promise<ShopItemInfo> => {
                     const shopItem = {
                         id: docSnap.id,
                         name: docSnap.get('name'),
+                        description: docSnap.get('description'),
                         price: docSnap.get('price'),
                         image: docSnap.get('image'),
                         available: docSnap.get('available'),

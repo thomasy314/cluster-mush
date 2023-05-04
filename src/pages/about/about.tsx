@@ -1,9 +1,9 @@
-import { Container, Grid } from "@mui/material"
-import { SocialIcons } from "../../features/social-media"
+import { Container, Grid } from "@mui/material";
+import { SocialIcons } from "../../features/social-media";
 
 import portobelloImg from '../../assets/photos/commonStore/portobello.png';
-import shiitakeImg from '../../assets/photos/shiitake/shiitake.png';
 import enokiImg from '../../assets/photos/enoki/enoki.jpg';
+import shiitakeImg from '../../assets/photos/shiitake/shiitake.png';
 
 import tomImg from '../../assets/photos/people/tom.jpg';
 

@@ -17,6 +17,7 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [selectedItem, setSelectedItem] = useState<ShopItemInfo>({
         name: '',
+        description: '',
         price: 0,
         image: '',
         available: false,
@@ -46,8 +47,8 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
         <>
             <FullSplitPageLayout loading={loading} titleComponent={title} imageSrc={selectedItem.image} smallImage>
                 <p>${selectedItem.price.toFixed(2)}</p>
-                <p>{selectedItem.name}</p>
                 <Button onClick={() => basket.addOneToBasket(selectedItem)}>Add to basket</Button>
+                <p><i>{selectedItem.description}</i></p>
                 <br />
                 <hr style={hrLineStyle} className="shopItemDivideLine" />
                 <br />
@@ -57,12 +58,4 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
             </FullSplitPageLayout>
         </>
     )
-
-    /*
-        <ul>
-            {props.storePageInfo.itemBulletNotes.map(bulletNote => 
-                (<li>{bulletNote}</li>)
-            )}
-        </ul>
-    */
 }

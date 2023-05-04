@@ -46,7 +46,6 @@ export function handleCheckout(basketItems: BasketItem[]): Promise<void> {
             .then(stripe => {
 
                 const checkoutItems = basketItems.map((bItem: BasketItem): CheckoutItem => {
-
                     return {
                         price: bItem.item.stripeId,
                         quantity: bItem.quantity
@@ -54,11 +53,14 @@ export function handleCheckout(basketItems: BasketItem[]): Promise<void> {
                 });
 
                 const checkoutInputs: RedirectToCheckoutOptions = {
+                    // clientReferenceId?: string;
                     lineItems: checkoutItems,
                     mode: 'payment',
                     successUrl: successUrl,
                     cancelUrl: cancelUrl,
-                    customerEmail: 'customer@email.com',
+                    shippingAddressCollection: {
+                        allowedCountries: ["US"]
+                    }
                 }
 
                 stripe.redirectToCheckout(checkoutInputs)
