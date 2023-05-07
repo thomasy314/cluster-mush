@@ -3,6 +3,8 @@ import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
 import { Analytics, getAnalytics } from "firebase/analytics";
 import { collection, CollectionReference, Firestore, getFirestore } from "firebase/firestore";
 import { FirebaseStorage, getStorage } from "firebase/storage";
+import { Auth, getAuth, GoogleAuthProvider } from "firebase/auth";
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -26,7 +28,15 @@ const analytics: Analytics = getAnalytics(app);
 
 // Firestore
 const firestoreDb: Firestore = getFirestore(app);
-export const shopItemInfoCollectionRef: CollectionReference = collection(firestoreDb, 'shop-item-info');
+export const stripeProductsCollectionRef: CollectionReference = collection(firestoreDb, 'products');
+export const stripeCustomerCollectionRef: CollectionReference = collection(firestoreDb, 'customers');
 
 // Firebase Storage
 export const firebaseStorage: FirebaseStorage = getStorage(app);
+
+// Firebase Auth
+export const googleAuthProvider: GoogleAuthProvider = new GoogleAuthProvider();
+googleAuthProvider.setCustomParameters({
+  prompt: "select_account"
+});
+export const firebaseAuth: Auth = getAuth(app);

@@ -1,11 +1,14 @@
-import { loadStripe, Stripe, RedirectToCheckoutOptions } from '@stripe/stripe-js';
+import { loadStripe, Stripe } from '@stripe/stripe-js';
+import { User } from 'firebase/auth';
+import { addDoc, collection, onSnapshot } from 'firebase/firestore';
 import { FailedToRedirectToCheckout, FailedToRequestStripeClient, StripeClientIsNull } from '../../../errors';
 import { isLocalHost } from '../../../routing/routing-path-helpers';
+import { stripeCustomerCollectionRef } from '../../firebase/firebase';
 import { BasketItem } from '../basket';
 
 let stripePromise: Promise<Stripe>;
 
-const stripePublishKey_TEST = 'pk_test_51MxqrTHgT1AABCbEpl4hep9DfirvaXUuit2kwXR8z7aDRB5NBKPZ9tHo5oSHQrzCxQvYcF7YFBYEQYXBRD7wKfuP00FnIUwOf4';
+const stripePublishKey_TEST = 'pk_live_51MxqrTHgT1AABCbEsoyHcesKWgzhCPFt6a40dGMiFjrLT5kAXLQcGMwZnKHqiYJzRBPyPUbPTTDUF8TaOVR2PKbm00xmLogwus';
 
 const completeUrl = isLocalHost() ? 'http://shop.localhost:3000' : 'https://shop.clustermush.com';
 const successUrl = completeUrl + '/success';
@@ -15,7 +18,6 @@ type CheckoutItem = {
     price: string,
     quantity: number
 }
-
 
 export const getStripe = () => {
 
@@ -40,32 +42,49 @@ export const getStripe = () => {
     return stripePromise;
 };
 
-export function handleCheckout(basketItems: BasketItem[]): Promise<void> {
-    return new Promise((resolve, reject) => {
-        getStripe()
-            .then(stripe => {
+export const handleCheckout_v2 = (basketItems: BasketItem[], user: User): Promise<void> => {
 
-                const checkoutItems = basketItems.map((bItem: BasketItem): CheckoutItem => {
-                    return {
-                        price: bItem.item.stripeId,
-                        quantity: bItem.quantity
-                    }
-                });
+    const checkoutSessions = collection(stripeCustomerCollectionRef, user.uid, "checkout_sessions");
 
-                const checkoutInputs: RedirectToCheckoutOptions = {
-                    // clientReferenceId?: string;
-                    lineItems: checkoutItems,
-                    mode: 'payment',
-                    successUrl: successUrl,
-                    cancelUrl: cancelUrl,
-                    shippingAddressCollection: {
-                        allowedCountries: ["US"]
-                    }
-                }
-
-                stripe.redirectToCheckout(checkoutInputs)
-                    .then(() => resolve())
-                    .catch(error => reject(new FailedToRedirectToCheckout(error)))
-            })
+    const checkoutItems = basketItems.map((bItem: BasketItem): CheckoutItem => {
+        return {
+            price: bItem.item.price_id,
+            quantity: bItem.quantity
+        }
     });
+
+    return new Promise((resolve, reject) => {
+        addDoc(checkoutSessions, {
+            mode: "payment",
+            line_items: checkoutItems,
+            success_url: successUrl,
+            cancel_url: cancelUrl,
+            shipping_rates: [ 'shr_1N5BkhHgT1AABCbE4bhK3Igb' ]
+        })
+            .then(docRef => {
+                const unSub = onSnapshot(docRef, checkoutDoc => {
+                    if (checkoutDoc.get('error')) {
+                        reject(new FailedToRedirectToCheckout(checkoutDoc.get('error')));
+                        return;
+                    }
+                    const sessionId = checkoutDoc.get('sessionId');
+                    if (sessionId) {
+                        getStripe()
+                            .then(stripe => {
+                                stripe.redirectToCheckout({ sessionId })
+                                    .then(() => {
+                                        unSub();
+                                        resolve();
+                                    })
+                                    .catch(error => reject(new FailedToRedirectToCheckout(error)));
+                            });
+                    }
+                },
+                    error => {
+                        reject(new FailedToRedirectToCheckout(error));
+                        return;
+                    });
+            })
+    })
+
 }

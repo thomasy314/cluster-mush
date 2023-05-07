@@ -12,7 +12,7 @@ export const validateBasket = (): Promise<Boolean> => {
 
     const checkingBasketPromiseList = basketItems.map((bItem): Promise<boolean> => {
         return new Promise((resolve, reject) => {
-            getShopItemById(bItem.item.id)
+            getShopItemById(bItem.item.id, false)
                 .then(firebaseItem => {
                     resolve(compareShopItemInfo(firebaseItem, bItem.item));
                 })

@@ -21,7 +21,8 @@ export class FailedToRedirectToCheckout extends ShopError {
     reason: Error;
 
     constructor(reason: Error) {
-        super('StripeClientIsNull: Stripe client returned in null');
+        super('Unable to continue to checkout, please try again later.');
+        console.log(reason)
         this.reason = reason;
     }
 

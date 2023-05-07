@@ -1,6 +1,6 @@
-import { doc, getDoc, getDocs, limit, query, where } from "firebase/firestore";
-import { FailedToRequestShopItem, DatabaseDoesNotContainShopIdWithId, FailedToGetShopItemWithId } from "../../../errors";
-import { shopItemInfoCollectionRef } from "../../firebase/firebase";
+import { collection, doc, DocumentData, getDoc, getDocs, query, where } from "firebase/firestore";
+import { DatabaseDoesNotContainShopIdWithId, FailedToGetShopItemWithId, FailedToRequestShopItem } from "../../../errors";
+import { stripeProductsCollectionRef } from "../../firebase/firebase";
 import { ShopItemInfo } from "../data-objects";
 
 const cacheShopItemInfo = (shopItemInfo: ShopItemInfo) => {
@@ -12,32 +12,31 @@ const getCachedShopItemInfo = (id: string): ShopItemInfo | null => {
     return cachedShopItem ? JSON.parse(cachedShopItem) : null;
 }
 
-export const getAvaiableItems = (): Promise<ShopItemInfo[]> => {
-    const itemQuery = query(shopItemInfoCollectionRef, where("available", "==", true), limit(10));
+export const getActiveStripeProducts = (): Promise<ShopItemInfo[]> => {
+    // TODO: Add limit/pagination
+    const itemQuery = query(stripeProductsCollectionRef, where("active", "==", true));
 
     return new Promise((resolve, reject) => {
         getDocs(itemQuery)
-            .then(itemDocs => {
-                const shopItemInfo: ShopItemInfo[] = itemDocs.docs.map(docSnap => {
-                    const shopItemInfo = {
-                        id: docSnap.id,
-                        name: docSnap.get('name'),
-                        description: docSnap.get('description'),
-                        price: docSnap.get('price'),
-                        image: docSnap.get('image'),
-                        available: docSnap.get('available'),
-                        stripeId: docSnap.get('stripe-id')
-                    };
-                    cacheShopItemInfo(shopItemInfo);
-                    return shopItemInfo;
-                });
-                resolve(shopItemInfo)
-            })
-            .catch(() => reject(new FailedToRequestShopItem()));
-    });
-};
+            .then(querySnapshot => {
+                const shopItemRequests: Promise<ShopItemInfo>[] = querySnapshot.docs.map(getShopItemFromStripeProductDoc);
 
-export const getShopItemById = (id: string): Promise<ShopItemInfo> => {
+                Promise.all(shopItemRequests)
+                    .then(shopItemList => {
+                        shopItemList.forEach(cacheShopItemInfo);
+
+                        resolve(shopItemList);
+                        return;
+                    })
+                    // TODO: make this better
+                    .catch(() => reject(new FailedToRequestShopItem()))
+            });
+    })
+
+}
+
+
+export const getShopItemById = (id: string, useCachedItems?: boolean): Promise<ShopItemInfo> => {
     const cachedShopItem = getCachedShopItemInfo(id);
 
     const requestShopItemPromise: Promise<ShopItemInfo> = new Promise((resolve, reject) => {
@@ -51,7 +50,7 @@ export const getShopItemById = (id: string): Promise<ShopItemInfo> => {
             })
     });
 
-    if (cachedShopItem === null) {
+    if (!useCachedItems || cachedShopItem === null) {
         return requestShopItemPromise;
     } else {
         return new Promise(resolve => resolve(cachedShopItem));
@@ -59,21 +58,14 @@ export const getShopItemById = (id: string): Promise<ShopItemInfo> => {
 };
 
 const requestShopItemByIdFromFirebase = (id: string): Promise<ShopItemInfo> => {
-    const docRef = doc(shopItemInfoCollectionRef, id);
+    const docRef = doc(stripeProductsCollectionRef, id);
+
     return new Promise((resolve, reject) => {
         getDoc(docRef)
-            .then(docSnap => {
-                if (docSnap.exists()) {
-                    const shopItem = {
-                        id: docSnap.id,
-                        name: docSnap.get('name'),
-                        description: docSnap.get('description'),
-                        price: docSnap.get('price'),
-                        image: docSnap.get('image'),
-                        available: docSnap.get('available'),
-                        stripeId: docSnap.get('stripe-id')
-                    };
-                    resolve(shopItem);
+            .then(doc => {
+                if (doc.exists()) {
+                    getShopItemFromStripeProductDoc(doc)
+                        .then(resolve);
                 } else {
                     reject(new DatabaseDoesNotContainShopIdWithId(id));
                 }
@@ -81,3 +73,32 @@ const requestShopItemByIdFromFirebase = (id: string): Promise<ShopItemInfo> => {
             .catch(() => reject(new FailedToRequestShopItem()));
     })
 };
+
+const getShopItemFromStripeProductDoc = (doc: DocumentData): Promise<ShopItemInfo> => {
+    const pricesRef = collection(doc.ref, 'prices');
+
+    return new Promise((resolve, reject) => {
+        getDocs(pricesRef)
+            .then(priceDocList => {
+                // Assumes there is only one item being specified
+                if (priceDocList.size > 1) throw new Error('Too many prices specified');
+                const priceDoc = priceDocList.docs[0];
+
+                const shopItem: ShopItemInfo = {
+                    id: doc.id,
+                    price_id: priceDoc.id,
+                    name: doc.get('name'),
+                    description: doc.get('description'),
+                    // Divide by 100 since the overall price is given in the thousands (ie $12.34 => 1234)
+                    price: priceDoc.get('unit_amount') / 100,
+
+                    // TODO: Allow for getting all images
+                    image: doc.get('images')[0],
+                    available: doc.get('active'),
+                };
+                resolve(shopItem);
+            })
+            .catch(() => reject(new FailedToRequestShopItem()));
+    });
+
+}

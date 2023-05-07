@@ -1,10 +1,8 @@
 
 export const gourmetEarringIds = {
-    'enoki-earrings': '3bM0XQHkPGRcCLs6m2dH',
-    'morel-earrings': 'SuLNTq82eHmUlEU3cKEr',
-    'oyster-earrings': 'FoaDPPRpkYyBDvRp9nqj',
-    'porcini-earrings': 'yOdCqGs0ebDgyOTNagIg',
-    'shiitake-earrings': 'ExaREnftIJdyQQ672Urw',
-    'maitake-earrings': 'syf5U15oxkxbIZtlKSG3',
-    'portobello-earrings': 'MFSfgQqnOhlDght70qLi'
+    'enoki-earrings': 'prod_Nqst5Lgklt2BMq',
+    'oyster-mushroom-earrings': 'prod_Npm5iEKXjLTHHD',
+    'shiitake-earrings': 'prod_Npm4tHtyyEpRld',
+    'maitake-earrings': 'prod_Npm2SnjW0tP8d1',
+    'portobello-earrings': 'prod_Npm0PTZDdKcD4F'
 }

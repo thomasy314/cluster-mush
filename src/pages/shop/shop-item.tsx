@@ -22,7 +22,7 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
         image: '',
         available: false,
         id: '',
-        stripeId: ''
+        price_id: ''
     })
 
     const basket = useContext(BasketContext);
