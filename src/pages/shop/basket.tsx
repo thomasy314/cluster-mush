@@ -1,13 +1,17 @@
 import { Alert, Container } from "@mui/material";
 import { useContext, useState } from "react";
-import { UserContext } from "../../features/authentication/user-context";
+import { loginAsGuest, loginWithGoogle } from "../../features/authentication";
 import { BasketContext } from "../../features/shop";
 import { BasketView } from "../../features/shop/basket/basket-view";
 import { validateBasket } from "../../features/shop/checkout";
 import { handleCheckout_v2 } from "../../features/shop/checkout/stripe";
 import { LoadingButton } from "../../features/ui";
 
+import GoogleIcon from '@mui/icons-material/Google';
+
+import { UserContext } from "../../features/authentication/user-context";
 import './basket.css';
+import { User } from "firebase/auth";
 
 export const Basket = () => {
 
@@ -18,22 +22,52 @@ export const Basket = () => {
 
     const user = useContext(UserContext);
 
-    const validateAndCheckout = () => {
+    const checkoutWithGoogle = () => {
+        if (user) {
+            validateAndCheckout(user);
+        } else {
+            loginWithGoogle()
+                .then((newUser) => validateAndCheckout(newUser));
+        }
+
+    }
+
+    console.log(user)
+
+    const checkoutAsGuest = () => {
+        if (user === null || !user.isAnonymous) {
+            loginAsGuest()
+                .then(user =>
+                    validateAndCheckout(user)
+                );
+        } else {
+            validateAndCheckout(user);
+        }
+    }
+
+    const validateAndCheckout = (user: User): Promise<void> => {
         setLoadingCheckout(true);
-        validateBasket()
-            .then(isValid => {
-                if (isValid) {
-                    if (user === null) return;
-                    handleCheckout_v2(basket.items, user)
-                        .catch(error => {
-                            setLoadingCheckout(false);
-                            setErrorMessage(error);
-                        });
-                } else {
-                    // TODO: Display Error and fix cart?
-                    setLoadingCheckout(false);
-                }
-            })
+
+        return new Promise<void>((resolve, reject) => {
+            validateBasket()
+                .then(isValid => {
+                    if (isValid) {
+                        handleCheckout_v2(basket.items, user)
+                            .then(() => resolve())
+                            .catch(error => {
+                                setLoadingCheckout(false);
+                                setErrorMessage(error);
+                                reject(error);
+                                return;
+                            });
+                    } else {
+                        // TODO: Display Error and fix cart?
+                        setLoadingCheckout(false);
+                        reject();
+                    }
+                })
+        })
+
     }
 
     return (
@@ -41,7 +75,9 @@ export const Basket = () => {
             {errorMessage && <Alert severity="error">{errorMessage.message}</Alert>}
             <h1 id='basketTitle'>Basket</h1>
             <BasketView />
-            <LoadingButton disabled={basket.items.length === 0 || user === null} onClick={validateAndCheckout} isLoading={loadingCheckout}>Checkout</LoadingButton>
+            <LoadingButton disabled={basket.items.length === 0} onClick={checkoutWithGoogle} isLoading={loadingCheckout}><><GoogleIcon /><p> &nbsp; Checkout with google</p></></LoadingButton>
+            <br />
+            {(!loadingCheckout && (user === null || user.isAnonymous)) && <LoadingButton disabled={basket.items.length === 0} onClick={checkoutAsGuest} isLoading={loadingCheckout}><><p>Checkout as guest</p></></LoadingButton>}
         </Container>
     )
 };

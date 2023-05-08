@@ -1,0 +1,11 @@
+.basketViewItemInfo {
+    display: inline-block;
+    padding: 10px;
+}
+
+.basketItemImg {
+    width: 8rem;
+    aspect-ratio: 1/1;
+    object-fit: cover; 
+    border-radius: 50%;
+}

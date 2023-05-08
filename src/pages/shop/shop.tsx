@@ -1,11 +1,9 @@
 import { Container } from "@mui/material";
 import { useEffect, useState } from "react";
-import { login } from "../../features/authentication";
 import { ShopItemInfo } from "../../features/shop/data-objects";
 import { getActiveStripeProducts } from "../../features/shop/item-data";
 import { LoadingPage, UrlImageGrid, UrlImageItem } from "../../features/ui";
 
-// TODO: replace with default image
 import './shop.css';
 
 export const Shop = () => {
@@ -42,7 +40,6 @@ export const Shop = () => {
         loading ?
           <Container>
             <h1 id='shopTitle'>Shop</h1>
-            <button onClick={() => login()}>TEST</button>
             <UrlImageGrid imageItems={shopItems.map(itemInfoToImageGrid)} />
           </Container>
           :

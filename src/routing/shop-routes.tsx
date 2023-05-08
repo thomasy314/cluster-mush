@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { gourmetEarringIds } from "../features/shop/item-data";
-import { Shop, ShopItemPage } from "../pages/shop";
-import { Basket } from "../pages/shop";
+import { AccountPage } from "../pages/account";
+import { Basket, Shop, ShopItemPage } from "../pages/shop";
 import { createUnknownPathRedirect } from "./routing-path-helpers";
 
 
@@ -15,6 +15,8 @@ export const ShopRoutes = () => {
         <Routes>
             <Route index element={<Shop />} />
             <Route path='/basket' element={<Basket />} />
+            <Route path='/login' element={<AccountPage />} />
+            <Route path='/account' element={<AccountPage />} />
             {shopPages}
             {createUnknownPathRedirect()}
         </Routes>
