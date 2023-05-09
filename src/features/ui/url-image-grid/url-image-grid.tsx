@@ -21,7 +21,7 @@ export const UrlImageGrid = (props: UrlImageGridProps) => {
                 <Grid key={datum.name} item xs={6} md={4} lg={3} style={{ padding: "10px", textAlign: 'center' }}>
                     <a href={datum.path ?? stringToPath(datum.name)} style={{ display: 'block', aspectRatio: '1/1' }}>
                         <img
-                            style={{ height: '100%', width: '100%', objectFit: 'cover' }}
+                            style={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '50%' }}
                             src={datum.image}
                             alt={datum.name}
                             loading="lazy"

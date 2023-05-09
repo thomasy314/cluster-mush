@@ -14,6 +14,7 @@ type BasketContextType = {
     getProductQuantity: (item: ShopItemInfo) => number,
     addOneToBasket: (item: ShopItemInfo) => void,
     removeOneFromBasket: (item: ShopItemInfo) => void,
+    setQuantityInBasket: (item: ShopItemInfo, newQuantity: number) => void,
     deleteFromBasket: (item: ShopItemInfo) => void,
     getTotalCost: () => number
 };
@@ -23,6 +24,7 @@ export const BasketContext = createContext<BasketContextType>({
     getProductQuantity: (item: ShopItemInfo) => 0,
     addOneToBasket: (item: ShopItemInfo) => {},
     removeOneFromBasket: (item: ShopItemInfo) => {},
+    setQuantityInBasket: (item: ShopItemInfo, newQuantity: number) => {},
     deleteFromBasket: (item: ShopItemInfo) => {},
     getTotalCost: () => 0
 });
@@ -99,6 +101,22 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
         }
     }
 
+    function setQuantityInBasket(item: ShopItemInfo, newQuantity: number) {
+
+        if(newQuantity === 0) {
+            deleteFromBasket(item);
+        } else {
+            saveBasketToStorage(
+                getBasketFromStorage().map(
+                    product =>
+                    compareShopItemInfo(product.item, item)
+                    ? { ...product, quantity: newQuantity }
+                    : product
+                )
+            )
+        }
+    }
+
     function deleteFromBasket(item: ShopItemInfo) {
         if (window.confirm(`Are you sure you want to remove ${item.name} from your cart?`)) {
             saveBasketToStorage(
@@ -122,6 +140,7 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
         getProductQuantity,
         addOneToBasket: addOneToBasket,
         removeOneFromBasket: removeOneFromBasket,
+        setQuantityInBasket: setQuantityInBasket,
         deleteFromBasket: deleteFromBasket,
         getTotalCost
     }

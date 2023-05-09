@@ -9,9 +9,9 @@ import { LoadingButton } from "../../features/ui";
 
 import GoogleIcon from '@mui/icons-material/Google';
 
+import { User } from "firebase/auth";
 import { UserContext } from "../../features/authentication/user-context";
 import './basket.css';
-import { User } from "firebase/auth";
 
 export const Basket = () => {
 
@@ -31,8 +31,6 @@ export const Basket = () => {
         }
 
     }
-
-    console.log(user)
 
     const checkoutAsGuest = () => {
         if (user === null || !user.isAnonymous) {
@@ -70,14 +68,19 @@ export const Basket = () => {
 
     }
 
+    const showGuestCheckout = (!loadingCheckout && (user === null || user.isAnonymous))
+
     return (
         <Container>
             {errorMessage && <Alert severity="error">{errorMessage.message}</Alert>}
             <h1 id='basketTitle'>Basket</h1>
             <BasketView />
+            <br />
+            <div style={{float: 'right'}}>
             <LoadingButton disabled={basket.items.length === 0} onClick={checkoutWithGoogle} isLoading={loadingCheckout}><><GoogleIcon /><p> &nbsp; Checkout with google</p></></LoadingButton>
             <br />
-            {(!loadingCheckout && (user === null || user.isAnonymous)) && <LoadingButton disabled={basket.items.length === 0} onClick={checkoutAsGuest} isLoading={loadingCheckout}><><p>Checkout as guest</p></></LoadingButton>}
+            {showGuestCheckout && <LoadingButton disabled={basket.items.length === 0} onClick={checkoutAsGuest} isLoading={loadingCheckout}><p>Checkout as guest</p></LoadingButton>}
+            </div>
         </Container>
     )
 };
