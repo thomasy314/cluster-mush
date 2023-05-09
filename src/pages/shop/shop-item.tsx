@@ -15,6 +15,9 @@ type ShopItemPageProps = {
 export const ShopItemPage = (props: ShopItemPageProps) => {
 
     const [loading, setLoading] = useState<boolean>(true);
+
+    const [addedToCart, setAddedToCart] = useState<NodeJS.Timeout | null>(null);
+
     const [selectedItem, setSelectedItem] = useState<ShopItemInfo>({
         name: '',
         description: '',
@@ -37,20 +40,22 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
             });
     }, [props.shopItemInfoId]);
 
-    // TODO: add description
-
-    const hrLineStyle = {
-        width: '100%'
+    const addToBasket = () => {
+        if (addedToCart) clearTimeout(addedToCart);
+        const newTimeout = setTimeout(() => setAddedToCart(null), 5000);
+        setAddedToCart(newTimeout);
+        basket.addOneToBasket(selectedItem)
     }
 
     return (
         <>
             <FullSplitPageLayout loading={loading} titleComponent={title} imageSrc={selectedItem.image} smallImage>
                 <p>${selectedItem.price.toFixed(2)}</p>
-                <Button onClick={() => basket.addOneToBasket(selectedItem)}>Add to basket</Button>
+                <Button onClick={addToBasket}>Add to basket</Button>
+                {addedToCart && <p>Added!</p>}
                 <p><i>{selectedItem.description}</i></p>
                 <br />
-                <hr style={hrLineStyle} className="shopItemDivideLine" />
+                <hr style={{ width: '100%' }} className="shopItemDivideLine" />
                 <br />
                 <CollapseCard boldTitle={false} title="Shipping and Returns">
                     <p>NO RETURNS NO SHIPPING</p>
