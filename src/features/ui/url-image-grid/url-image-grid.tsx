@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material"
+import { Grid, Link } from "@mui/material"
 import { ReactNode } from "react"
 import { stringToPath } from "../../../routing/routing-path-helpers"
 
@@ -19,14 +19,14 @@ export const UrlImageGrid = (props: UrlImageGridProps) => {
         <Grid container>
             {props.imageItems.map((datum) => (
                 <Grid key={datum.name} item xs={6} md={4} lg={3} style={{ padding: "10px", textAlign: 'center' }}>
-                    <a href={datum.path ?? stringToPath(datum.name)} style={{ display: 'block', aspectRatio: '1/1' }}>
+                    <Link href={datum.path ?? stringToPath(datum.name)} style={{ display: 'block', aspectRatio: '1/1' }}>
                         <img
                             style={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '50%' }}
                             src={datum.image}
                             alt={datum.name}
                             loading="lazy"
                         />
-                    </a>
+                    </Link>
                     {datum.details}
                 </Grid>
             ))}

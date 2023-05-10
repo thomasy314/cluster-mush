@@ -1,3 +1,4 @@
+import { Link } from '@mui/material';
 import './style-guide.css'
 
 type ColorRGB = {
@@ -45,7 +46,7 @@ const StyleGuide = () => {
     ]
 
     const colors2 = [
-        '#B6D685',
+        '#A5B987',
         '#8BA465',
         '#758A55',
         '#4A5736',
@@ -86,7 +87,7 @@ const StyleGuide = () => {
             </ul>
 
             <h2>Moodboard</h2>
-            <a href="https://www.designspiration.com/thomasy314/clustermush/">DesignSpiration moon board</a>
+            <Link href="https://www.designspiration.com/thomasy314/clustermush/">DesignSpiration moon board</Link>
         </>
     )
 }

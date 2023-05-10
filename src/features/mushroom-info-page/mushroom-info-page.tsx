@@ -4,6 +4,7 @@ import { CollapseCard, FullSplitPageLayout } from '../ui';
 import { Citation, MushroomInfo, ValueWithCitation } from './data-objects';
 
 import './mushroom-info-page.css';
+import { Link } from '@mui/material';
 
 const formatStringList = (list: string[]) => {
     const ulItems = list.map((item, i) => <li key={i}>{item}</li>)
@@ -22,7 +23,7 @@ const formatCitationList = (list: Citation[]) => {
     const olItems = list.map((item, i) => {
         const citation = item.citation;
         const link = item.link;
-        return <li key={i}><a href={link.href}>{citation}</a></li>
+        return <li key={i}><Link href={link.href}>{citation}</Link></li>
     });
     return <ol>{olItems}</ol>
 }

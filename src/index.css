@@ -1,21 +1,10 @@
 body {
   margin: 0;
   color: #15201D;
-  /*background-color: #fffcf3;*/
+  background-color: #F8F6F1;
   font-family: 'Fredoka', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  color: #15201D;
-}
-
-p, th, ul, ol {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 1em;
-  word-wrap: break-word;
-  font-family: 'Fredoka', sans-serif;
 }
 
 button {
@@ -27,7 +16,7 @@ li {
 }
 
 h1 {
-  color: #15201D;
+  color: #8BA465;
   font-family: "eckmannpsych-Small", sans-serif;
   font-size: min(10vw, 4em);
   font-weight: 400;
@@ -36,8 +25,7 @@ h1 {
 }
 
 h2 {
-  /*color: #5A5C35;*/
-  color: #15201D;
+  color: #758A55;
   font-family: "eckmannpsych-Small", sans-serif;
   font-size: 2em;
   font-weight: 400;

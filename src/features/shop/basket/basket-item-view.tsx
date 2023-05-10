@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { BasketContext, BasketItem } from "./basket.context";
 
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, Link } from "@mui/material";
 
 import './basket-item-view.css';
+import { stringToPath } from "../../../routing/routing-path-helpers";
 
 type BasketItemViewProps = {
     item: BasketItem
@@ -20,7 +21,7 @@ export const BasketItemView = (props: BasketItemViewProps) => {
                 <img alt="basket item" className="basketItemImg" src={props.item.item.image} />
             </Grid>
             <Grid item className="basketItemViewColumn" xs={3}>
-                <p>{props.item.item.name}</p>
+                <Link href={stringToPath(props.item.item.name)} style={{}}><p>{props.item.item.name}</p></Link>
             </Grid>
             <Grid item className="basketItemViewColumn" xs={2}>
                 <p>{props.item.item.price}</p>

@@ -9,13 +9,21 @@ export const theme = createTheme({
             main: '#8BA465'
         }
     },
+    typography: {
+        fontFamily: 'fredoka, sans-serif',
+        h1: {
+            fontFamily: 'eckmannpsych-Small, sans-serif',
+            fontSize: 'min(10vw, 4em)',
+            color: '#8BA465'
+        }
+    },
     components: {
         // Name of the component ⚛️
         MuiButton: {
             defaultProps: {
                 // The default props to change
-                color: 'primary',
-                variant: 'outlined',
+                color: 'secondary',
+                variant: 'contained',
             },
             styleOverrides: {
                 root: {

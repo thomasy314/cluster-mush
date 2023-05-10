@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Link } from "@mui/material";
 import { useContext } from "react";
 import { BasketContext, BasketItem } from "./basket.context";
 
@@ -44,7 +44,7 @@ export const BasketView = () => {
                 <Grid item xs={5} style={{ paddingLeft: '20px' }}>
                 </Grid>
                 <Grid item xs={7}>
-                    <p style={{float: 'right'}}>Taxes and <a href='/shipping'>shipping</a> are calculated at checkout</p>
+                    <p style={{float: 'right'}}>Taxes and <Link href='/shipping'>shipping</Link> are calculated at checkout</p>
                 </Grid>
             </Grid>
             <Grid container>
