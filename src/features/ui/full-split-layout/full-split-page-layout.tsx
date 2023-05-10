@@ -2,7 +2,6 @@ import { Container, Grid, Theme, useMediaQuery, useTheme } from '@mui/material';
 import { CSSProperties, PropsWithChildren } from 'react';
 import { LoadingPage } from '../loading/loading-page/loading-page';
 import './full-split-page-layout.css';
-import { BorderRight } from '@mui/icons-material';
 
 type FullSplitPageLayoutProps = {
     titleComponent: JSX.Element,
