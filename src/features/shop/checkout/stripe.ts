@@ -59,7 +59,7 @@ export const handleCheckout_v2 = (basketItems: BasketItem[], user: User): Promis
             line_items: checkoutItems,
             success_url: successUrl,
             cancel_url: cancelUrl,
-            shipping_rates: [ 'shr_1N5BkhHgT1AABCbE4bhK3Igb' ]
+            shipping_rates: [ 'shr_1N5ahVHgT1AABCbEThyKFROr' ]
         })
             .then(docRef => {
                 const unSub = onSnapshot(docRef, checkoutDoc => {

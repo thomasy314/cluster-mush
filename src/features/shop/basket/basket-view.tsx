@@ -15,16 +15,16 @@ export const BasketView = () => {
     return (
         <>
             <Grid container>
-                <Grid item xs={6} md={4} style={{ paddingLeft: '20px' }}>
+                <Grid item xs={7} md={5} style={{ paddingLeft: '20px' }}>
                     <p>Product</p>
                 </Grid>
                 <Grid item xs={2}>
                     <p>Price</p>
                 </Grid>
-                <Grid item xs={3} md={5}>
+                <Grid item xs={3} md={4}>
                     <p>Quantity</p>
                 </Grid>
-                <Grid item xs={1} zeroMinWidth>
+                <Grid item xs={0} md={1} display={{ xs: 'none', md: 'block'}}>
                     <p>Total</p>
                 </Grid>
             </Grid>
@@ -32,15 +32,15 @@ export const BasketView = () => {
             <br />
             <hr />
             <Grid container>
-                <Grid item xs={9} style={{ paddingLeft: '20px' }}>
+                <Grid item xs={8} md={9} style={{ paddingLeft: '20px' }}>
                 </Grid>
-                <Grid item xs={2}>
-                    <p>SubTotal</p>
+                <Grid item xs={3} md={2}>
+                    <p>SubTotal:</p>
                 </Grid>
                 <Grid item xs={1}>
                     <p>{basket.getTotalCost()}</p>
                 </Grid>
-                <Grid xs={9} md={0} />
+                <Grid item xs={9} md={0} />
                 <Grid item xs={5} style={{ paddingLeft: '20px' }}>
                 </Grid>
                 <Grid item xs={7}>

@@ -36,7 +36,4 @@ export const firebaseStorage: FirebaseStorage = getStorage(app);
 
 // Firebase Auth
 export const googleAuthProvider: GoogleAuthProvider = new GoogleAuthProvider();
-googleAuthProvider.setCustomParameters({
-  prompt: "select_account"
-});
 export const firebaseAuth: Auth = getAuth(app);

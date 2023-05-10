@@ -2,6 +2,7 @@ import { Container, Grid, Theme, useMediaQuery, useTheme } from '@mui/material';
 import { CSSProperties, PropsWithChildren } from 'react';
 import { LoadingPage } from '../loading/loading-page/loading-page';
 import './full-split-page-layout.css';
+import { BorderRight } from '@mui/icons-material';
 
 type FullSplitPageLayoutProps = {
     titleComponent: JSX.Element,
@@ -21,18 +22,21 @@ const FullSplitPageLayout = (props: PropsWithChildren<FullSplitPageLayoutProps>)
 
     const smallImageBorderSize: number = 10;
 
-    const height: number = lessThanMd ? 90 : (100 - (props.smallImage ? smallImageBorderSize * 2 : 0));
-    const width: number = lessThanMd ? 100 : (50 - (props.smallImage ? smallImageBorderSize * 2 : 0));
-
     const containerStyle: CSSProperties = {
         paddingLeft: (props.smallImage && !lessThanMd) ? '20vh' : 0,
-        paddingTop: props.smallImage ? '5vh' : 0
+        paddingTop: props.smallImage ? '5vh' : 0,
     }
+
+    const height: number = lessThanMd ? 90 : (100 - (props.smallImage ? smallImageBorderSize * 2 : 0));
+    const width: number = lessThanMd ? 100 - (props.smallImage ? 10 : 0) : (50 - (props.smallImage ? smallImageBorderSize * 2 : 0));
 
     const FullSplitPageImageStyle: CSSProperties = {
         height: `${height}vh`,
         width: `${width}vw`,
+        maxWidth: '500px',
+        maxHeight: '500px',
         position: lessThanMd ? 'static' : 'fixed',
+        borderRadius: (props.smallImage) ? '25px': '0'
     }
 
     return (
@@ -50,7 +54,7 @@ const FullSplitPageLayout = (props: PropsWithChildren<FullSplitPageLayoutProps>)
                                     {props.children}
                                 </Container>
                             </Grid>}
-                            <Grid item xs={12} md={6} >
+                            <Grid item xs={12} md={6} style={{display: 'flex', justifyContent: 'center'}} >
                                 <img id='FullSplitPageImage' style={FullSplitPageImageStyle} alt="thing" src={props.imageSrc} />
                             </Grid>
                             {lessThanMd && <Grid item xs={12}>
