@@ -23,7 +23,7 @@ export const Basket = () => {
     const user = useContext(UserContext);
 
     const checkoutWithGoogle = () => {
-        if (user) {
+        if (user && !user.isAnonymous) {
             validateAndCheckout(user);
         } else {
             loginWithGoogle()
