@@ -1,5 +1,5 @@
 import { onAuthStateChanged, User } from "firebase/auth";
-import { createContext, PropsWithChildren, useEffect, useState } from "react";
+import { createContext, PropsWithChildren, useState } from "react";
 import { firebaseAuth } from "../firebase/firebase";
 
 type UserContextType = {
@@ -25,11 +25,6 @@ export const UserProvider = (props: PropsWithChildren<UserProviderProps>) => {
     setUser(user);
     setLoadingUser(false);
   });
-
-  useEffect(() => {
-    const user = firebaseAuth.currentUser;
-    setLoadingUser(false);
-  }, []);
 
   const contextValue: UserContextType = {
     user: user,

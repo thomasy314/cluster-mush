@@ -41,10 +41,10 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
                 setSelectedItem(shopItem);
                 setLoading(false);
             })
-            .catch(err => {
+            .catch(() => {
                 navigate('/');
             })
-    }, [props.shopItemInfoId]);
+    }, [props.shopItemInfoId, navigate]);
 
     const addToBasket = () => {
         if (addedToCart) clearTimeout(addedToCart);
