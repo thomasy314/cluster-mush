@@ -7,6 +7,7 @@ import { ShopItemInfo } from '../../features/shop/data-objects';
 import { getShopItemById } from '../../features/shop/item-data';
 
 import './shop-item.css';
+import { useNavigate } from 'react-router-dom';
 
 type ShopItemPageProps = {
     shopItemInfoId: string
@@ -32,12 +33,17 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
 
     const title = <h1>{selectedItem.name}</h1>;
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         getShopItemById(props.shopItemInfoId)
             .then(shopItem => {
                 setSelectedItem(shopItem);
                 setLoading(false);
-            });
+            })
+            .catch(err => {
+                navigate('/');
+            })
     }, [props.shopItemInfoId]);
 
     const addToBasket = () => {
@@ -57,8 +63,8 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
                 <br />
                 <hr style={{ width: '100%' }} className="shopItemDivideLine" />
                 <br />
-                <CollapseCard boldTitle={false} title="Shipping and Returns">
-                    <p>NO RETURNS NO SHIPPING</p>
+                <CollapseCard boldTitle={false} title="Shipping">
+                    <p>Please allow 1-2 days for your item to be shipped. This is because some items are made to order and can take up to 2 days to be created. Once shipped, it will take 1-5 days via USPS First Class shipping.</p>
                 </CollapseCard>
             </FullSplitPageLayout>
         </>

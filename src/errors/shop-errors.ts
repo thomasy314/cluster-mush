@@ -22,7 +22,6 @@ export class FailedToRedirectToCheckout extends ShopError {
 
     constructor(reason: Error) {
         super('Unable to continue to checkout, please try again later.');
-        console.log(reason)
         this.reason = reason;
     }
 
