@@ -1,13 +1,13 @@
 import { Button } from '@mui/material';
 import { useContext, useEffect, useState } from 'react';
-import { CollapseCard } from '../../features/ui/collapse-card/collapse-card';
-import { FullSplitPageLayout } from '../../features/ui/full-split-layout/full-split-page-layout';
 import { BasketContext } from '../../features/shop/basket/basket.context';
 import { ShopItemInfo } from '../../features/shop/data-objects';
 import { getShopItemById } from '../../features/shop/item-data';
+import { CollapseCard } from '../../features/ui/collapse-card/collapse-card';
+import { FullSplitPageLayout } from '../../features/ui/full-split-layout/full-split-page-layout';
 
-import './shop-item.css';
 import { useNavigate } from 'react-router-dom';
+import './shop-item.css';
 
 type ShopItemPageProps = {
     shopItemInfoId: string
@@ -64,7 +64,7 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
                 <hr style={{ width: '100%' }} className="shopItemDivideLine" />
                 <br />
                 <CollapseCard boldTitle={false} title="Shipping">
-                    <p>Please allow 1-2 days for your item to be shipped. This is because some items are made to order and can take up to 2 days to be created. Once shipped, it will take 1-5 days via USPS First Class shipping.</p>
+                    <p>Please allow 1-2 business days for your item to be shipped. This is because some items are made to order and can take up to 2 days to be created. Once shipped, it will take 1-5 business days via USPS First Class shipping.</p>
                 </CollapseCard>
             </FullSplitPageLayout>
         </>

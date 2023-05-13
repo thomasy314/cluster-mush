@@ -29,7 +29,7 @@ export const getActiveStripeProducts = (): Promise<ShopItemInfo[]> => {
                         return;
                     })
                     // TODO: make this better
-                    .catch(() => reject(new FailedToRequestShopItem()))
+                    .catch(err => reject(new FailedToRequestShopItem()))
             });
     })
 
@@ -76,12 +76,13 @@ const requestShopItemByIdFromFirebase = (id: string): Promise<ShopItemInfo> => {
 
 const getShopItemFromStripeProductDoc = (doc: DocumentData): Promise<ShopItemInfo> => {
     const pricesRef = collection(doc.ref, 'prices');
+    const q = query(pricesRef, where("active", "==", true));
 
     return new Promise((resolve, reject) => {
-        getDocs(pricesRef)
+        getDocs(q)
             .then(priceDocList => {
                 // Assumes there is only one item being specified
-                if (priceDocList.size > 1) throw new Error('Too many prices specified');
+                //if (priceDocList.size > 1) throw new Error('Too many prices specified');
                 const priceDoc = priceDocList.docs[0];
 
                 const shopItem: ShopItemInfo = {

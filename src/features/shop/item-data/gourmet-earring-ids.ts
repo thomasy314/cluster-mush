@@ -4,5 +4,5 @@ export const gourmetEarringIds = {
     'oyster-mushroom-earrings': 'prod_Npm5iEKXjLTHHD',
     'shiitake-earrings': 'prod_NssRzUdVgfGr9q',
     'maitake-earrings': 'prod_Npm2SnjW0tP8d1',
-    'portobello-earrings': 'prod_Npm0PTZDdKcD4F'
+    'portobello-earrings': 'prod_Nt80jguABgoaCE'
 }
