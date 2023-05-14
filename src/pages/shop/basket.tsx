@@ -4,7 +4,7 @@ import { loginAsGuest, loginWithGoogle } from "../../features/authentication";
 import { BasketContext } from "../../features/shop";
 import { BasketView } from "../../features/shop/basket/basket-view";
 import { validateBasket } from "../../features/shop/checkout";
-import { handleCheckout_v2 } from "../../features/shop/checkout/stripe";
+import { handleCheckout } from "../../features/shop/checkout/stripe";
 import { LoadingModal } from "../../features/ui";
 
 import { User } from "firebase/auth";
@@ -23,7 +23,7 @@ export const Basket = () => {
 
     const { user, loadingUser } = useContext(UserContext);
 
-    const checkoutWithGoogle = () => {
+    const checkoutUser = () => {
         if (user && !user.isAnonymous) {
             validateAndCheckout(user);
         } else {
@@ -34,7 +34,7 @@ export const Basket = () => {
     }
 
     const checkoutAsGuest = () => {
-        if (user === null || user.isAnonymous) {
+        if (user === null || !user.isAnonymous) {
             loginAsGuest()
                 .then(user =>
                     validateAndCheckout(user)
@@ -51,8 +51,11 @@ export const Basket = () => {
             validateBasket()
                 .then(isValid => {
                     if (isValid) {
-                        handleCheckout_v2(basket.items, user)
-                            .then(() => resolve())
+                        handleCheckout(basket.items, user)
+                            .then(() => {
+                                basket.clearBasket();
+                                resolve();
+                            })
                             .catch(error => {
                                 setLoadingCheckout(false);
                                 setErrorMessage(error);
@@ -76,12 +79,12 @@ export const Basket = () => {
             <h1 id='basketTitle'>Basket</h1>
             <BasketView />
             <br />
-            <div style={{float: 'right'}}>
-                <Button style={{float: 'right'}} disabled={basket.items.length === 0} onClick={checkoutWithGoogle}><GoogleIcon /> &nbsp; Checkout with Google</Button>
+            <div style={{ float: 'right' }}>
+                <Button style={{ float: 'right' }} disabled={basket.items.length === 0} onClick={checkoutUser}><GoogleIcon /> &nbsp; Checkout with Google</Button>
                 <br />
                 <br />
                 <br />
-                <Button style={{float: 'right'}} disabled={basket.items.length === 0} onClick={checkoutAsGuest}>Checkout as guest</Button>
+                <Button style={{ float: 'right' }} disabled={basket.items.length === 0} onClick={checkoutAsGuest}>Checkout as guest</Button>
             </div>
         </Container>
     )

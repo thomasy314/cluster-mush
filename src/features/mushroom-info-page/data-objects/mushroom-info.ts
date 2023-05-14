@@ -17,6 +17,7 @@ class MushroomInfo {
     science: ValueWithCitation<string>[];
     agriculture: ValueWithCitation<string>[];
     learnMore: Citation[];
+    // TODO: create whole shop page with shop items
 
     constructor(
         name: string, 
@@ -30,7 +31,7 @@ class MushroomInfo {
         historyAndCulture: ValueWithCitation<string>[],
         science: ValueWithCitation<string>[],
         agriculture: ValueWithCitation<string>[],
-        learnMore: Citation[]
+        learnMore: Citation[],
         ) {
             this.name = name;
             this.images = images;

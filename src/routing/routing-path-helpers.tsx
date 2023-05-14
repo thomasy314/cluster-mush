@@ -4,6 +4,9 @@ export const stringToPath = (val: string): string => {
     return val.toLowerCase().replace(/ /g, '-');
 }
 
+export const pathToString = (val: string): string => {
+    return val.split('-').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
+}
 
 export const isLocalHost = (): boolean => {
     return !window.location.hostname.includes('clustermush');

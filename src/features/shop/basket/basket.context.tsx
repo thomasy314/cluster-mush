@@ -16,6 +16,7 @@ type BasketContextType = {
     removeOneFromBasket: (item: ShopItemInfo) => void,
     setQuantityInBasket: (item: ShopItemInfo, newQuantity: number) => void,
     deleteFromBasket: (item: ShopItemInfo) => void,
+    clearBasket: () => void,
     getTotalCost: () => number
 };
 
@@ -26,6 +27,7 @@ export const BasketContext = createContext<BasketContextType>({
     removeOneFromBasket: (item: ShopItemInfo) => {},
     setQuantityInBasket: (item: ShopItemInfo, newQuantity: number) => {},
     deleteFromBasket: (item: ShopItemInfo) => {},
+    clearBasket: () => {},
     getTotalCost: () => 0
 });
 
@@ -127,6 +129,10 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
         }
     }
 
+    function clearBasket() {
+        setBasketProducts([]);
+    }
+
     function getTotalCost() {
         let totalCost = 0;
         basketProducts.forEach((cartItem: BasketItem) => {
@@ -142,6 +148,7 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
         removeOneFromBasket: removeOneFromBasket,
         setQuantityInBasket: setQuantityInBasket,
         deleteFromBasket: deleteFromBasket,
+        clearBasket: clearBasket,
         getTotalCost
     }
 

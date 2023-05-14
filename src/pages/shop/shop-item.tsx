@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, Link } from '@mui/material';
 import { useContext, useEffect, useState } from 'react';
 import { BasketContext } from '../../features/shop/basket/basket.context';
 import { ShopItemInfo } from '../../features/shop/data-objects';
@@ -8,6 +8,7 @@ import { FullSplitPageLayout } from '../../features/ui/full-split-layout/full-sp
 
 import { useNavigate } from 'react-router-dom';
 import './shop-item.css';
+import { stringToPath } from '../../routing/routing-path-helpers';
 
 type ShopItemPageProps = {
     shopItemInfoId: string
@@ -21,6 +22,7 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
 
     const [selectedItem, setSelectedItem] = useState<ShopItemInfo>({
         name: '',
+        mushroom_name: '',
         description: '',
         price: 0,
         image: '',
@@ -60,6 +62,7 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
                 <Button onClick={addToBasket}>Add to basket</Button>
                 {addedToCart && <p>Added!</p>}
                 <p><i>{selectedItem.description}</i></p>
+                <p>Learn more on the <Link href={`https://clustermush.com/${stringToPath(selectedItem.mushroom_name)}`}>Cluster Mush website!</Link></p>
                 <br />
                 <hr style={{ width: '100%' }} className="shopItemDivideLine" />
                 <br />

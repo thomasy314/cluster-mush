@@ -5,6 +5,7 @@ import { Citation, MushroomInfo, ValueWithCitation } from './data-objects';
 
 import './mushroom-info-page.css';
 import { Link } from '@mui/material';
+import { stringToPath } from '../../routing/routing-path-helpers';
 
 const formatStringList = (list: string[]) => {
     const ulItems = list.map((item, i) => <li key={i}>{item}</li>)
@@ -39,6 +40,7 @@ const MushroomInfoPage = (props: MushroomInfoPageProps) => {
 
     return (
         <FullSplitPageLayout titleComponent={titleComponent} imageSrc={props.mushroomInfo.images[0]}>
+            { false && <p>Find artwork related to this mushroom in <Link href={`http://shop.localhost:3000/?mushroomName=${stringToPath(props.mushroomInfo.name)}`}>the Cluster Mush store!</Link></p> }
             <p><b>Other Common Names</b>:</p> {formatStringList(props.mushroomInfo.commonNames)}
             <p><b>Etymology</b>: {props.mushroomInfo.etymology}</p>
             <p><b>Location</b>: {props.mushroomInfo.location}</p>

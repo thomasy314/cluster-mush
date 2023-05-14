@@ -1,4 +1,4 @@
-import { collection, doc, DocumentData, getDoc, getDocs, query, where } from "firebase/firestore";
+import { collection, doc, DocumentData, getDoc, getDocs, query, QueryFieldFilterConstraint, where } from "firebase/firestore";
 import { DatabaseDoesNotContainShopIdWithId, FailedToGetShopItemWithId, FailedToRequestShopItem } from "../../../errors";
 import { stripeProductsCollectionRef } from "../../firebase/firebase";
 import { ShopItemInfo } from "../data-objects";
@@ -12,9 +12,15 @@ const getCachedShopItemInfo = (id: string): ShopItemInfo | null => {
     return cachedShopItem ? JSON.parse(cachedShopItem) : null;
 }
 
-export const getActiveStripeProducts = (): Promise<ShopItemInfo[]> => {
+export type SearchStripeProductsProps = {
+    mushroomName?: string
+}
+
+export const getActiveStripeProducts = (props: SearchStripeProductsProps): Promise<ShopItemInfo[]> => {
     // TODO: Add limit/pagination
-    const itemQuery = query(stripeProductsCollectionRef, where("active", "==", true));
+    const additionalConditions: QueryFieldFilterConstraint[] = [];
+    if (props.mushroomName) additionalConditions.push(where('metadata.mushroom_name', '==', props.mushroomName));
+    const itemQuery = query(stripeProductsCollectionRef, where("active", "==", true), ...additionalConditions);
 
     return new Promise((resolve, reject) => {
         getDocs(itemQuery)
@@ -78,6 +84,8 @@ const getShopItemFromStripeProductDoc = (doc: DocumentData): Promise<ShopItemInf
     const pricesRef = collection(doc.ref, 'prices');
     const q = query(pricesRef, where("active", "==", true));
 
+    const metaData = doc.get('metadata');
+
     return new Promise((resolve, reject) => {
         getDocs(q)
             .then(priceDocList => {
@@ -85,10 +93,12 @@ const getShopItemFromStripeProductDoc = (doc: DocumentData): Promise<ShopItemInf
                 //if (priceDocList.size > 1) throw new Error('Too many prices specified');
                 const priceDoc = priceDocList.docs[0];
 
+
                 const shopItem: ShopItemInfo = {
                     id: doc.id,
                     price_id: priceDoc.id,
                     name: doc.get('name'),
+                    mushroom_name: metaData['mushroom_name'],
                     description: doc.get('description'),
                     // Divide by 100 since the overall price is given in the thousands (ie $12.34 => 1234)
                     price: priceDoc.get('unit_amount') / 100,

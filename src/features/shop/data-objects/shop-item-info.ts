@@ -1,5 +1,6 @@
 export interface ShopItemInfo {
     name: string;
+    mushroom_name: string;
     description: string;
     price: number;
     image: string;

@@ -1,4 +1,4 @@
-import { 
+import {
     Citation,
     EcologicalGroup,
     MushroomInfo,
@@ -70,5 +70,5 @@ export const EnokiInfo: MushroomInfo = new MushroomInfo(
     historyAndCultureFacts,
     scienceFacts,
     agricultureFacts,
-    learnMore
+    learnMore,
 );

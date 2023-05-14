@@ -42,7 +42,7 @@ export const getStripe = () => {
     return stripePromise;
 };
 
-export const handleCheckout_v2 = (basketItems: BasketItem[], user: User): Promise<void> => {
+export const handleCheckout = (basketItems: BasketItem[], user: User): Promise<void> => {
 
     const checkoutSessions = collection(stripeCustomerCollectionRef, user.uid, "checkout_sessions");
 
@@ -59,7 +59,11 @@ export const handleCheckout_v2 = (basketItems: BasketItem[], user: User): Promis
             line_items: checkoutItems,
             success_url: successUrl,
             cancel_url: cancelUrl,
-            shipping_rates: [ 'shr_1N5ahVHgT1AABCbEThyKFROr' ]
+            shipping_rates: ['shr_1N5ahVHgT1AABCbEThyKFROr'],
+            collect_shipping_address: true,
+            shipping_address_collection: {
+                allowed_countries: ['US']
+            }
         })
             .then(docRef => {
                 const unSub = onSnapshot(docRef, checkoutDoc => {
