@@ -24,7 +24,6 @@ export const SocialIcons = () => {
     return (
         <div>
             <ClusterMushInstagramIcon />
-            <ClusterMushEmailIcon />
         </div>
     )
 }

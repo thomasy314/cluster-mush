@@ -19,7 +19,7 @@ export const Shop = (props: shopProps) => {
   const loading = Boolean(shopItems.length);
 
   const [searchParams] = useSearchParams();
-  const mushroomName: string | undefined = searchParams.get('mushroomName') ?? undefined;
+  const mushroomName: string | undefined = searchParams.get('mushroom_name') ?? undefined;
 
   const itemInfoToImageGrid = (itemInfo: ShopItemInfo): UrlImageItem => {
 
