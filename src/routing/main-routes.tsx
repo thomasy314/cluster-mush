@@ -12,6 +12,7 @@ import { BrowseMushroomInfoPage, mushroomCategoryList, mushroomInfoPageList } fr
 import { browseGourmetMushroomsDesc } from '../pages/mushroom-info-page/browse-mushroom-info-pages/browse-mushroom-info-pages-strings';
 import { gourmetMushroomList } from '../pages/mushroom-info-page/definitions';
 import { createUnknownPathRedirect } from './routing-path-helpers';
+import { ContactPage } from '../pages/contact';
 
 const infoPages = mushroomInfoPageList.map(mushInfo =>
     <Fragment key={mushInfo.name}>
@@ -39,13 +40,15 @@ export enum MainPagePaths  {
     STYLE_GUIDE = '/style-guide',
     ABOUT = '/about',
     BROWSE_GOURMET_MUSHROOMS = '/gourmet-mushrooms',
-    BROWSE_MUSHROOM_CATEGORIES = '/mushroom-categories'
+    BROWSE_MUSHROOM_CATEGORIES = '/mushroom-categories',
+    CONTACT = '/contact'
 }
 
 export const MainRoutes = () => {
     return (
         <Routes>
             <Route index element={<ComingShroom />} />
+            <Route path={MainPagePaths.CONTACT} element={<ContactPage />} />
             {/*<Route path={MainPagePaths.HOME} element={<Home />} />*/}
             <Route path={MainPagePaths.STYLE_GUIDE} element={<StyleGuide />} />
             <Route path={MainPagePaths.ABOUT} element={<About />} />

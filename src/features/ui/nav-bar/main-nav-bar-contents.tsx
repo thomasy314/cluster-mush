@@ -53,6 +53,7 @@ export const MainNavBarContents = () => {
                             {mushroomSidebarLinks}
                             <hr className="navBarDrawerDivider" />
                             <NavBarLink path={MainPagePaths.ABOUT}>About Cluster Mush</NavBarLink>
+                            <NavBarLink path={MainPagePaths.CONTACT}>Contact</NavBarLink>
                         </div>
                     </Drawer>
                 </>
@@ -61,7 +62,8 @@ export const MainNavBarContents = () => {
                     <Dropdown buttonLink={MainPagePaths.BROWSE_GOURMET_MUSHROOMS} buttonText='Gourmet Mushrooms'>
                         {mushroomDropdownLinks}
                     </Dropdown>
-                    <NavBarLink underlineOnHover={true} path={MainPagePaths.ABOUT}>About</NavBarLink>
+                    <NavBarLink underlineOnHover path={MainPagePaths.ABOUT}>About</NavBarLink>
+                    <NavBarLink underlineOnHover path={MainPagePaths.CONTACT}>Contact</NavBarLink>
                 </>
             }
         </>

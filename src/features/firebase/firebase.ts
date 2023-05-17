@@ -30,6 +30,7 @@ const analytics: Analytics = getAnalytics(app);
 const firestoreDb: Firestore = getFirestore(app);
 export const stripeProductsCollectionRef: CollectionReference = collection(firestoreDb, 'products');
 export const stripeCustomerCollectionRef: CollectionReference = collection(firestoreDb, 'customers');
+export const emailCollectionRef: CollectionReference = collection(firestoreDb, 'mail');
 
 // Firebase Storage
 export const firebaseStorage: FirebaseStorage = getStorage(app);

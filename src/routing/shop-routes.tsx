@@ -4,6 +4,7 @@ import { AccountPage } from "../pages/account";
 import { Basket, ShippingInfo, Shop, ShopItemPage } from "../pages/shop";
 import { createUnknownPathRedirect, stringToPath } from "./routing-path-helpers";
 import { mushroomInfoPageList } from "../pages/mushroom-info-page";
+import { ContactPage } from "../pages/contact";
 
 
 const shopPages = Object.entries(gourmetEarringIds).map(([shopItemPath, id]: [string, string]) =>
@@ -20,6 +21,7 @@ export const ShopRoutes = () => {
         <Routes>
             <Route index element={<Shop />} />
             {specificMushroomPages}
+            <Route path='/contact' element={<ContactPage />} />
             <Route path='/basket' element={<Basket />} />
             <Route path='/login' element={<AccountPage />} />
             <Route path='/account' element={<AccountPage />} />

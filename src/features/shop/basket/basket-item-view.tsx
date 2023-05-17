@@ -29,13 +29,13 @@ export const BasketItemView = (props: BasketItemViewProps) => {
             <Grid item className="basketItemViewColumn" xs={3} md={4}>
                 <p className="basketItemViewQuantityText">{basket.getProductQuantity(props.item.item)}</p>
                 <div>
-                    <Button className='basketItemViewQuantityButton' variant='outlined' color='primary' onClick={() => basket.addOneToBasket(props.item.item)}>+</Button>
+                    <Button className='basketItemViewQuantityButton' variant='outlined' color='primary' style={{borderWidth: '2px'}} onClick={() => basket.addOneToBasket(props.item.item)}>+</Button>
                     <br />
                     <br />
-                    <Button className='basketItemViewQuantityButton' variant='outlined' color='primary' onClick={() => basket.removeOneFromBasket(props.item.item)}>-</Button>
+                    <Button className='basketItemViewQuantityButton' variant='outlined' color='primary' style={{borderWidth: '2px'}} onClick={() => basket.removeOneFromBasket(props.item.item)}>-</Button>
                 </div>
             </Grid>
-            <Grid item className="basketItemViewColumn" xs={0} md={1} display={{ xs: 'none', md: 'block'}}>
+            <Grid item className="basketItemViewColumn" xs={0} md={1} display={{ xs: 'none', md: 'flex'}}>
                 <p>{props.item.item.price * basket.getProductQuantity(props.item.item)}</p>
             </Grid>
         </Grid>

@@ -16,6 +16,7 @@ type BasketContextType = {
     removeOneFromBasket: (item: ShopItemInfo) => void,
     setQuantityInBasket: (item: ShopItemInfo, newQuantity: number) => void,
     deleteFromBasket: (item: ShopItemInfo) => void,
+    getTotalProductCount: () => number,
     clearBasket: () => void,
     getTotalCost: () => number
 };
@@ -23,11 +24,12 @@ type BasketContextType = {
 export const BasketContext = createContext<BasketContextType>({
     items: [],
     getProductQuantity: (item: ShopItemInfo) => 0,
-    addOneToBasket: (item: ShopItemInfo) => {},
-    removeOneFromBasket: (item: ShopItemInfo) => {},
-    setQuantityInBasket: (item: ShopItemInfo, newQuantity: number) => {},
-    deleteFromBasket: (item: ShopItemInfo) => {},
-    clearBasket: () => {},
+    addOneToBasket: (item: ShopItemInfo) => { },
+    removeOneFromBasket: (item: ShopItemInfo) => { },
+    setQuantityInBasket: (item: ShopItemInfo, newQuantity: number) => { },
+    deleteFromBasket: (item: ShopItemInfo) => { },
+    getTotalProductCount: () => 0,
+    clearBasket: () => { },
     getTotalCost: () => 0
 });
 
@@ -78,10 +80,10 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
                 getBasketFromStorage().map(
                     product => {
 
-                    return compareShopItemInfo(product.item, item)
-                    ? { ...product, quantity: product.quantity + 1 } 
-                    : product                                        
-                })
+                        return compareShopItemInfo(product.item, item)
+                            ? { ...product, quantity: product.quantity + 1 }
+                            : product
+                    })
             );
         }
     }
@@ -89,15 +91,15 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
     function removeOneFromBasket(item: ShopItemInfo) {
         const quantity = getProductQuantity(item);
 
-        if(quantity === 1) {
+        if (quantity === 1) {
             deleteFromBasket(item);
         } else {
             saveBasketToStorage(
                 getBasketFromStorage().map(
                     product =>
-                    compareShopItemInfo(product.item, item)
-                    ? { ...product, quantity: product.quantity - 1 }
-                    : product
+                        compareShopItemInfo(product.item, item)
+                            ? { ...product, quantity: product.quantity - 1 }
+                            : product
                 )
             )
         }
@@ -105,15 +107,15 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
 
     function setQuantityInBasket(item: ShopItemInfo, newQuantity: number) {
 
-        if(newQuantity === 0) {
+        if (newQuantity === 0) {
             deleteFromBasket(item);
         } else {
             saveBasketToStorage(
                 getBasketFromStorage().map(
                     product =>
-                    compareShopItemInfo(product.item, item)
-                    ? { ...product, quantity: newQuantity }
-                    : product
+                        compareShopItemInfo(product.item, item)
+                            ? { ...product, quantity: newQuantity }
+                            : product
                 )
             )
         }
@@ -127,6 +129,12 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
                 })
             );
         }
+    }
+
+    function getTotalProductCount() {
+        return basketProducts
+            .map(item => item.quantity)
+            .reduce((acc: number, curVal: number) => acc + curVal, 0)
     }
 
     function clearBasket() {
@@ -147,6 +155,7 @@ export const BasketProvider = (props: PropsWithChildren<BasketProviderProps>) =>
         addOneToBasket: addOneToBasket,
         removeOneFromBasket: removeOneFromBasket,
         setQuantityInBasket: setQuantityInBasket,
+        getTotalProductCount: getTotalProductCount,
         deleteFromBasket: deleteFromBasket,
         clearBasket: clearBasket,
         getTotalCost
