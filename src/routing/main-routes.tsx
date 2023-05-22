@@ -13,6 +13,7 @@ import { browseGourmetMushroomsDesc } from '../pages/mushroom-info-page/browse-m
 import { gourmetMushroomList } from '../pages/mushroom-info-page/definitions';
 import { createUnknownPathRedirect } from './routing-path-helpers';
 import { ContactPage } from '../pages/contact';
+import { CommonRoutes } from './common-routes';
 
 const infoPages = mushroomInfoPageList.map(mushInfo =>
     <Fragment key={mushInfo.name}>
@@ -47,9 +48,8 @@ export enum MainPagePaths  {
 export const MainRoutes = () => {
     return (
         <Routes>
+            {CommonRoutes}
             <Route index element={<ComingShroom />} />
-            <Route path={MainPagePaths.CONTACT} element={<ContactPage />} />
-            {/*<Route path={MainPagePaths.HOME} element={<Home />} />*/}
             <Route path={MainPagePaths.STYLE_GUIDE} element={<StyleGuide />} />
             <Route path={MainPagePaths.ABOUT} element={<About />} />
             <Route path={MainPagePaths.BROWSE_GOURMET_MUSHROOMS} element={<BrowseMushroomInfoPage title='Gourmet Mushrooms' description={browseGourmetMushroomsDesc} infoList={gourmetMushroomList} />} />
