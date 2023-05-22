@@ -5,7 +5,7 @@ import {
     ValueWithCitation
 } from '../../../features/mushroom-info-page/data-objects';
 
-import oysterPhoto from '../../../assets/photos/oyster/oyster.jpg';
+import oysterPhoto from '../../../assets/photos/oyster/oyster-mushroom-psms-field-tripe.jpg';
 
 const name: string = 'Oyster Mushroom';
 

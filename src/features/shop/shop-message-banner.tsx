@@ -1,4 +1,4 @@
-import { AppBar, Container, Paper } from "@mui/material"
+import { Container } from "@mui/material"
 
 export enum ShopMessages {
     BULK_DISCOUNT="10% off 2 pairs of earrings | 20% off 3 pairs of earrings"

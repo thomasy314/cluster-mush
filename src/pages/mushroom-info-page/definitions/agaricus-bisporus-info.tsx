@@ -5,7 +5,7 @@ import {
     ValueWithCitation
 } from '../../../features/mushroom-info-page/data-objects';
 
-import portobelloPhoto from '../../../assets/photos/commonStore/portobello.png';
+import portobelloPhoto from '../../../assets/photos/commonStore/portobello.jpg';
 import React from 'react';
 
 const name: string = 'Common Store Mushroom'

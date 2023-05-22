@@ -5,7 +5,7 @@ import {
     ValueWithCitation
 } from '../../../features/mushroom-info-page/data-objects';
 
-import shiitakePhoto from '../../../assets/photos/shiitake/shiitake.png';
+import shiitakePhoto from '../../../assets/photos/shiitake/shiitake.jpg';
 
 const name: string = 'Shiitake';
 
