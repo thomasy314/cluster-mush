@@ -1,11 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import { gourmetEarringIds } from "../features/shop/item-data";
 import { AccountPage } from "../pages/account";
-import { Basket, ShippingInfo, Shop, ShopItemPage } from "../pages/shop";
-import { createUnknownPathRedirect, stringToPath } from "./routing-path-helpers";
 import { mushroomInfoPageList } from "../pages/mushroom-info-page";
-import { ContactPage } from "../pages/contact";
+import { Basket, ShippingInfo, Shop, ShopItemPage } from "../pages/shop";
 import { CommonRoutes } from "./common-routes";
+import { createUnknownPathRedirect, stringToPath } from "./routing-path-helpers";
 
 
 const shopPages = Object.entries(gourmetEarringIds).map(([shopItemPath, id]: [string, string]) =>

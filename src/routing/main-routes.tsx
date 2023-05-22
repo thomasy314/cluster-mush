@@ -11,9 +11,8 @@ import { About } from '../pages/about/about';
 import { BrowseMushroomInfoPage, mushroomCategoryList, mushroomInfoPageList } from '../pages/mushroom-info-page';
 import { browseGourmetMushroomsDesc } from '../pages/mushroom-info-page/browse-mushroom-info-pages/browse-mushroom-info-pages-strings';
 import { gourmetMushroomList } from '../pages/mushroom-info-page/definitions';
-import { createUnknownPathRedirect } from './routing-path-helpers';
-import { ContactPage } from '../pages/contact';
 import { CommonRoutes } from './common-routes';
+import { createUnknownPathRedirect } from './routing-path-helpers';
 
 const infoPages = mushroomInfoPageList.map(mushInfo =>
     <Fragment key={mushInfo.name}>

@@ -1,7 +1,6 @@
 import { Route } from "react-router-dom"
-import { ReturnPolicy } from "../pages/legal-docs"
-import { MainPagePaths } from "./main-routes"
 import { ContactPage } from "../pages/contact"
+import { ReturnPolicy } from "../pages/legal-docs"
 
 export const CommonRoutes = (
         <>
