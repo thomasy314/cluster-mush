@@ -4,7 +4,8 @@ import { addDoc, collection, onSnapshot } from 'firebase/firestore';
 import { FailedToRedirectToCheckout, FailedToRequestStripeClient, StripeClientIsNull } from '../../../errors';
 import { isLocalHost } from '../../../routing/routing-path-helpers';
 import { stripeCustomerCollectionRef } from '../../firebase/firebase';
-import { BasketItem } from '../basket';
+import { BasketContextType, BasketItem } from '../basket';
+import { PromoCodes } from './promo-codes';
 
 let stripePromise: Promise<Stripe>;
 
@@ -42,11 +43,11 @@ export const getStripe = () => {
     return stripePromise;
 };
 
-export const handleCheckout = (basketItems: BasketItem[], user: User): Promise<void> => {
+export const handleCheckout = (basketItems: BasketContextType, user: User): Promise<void> => {
 
     const checkoutSessions = collection(stripeCustomerCollectionRef, user.uid, "checkout_sessions");
 
-    const checkoutItems = basketItems.map((bItem: BasketItem): CheckoutItem => {
+    const checkoutItems = basketItems.items.map((bItem: BasketItem): CheckoutItem => {
         return {
             price: bItem.item.price_id,
             quantity: bItem.quantity
@@ -54,6 +55,10 @@ export const handleCheckout = (basketItems: BasketItem[], user: User): Promise<v
     });
 
     return new Promise((resolve, reject) => {
+
+        const bulkDiscount = basketItems.getTotalCost() >= 60 ? 
+            (basketItems.getTotalCost() >= 90 ? PromoCodes.LARGE_CLUSTER : PromoCodes.SMALL_CLUSTER) : null
+
         addDoc(checkoutSessions, {
             mode: "payment",
             line_items: checkoutItems,
@@ -66,11 +71,13 @@ export const handleCheckout = (basketItems: BasketItem[], user: User): Promise<v
             },
             automatic_tax: {
                 enabled: true
-            }
+            },
+            promotion_code: bulkDiscount
         })
             .then(docRef => {
                 const unSub = onSnapshot(docRef, checkoutDoc => {
                     if (checkoutDoc.get('error')) {
+                        console.log(checkoutDoc.get('error'))
                         reject(new FailedToRedirectToCheckout(checkoutDoc.get('error')));
                         return;
                     }
@@ -91,6 +98,10 @@ export const handleCheckout = (basketItems: BasketItem[], user: User): Promise<v
                         reject(new FailedToRedirectToCheckout(error));
                         return;
                     });
+            })
+            .catch(error => {
+                console.log(error)
+                reject(new FailedToRedirectToCheckout(error));
             })
     })
 

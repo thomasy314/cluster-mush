@@ -9,7 +9,7 @@ export interface BasketItem {
     quantity: number
 }
 
-type BasketContextType = {
+export type BasketContextType = {
     items: BasketItem[],
     getProductQuantity: (item: ShopItemInfo) => number,
     addOneToBasket: (item: ShopItemInfo) => void,

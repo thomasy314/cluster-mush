@@ -51,7 +51,7 @@ export const Basket = () => {
             validateBasket()
                 .then(isValid => {
                     if (isValid) {
-                        handleCheckout(basket.items, user)
+                        handleCheckout(basket, user)
                             .then(() => {
                                 basket.clearBasket();
                                 resolve();
