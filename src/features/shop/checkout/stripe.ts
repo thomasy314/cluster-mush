@@ -63,6 +63,9 @@ export const handleCheckout = (basketItems: BasketItem[], user: User): Promise<v
             collect_shipping_address: true,
             shipping_address_collection: {
                 allowed_countries: ['US']
+            },
+            automatic_tax: {
+                enabled: true
             }
         })
             .then(docRef => {
