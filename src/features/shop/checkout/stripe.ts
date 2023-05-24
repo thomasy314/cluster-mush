@@ -56,8 +56,8 @@ export const handleCheckout = (basketItems: BasketContextType, user: User): Prom
 
     return new Promise((resolve, reject) => {
 
-        const bulkDiscount = basketItems.getTotalCost() >= 60 ? 
-            (basketItems.getTotalCost() >= 90 ? PromoCodes.LARGE_CLUSTER : PromoCodes.SMALL_CLUSTER) : null
+        const bulkDiscount = basketItems.getTotalCost() >= 90 ? 
+            (basketItems.getTotalCost() >= 150 ? PromoCodes.LARGE_CLUSTER : PromoCodes.SMALL_CLUSTER) : null
 
         addDoc(checkoutSessions, {
             mode: "payment",
