@@ -1,25 +1,9 @@
 import { Container, Link } from "@mui/material"
-import { PropsWithChildren } from "react"
-
-const InShort = (props: PropsWithChildren<{}>) => {
-    return (
-        <p>
-            <b><i>In Short:</i></b> {props.children}
-        </p>
-    )
-}
-
-const SectionTitle = (props: PropsWithChildren<{}>) => {
-    return (
-        <h2>
-            {props.children}
-        </h2>
-    )
-}
+import { InShort, SectionTitle } from "./doc-pieces"
 
 export const PrivacyPolicy = () => {
     return (
-        <Container>
+        <Container sx={{paddingBottom: '10vh'}}>
             <h1>Privacy Policy</h1>
             <b>Last updated May 23, 2023</b>
             <p>
@@ -499,7 +483,7 @@ export const PrivacyPolicy = () => {
                     Based on the applicable laws of your country, you may have the right to request
                     access to the personal information we collect from you, change that information, or
                     delete it. To request to review, update, or delete your personal information, please
-                    visit the Cluster Mush delete my data page on the main website (<Link href="http://www.clustermush.com/delete-my-data">http://www.clustermush.com/delete-my-data</Link>) or shop (<Link href="http://shop.clustermush.com/delete-my-data">http://shop.clustermush.com/delete-my-data</Link>).
+                    visit the Cluster Mush delete my data page on the main website (<Link href="https://www.clustermush.com/delete-my-data">https://www.clustermush.com/delete-my-data</Link>) or shop (<Link href="http://shop.clustermush.com/delete-my-data">http://shop.clustermush.com/delete-my-data</Link>).
                 </p>
             </div>
         </Container>

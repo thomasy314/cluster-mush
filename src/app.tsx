@@ -7,7 +7,7 @@ import { MainRoutes, ShopRoutes } from './routing';
 
 import { UserProvider } from './features/authentication/user-context';
 import { BasketProvider } from './features/shop';
-import { theme } from './features/ui';
+import { BottomNavBar, theme } from './features/ui';
 import { NavBar, NavBarVariation } from './features/ui/nav-bar/nav-bar';
 import { inShop } from './routing/routing-path-helpers';
 
@@ -17,11 +17,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <UserProvider>
         <BasketProvider>
-          <Container disableGutters maxWidth={false}>
+          <Container disableGutters maxWidth={false} sx={{height:'100vh'}}>
             <NavBar variation={inShop() ? NavBarVariation.SHOP : NavBarVariation.MAIN} />
             <BrowserRouter>
               {inShop() ? <ShopRoutes /> : <MainRoutes />}
             </BrowserRouter>
+            <BottomNavBar />
           </Container>
         </BasketProvider>
       </UserProvider>

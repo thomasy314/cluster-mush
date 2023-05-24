@@ -2,7 +2,7 @@ import { Container, Link } from "@mui/material"
 
 export const ReturnPolicy = () => {
     return (
-        <Container>
+        <Container sx={{paddingBottom:"10vh"}}>
             <h1>Return Policy</h1>
             <h3>Last updated May 22, 2023</h3>
             <p>

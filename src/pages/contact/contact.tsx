@@ -91,7 +91,7 @@ export const ContactPage = () => {
     }
 
     return (
-        <Container>
+        <Container sx={{ paddingBottom: "10vh" }}>
             <LoadingModal open={isLoading} />
             <h1>Contact Cluster Mush</h1>
             <Grid container>
