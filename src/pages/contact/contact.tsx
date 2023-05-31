@@ -2,7 +2,8 @@ import { Alert, Button, Container, Grid, TextField } from "@mui/material";
 import { useState } from "react";
 
 import validator from 'validator';
-import { ContactConfirmEmailProps, ContactInformEmailProps, sendEmail } from "../../features/firebase";
+import { ClusterMushEmails, sendEmail } from "../../features/firebase";
+import { ContactConfirmEmailProps, ContactInformEmailProps } from "../../features/firebase/email/firebase-email-templates";
 import { LoadingModal } from "../../features/ui";
 
 export const ContactPage = () => {
@@ -55,7 +56,8 @@ export const ContactPage = () => {
             setIsLoading(true);
 
             const contactInform: ContactInformEmailProps = {
-                to: 'support@clustermush.com',
+                to: ClusterMushEmails.SUPPORT,
+                from: ClusterMushEmails.SUPPORT,
                 template: {
                     name: 'contact-inform',
                     data: {
@@ -68,21 +70,22 @@ export const ContactPage = () => {
 
             const contactConfirm: ContactConfirmEmailProps = {
                 to: email,
+                from: ClusterMushEmails.SUPPORT,
                 template: {
                     name: 'contact-confirm'
                 }
             }
 
-            const contactInformPromise = sendEmail(contactInform);
-            const contactConfirmPromise = sendEmail(contactConfirm);
-
-            Promise.all([contactInformPromise, contactConfirmPromise])
-                .then(() => setSendMailSuccessful(true))
-                .catch(() => setSendMailSuccessful(false))
-                .finally(() => {
-                    clearInput();
-                    setIsLoading(false);
-                });
+            sendEmail(contactInform)
+                .then(() =>
+                    sendEmail(contactConfirm)
+                        .then(() => setSendMailSuccessful(true))
+                        .catch(() => setSendMailSuccessful(false))
+                        .finally(() => {
+                            clearInput();
+                            setIsLoading(false);
+                        })
+                )
         }
     }
 
@@ -92,7 +95,7 @@ export const ContactPage = () => {
 
     return (
         <Container sx={{ paddingBottom: "10vh" }}>
-            <LoadingModal open={isLoading} />
+            <LoadingModal open={isLoading} message="Sending..." />
             <h1>Contact Cluster Mush</h1>
             <Grid container>
                 <Grid item xs={12} md={6}>
@@ -142,7 +145,7 @@ export const ContactPage = () => {
                 </Grid>
                 <Grid item xs={0} md={6} />
             </Grid>
-            {(!isValidName || !isValidEmail || !isValidMessage) && <Alert severity="error">Oops! Please ensure to fillout all required fields with valid inputs</Alert>}
+            {(!isValidName || !isValidEmail || !isValidMessage) && <Alert severity="error">Oops! Please ensure to fill out all required fields with valid inputs</Alert>}
             {sentMailSuccessful === false && <Alert severity="error" >Failed to send, please try again</Alert>}
             {sentMailSuccessful === true && <Alert severity="success" >Successfully sent! We will reach out to you soon!</Alert>}
             <br />

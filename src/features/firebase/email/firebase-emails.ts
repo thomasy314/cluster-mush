@@ -1,40 +1,8 @@
 import { addDoc, onSnapshot } from "firebase/firestore"
-import { emailCollectionRef } from "./firebase"
-
-export interface EmailProps {
-    to: string,
-    from?: string
-}
-
-type EmailMessage = {
-    subject: string,
-    text: string,
-    html?: string,
-}
-
-export interface GenericEmailProps extends EmailProps {
-    message: EmailMessage
-}
-
-export interface ContactConfirmEmailProps extends EmailProps {
-    template: {
-        name: 'contact-confirm'
-    }
-}
-
-export interface ContactInformEmailProps extends EmailProps {
-    template: {
-        name: 'contact-inform',
-        data: {
-            senderEmail: string,
-            senderName: string,
-            senderMessage: string
-        }
-    }
-}
+import { emailCollectionRef } from "../firebase"
+import { EmailProps } from "./firebase-email-templates";
 
 export const sendEmail = (emailProps: EmailProps): Promise<void> => {
-
     return new Promise((resolve, reject) => {
         addDoc(emailCollectionRef, emailProps)
             .then(docRef => {

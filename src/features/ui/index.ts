@@ -8,3 +8,4 @@ export * from './theme';
 export * from './url-image-grid/url-image-grid';
 export * from './loading/loading-modal/loading-modal';
 export * from './bottom-nav-bar/bottom-nav-bar';
+export * from './login-button';

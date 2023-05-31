@@ -1,5 +1,6 @@
 import { Container, Link } from "@mui/material"
 import { InShort, SectionTitle } from "./doc-pieces"
+import { completeMainUrl, completeShopUrl } from "../../routing/routing-path-helpers"
 
 export const PrivacyPolicy = () => {
     return (
@@ -10,7 +11,7 @@ export const PrivacyPolicy = () => {
                 This privacy notice for Cluster Mush ("<b>Company</b>," "<b>we</b>," "<b>us</b>," or "<b>our</b>"), describes
                 how and why we might collect, store, use, and/or share ("process") your information
                 when you use our services ("<b>Services</b>"), such as when you:
-                Visit our website at <Link href="http://www.clustermush.com">http://www.clustermush.com</Link> and <Link href="http://shop.clustermush.com">http://shop.clustermush.com</Link>, or any website of ours that
+                Visit our website at <Link href={completeMainUrl}>https://www.clustermush.com</Link> and <Link href={completeShopUrl}>https://shop.clustermush.com</Link>, or any website of ours that
                 links to this privacy notice
                 Engage with us in other related ways, including any sales, marketing, or
                 events
@@ -67,7 +68,7 @@ export const PrivacyPolicy = () => {
             </p>
             <p>
                 <b>How do you exercise your rights?</b> The easiest way to exercise your rights is by
-                visiting <Link href="http://www.clustermush.com/delete-my-data">http://www.clustermush.com/delete-my-data</Link>, or by contacting us. We will
+                visiting <Link href={`${completeShopUrl}/delete-my-data`}>https://shop.clustermush.com/delete-my-data</Link>, or by <Link href="/contact">contacting us</Link>. We will
                 consider and act upon any request in accordance with applicable data protection
                 laws.
             </p>
@@ -483,7 +484,7 @@ export const PrivacyPolicy = () => {
                     Based on the applicable laws of your country, you may have the right to request
                     access to the personal information we collect from you, change that information, or
                     delete it. To request to review, update, or delete your personal information, please
-                    visit the Cluster Mush delete my data page on the main website (<Link href="https://www.clustermush.com/delete-my-data">https://www.clustermush.com/delete-my-data</Link>) or shop (<Link href="http://shop.clustermush.com/delete-my-data">http://shop.clustermush.com/delete-my-data</Link>).
+                    visit the Cluster Mush delete my data page: (<Link href={`${completeShopUrl}/delete-my-data`}>https://shop.clustermush.com/delete-my-data</Link>).
                 </p>
             </div>
         </Container>

@@ -9,11 +9,10 @@ import oysterPhoto from '../../../assets/photos/oyster/oyster-mushroom-psms-fiel
 
 const name: string = 'Oyster Mushroom';
 
-const latinName: string = 'Pleurotus ostreatus';
+const latinName: string = 'Pleurotus';
 
 const commonNames: string[] = [
-    '(Japan) Hiratake',
-    'Pearl Oyster Mushroom'
+    '(Japan) Hiratake'
 ];
 
 const etymology: string = 'This mushroom’s name refers to the shape of the cap resembling that of an oyster.';

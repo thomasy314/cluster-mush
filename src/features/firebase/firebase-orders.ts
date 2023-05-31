@@ -7,7 +7,7 @@ type PaymentItemData = {
     quantity: number
 }
 
-export type CustomerPaymnetData = {
+export type CustomerPaymentData = {
     id: string,
     itemDataList: PaymentItemData[],
     amount: number,
@@ -15,14 +15,14 @@ export type CustomerPaymnetData = {
     trackingInfo?: string
 }
 
-export const getCustomerPayments = (customerId: string): Promise<CustomerPaymnetData[]> => {
+export const getCustomerPayments = (customerId: string): Promise<CustomerPaymentData[]> => {
     const paymentsCollectionRef = collection(stripeCustomerCollectionRef, customerId, 'payments');
     const q = query(paymentsCollectionRef, where("status", "==", "succeeded"));
 
     return new Promise((resolve, reject) => {
         getDocs(q)
             .then(paymentDocsList => {
-                const paymentData = paymentDocsList.docs.map((paymentDoc): CustomerPaymnetData => {
+                const paymentData = paymentDocsList.docs.map((paymentDoc): CustomerPaymentData => {
 
                     const orderId = paymentDoc.get('id');
                     const itemDataList = paymentDoc.get('items').map((rawItem: PaymentItemData) => rawItem);

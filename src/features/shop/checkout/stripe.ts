@@ -2,7 +2,7 @@ import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { User } from 'firebase/auth';
 import { addDoc, collection, onSnapshot } from 'firebase/firestore';
 import { FailedToRedirectToCheckout, FailedToRequestStripeClient, StripeClientIsNull } from '../../../errors';
-import { isLocalHost } from '../../../routing/routing-path-helpers';
+import { completeShopUrl } from '../../../routing/routing-path-helpers';
 import { stripeCustomerCollectionRef } from '../../firebase/firebase';
 import { BasketContextType, BasketItem } from '../basket';
 import { PromoCodes } from './promo-codes';
@@ -11,9 +11,8 @@ let stripePromise: Promise<Stripe>;
 
 const stripePublishKey_TEST = 'pk_live_51MxqrTHgT1AABCbEsoyHcesKWgzhCPFt6a40dGMiFjrLT5kAXLQcGMwZnKHqiYJzRBPyPUbPTTDUF8TaOVR2PKbm00xmLogwus';
 
-const completeUrl = isLocalHost() ? 'http://shop.localhost:3000' : 'https://shop.clustermush.com';
-const successUrl = completeUrl + '/success';
-const cancelUrl = completeUrl + '/basket';
+const successUrl = completeShopUrl + '/success';
+const cancelUrl = completeShopUrl + '/basket';
 
 type CheckoutItem = {
     price: string,

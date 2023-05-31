@@ -29,6 +29,9 @@
     border-width: 0;
     margin-left: .5rem;
     font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .underlineOnHover:hover {

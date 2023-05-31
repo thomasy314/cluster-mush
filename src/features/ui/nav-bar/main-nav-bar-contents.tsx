@@ -3,6 +3,7 @@ import { Drawer, Grid, Theme, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from 'react';
 import { mushroomInfoPageList } from "../../../pages/mushroom-info-page";
 import { MainPagePaths } from '../../../routing';
+import { completeShopUrl } from "../../../routing/routing-path-helpers";
 import { Dropdown } from './nav-bar-dropdown';
 import { NavBarLink } from "./nav-bar-link";
 
@@ -54,6 +55,7 @@ export const MainNavBarContents = () => {
                             <hr className="navBarDrawerDivider" />
                             <NavBarLink path={MainPagePaths.ABOUT}>About Cluster Mush</NavBarLink>
                             <NavBarLink path={MainPagePaths.CONTACT}>Contact</NavBarLink>
+                            {false && <NavBarLink path={completeShopUrl}>Shop</NavBarLink>}
                         </div>
                     </Drawer>
                 </>
@@ -64,6 +66,8 @@ export const MainNavBarContents = () => {
                     </Dropdown>
                     <NavBarLink underlineOnHover path={MainPagePaths.ABOUT}>About</NavBarLink>
                     <NavBarLink underlineOnHover path={MainPagePaths.CONTACT}>Contact</NavBarLink>
+                    <div style={{ flexGrow: 1 }}></div>
+                    {false && <NavBarLink underlineOnHover path={completeShopUrl}>Shop</NavBarLink>}
                 </>
             }
         </>

@@ -1,5 +1,6 @@
 import { Container, Link } from "@mui/material"
 import { SectionTitle } from "./doc-pieces"
+import { completeMainUrl, completeShopUrl } from "../../routing/routing-path-helpers"
 
 export const TermsOfUse = () => {
     return (
@@ -10,7 +11,7 @@ export const TermsOfUse = () => {
             <p>
                 We are Cluster Mush ("<b>Company</b>", "<b>we</b>", "<b>us</b>", "<b>our</b>").
 
-                We operate the website <Link href="https://www.clustermush.com">https://www.clustermush.com</Link> and <Link href="https://shop.clustermush.com">https://shop.clustermush.com</Link> (the "<b>Site</b>"), as well
+                We operate the website <Link href={completeMainUrl}>https://www.clustermush.com</Link> and <Link href={completeShopUrl}>https://shop.clustermush.com</Link> (the "<b>Site</b>"), as well
                 as any other related products and services that refer or link to these legal
                 terms (the "<b>Legal Terms</b>") (collectively, the "<b>Services</b>").
             </p>
@@ -52,7 +53,7 @@ export const TermsOfUse = () => {
             <h2>TABLE OF CONTENTS</h2>
             <ol>
                 <li><Link href="#1-our-services">OUR SERVICES</Link></li>
-                <li><Link href="#2-intelectual-property-rights">INTELLECTUAL PROPERTY RIGHTS</Link></li>
+                <li><Link href="#2-intellectual-property-rights">INTELLECTUAL PROPERTY RIGHTS</Link></li>
                 <li><Link href="#3-user-representations">USER REPRESENTATIONS</Link></li>
                 <li><Link href="#4-user-registration">USER REGISTRATION</Link></li>
                 <li><Link href="#5-products">PRODUCTS</Link></li>
@@ -100,7 +101,7 @@ export const TermsOfUse = () => {
                     Gramm-Leach-Bliley Act (GLBA).
                 </p>
             </div>
-            <div id="2-intelectual-property-rights">
+            <div id="2-intellectual-property-rights">
                 <SectionTitle>2. INTELLECTUAL PROPERTY RIGHTS</SectionTitle>
                 <h3>Our intellectual property</h3>
                 <p>

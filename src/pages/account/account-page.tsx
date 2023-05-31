@@ -1,20 +1,17 @@
 import { Button, Container, Grid, Link } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { logOut, loginWithGoogle } from "../../features/authentication";
+import { logOut } from "../../features/authentication";
 import { UserContext } from "../../features/authentication/user-context";
 
-import GoogleIcon from '@mui/icons-material/Google';
 
-import { CustomerPaymnetData, getCustomerPayments } from "../../features/firebase";
-import { LoadingPage } from "../../features/ui";
+import { CustomerPaymentData, getCustomerPayments } from "../../features/firebase";
+import { LoadingPage, LoginButton } from "../../features/ui";
 import './account-page.css';
 
 export const AccountPage = () => {
-    const navigate = useNavigate();
 
     const { user, loadingUser } = useContext(UserContext);
-    const [userPayments, setUserPayments] = useState<CustomerPaymnetData[]>([]);
+    const [userPayments, setUserPayments] = useState<CustomerPaymentData[]>([]);
 
     const uspsTrackingLLinkStart = "https://tools.usps.com/go/TrackConfirmAction_input?strOrigTrackNum=";
 
@@ -70,7 +67,7 @@ export const AccountPage = () => {
                             <b>Items:</b>
                             <br />
                             <ul>
-                                {paymentData.itemDataList.map(data => <li>{data.description} x {data.quantity}</li>)}
+                                {paymentData.itemDataList.map(data => <li key={data.id}>{data.description} x {data.quantity}</li>)}
                             </ul>
                         </Grid>
                     </React.Fragment>
@@ -99,10 +96,7 @@ export const AccountPage = () => {
                     <>
                         <h1>Login</h1>
                         <br />
-                        <Button onClick={() => {
-                            loginWithGoogle()
-                                .then(() => navigate("/account"))
-                        }}><GoogleIcon /> &nbsp; Login with google</Button>
+                        <LoginButton />
                     </>
             }
         </Container>

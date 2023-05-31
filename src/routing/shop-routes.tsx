@@ -5,6 +5,7 @@ import { mushroomInfoPageList } from "../pages/mushroom-info-page";
 import { Basket, ShippingInfo, Shop, ShopItemPage } from "../pages/shop";
 import { CommonRoutes } from "./common-routes";
 import { createUnknownPathRedirect, stringToPath } from "./routing-path-helpers";
+import { DeleteMyDataPage } from "../pages/legal";
 
 
 const shopPages = Object.entries(gourmetEarringIds).map(([shopItemPath, id]: [string, string]) =>
@@ -27,6 +28,7 @@ export const ShopRoutes = () => {
             <Route path='/account' element={<AccountPage />} />
             <Route path='/shipping' element={<ShippingInfo />} />
             {shopPages}
+            <Route path='/delete-my-data' element={<DeleteMyDataPage />} />
             {createUnknownPathRedirect()}
         </Routes>
     )

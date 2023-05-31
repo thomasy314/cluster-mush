@@ -13,7 +13,7 @@ export const Dropdown = (props: PropsWithChildren<DropdownProps>) => {
     return (
         <div className="dropdown">
             {props.buttonLink ?
-                <Link href={props.buttonLink}><button className='navBarButton navBarItem dropbtn' >{props.buttonText}</button></Link>
+                <Link underline="none" href={props.buttonLink}><button className='navBarButton navBarItem dropbtn' >{props.buttonText}</button></Link>
                 :
                 <button className='navBarButton navBarItem dropbtn' >{props.buttonText}</button>
             }

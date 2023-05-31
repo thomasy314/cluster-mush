@@ -2,6 +2,7 @@ import { Backdrop, CircularProgress } from "@mui/material";
 
 type LoadingModalProps = {
     open: boolean,
+    message?: string
 }
 
 export const LoadingModal = (props: LoadingModalProps) => {
@@ -11,7 +12,10 @@ export const LoadingModal = (props: LoadingModalProps) => {
             open={props.open}
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         >
-            <CircularProgress color="inherit" />
+            <div style={{textAlign: 'center'}}>
+                <CircularProgress color="inherit" />
+                {props.message && <p>{props.message}</p>}
+            </div>
         </Backdrop>
     )
 }

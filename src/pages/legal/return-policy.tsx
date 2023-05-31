@@ -48,9 +48,6 @@ export const ReturnPolicy = () => {
                 If you have any questions concerning our return policy, please contact us at support@clustermush.com or through the <Link href="/contact">contact page</Link>.
             </p>
             <hr />
-            <p>
-            This return policy was created using Termly's <Link href="https://termly.io/products/refund-return-policy-generator/">Return and Refund Policy Generator</ Link>.
-            </p>
         </ Container>
     )
 }
