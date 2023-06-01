@@ -3,11 +3,12 @@ import { createTheme } from "@mui/material/styles";
 export const theme = createTheme({
     palette: {
         primary: {
+            light: '#F8F6F1',
             main: '#15201D'
         },
         secondary: {
             main: '#8BA465'
-        }
+        },
     },
     typography: {
         fontFamily: 'fredoka, sans-serif',

@@ -15,7 +15,6 @@ export const isLocalHost = (): boolean => {
 export const completeMainUrl = isLocalHost() ? 'http://www.localhost:3000' : 'https://www.clustermush.com';
 export const completeShopUrl = isLocalHost() ? 'http://shop.localhost:3000' : 'https://shop.clustermush.com';
 
-
 export const inShop = (): boolean => {
     return window.location.host.includes("shop");
 }

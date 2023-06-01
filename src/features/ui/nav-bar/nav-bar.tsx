@@ -5,6 +5,7 @@ import { ShopNavBarContents } from './shop-nav-bar-contents';
 
 import './nav-bar.css';
 import { ShopMessageBanner, ShopMessages } from '../../shop/shop-message-banner';
+import React from 'react';
 
 export enum NavBarVariation {
     MAIN = 'main',
@@ -24,8 +25,8 @@ export const NavBar = (props: NavBarProps) => {
 
     return (
         <>
-            {props.variation === NavBarVariation.SHOP && <ShopMessageBanner message={ShopMessages.BULK_DISCOUNT}/>}
-            <AppBar elevation={0} id="navBarContainer" position='sticky'>
+            {props.variation === NavBarVariation.SHOP && <ShopMessageBanner message={ShopMessages.BULK_DISCOUNT} />}
+            <AppBar elevation={0} id="navBarContainer">
                 <Toolbar>
                     <NavBarLink path='/'><img alt="Logo" className="navBarItem" src="/logos/logo.svg" /></NavBarLink>
                     {navBarLookup[props.variation]}

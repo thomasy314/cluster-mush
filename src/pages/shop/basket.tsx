@@ -73,7 +73,7 @@ export const Basket = () => {
     }
 
     return (
-        <Container>
+        <Container sx={{height: 'fit-content', minHeight: '100vh'}}>
             <LoadingModal open={loadingCheckout || loadingUser} />
             {errorMessage && <Alert severity="error">{errorMessage.message}</Alert>}
             <h1 id='basketTitle'>Basket</h1>

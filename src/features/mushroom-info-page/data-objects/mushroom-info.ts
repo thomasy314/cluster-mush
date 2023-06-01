@@ -8,6 +8,7 @@ class MushroomInfo {
     name: string; 
     images: string[];
     latinName: string; 
+    latinSubInfo?: string;
     commonNames: string[]; 
     etymology: React.ReactNode; 
     location: string;
@@ -32,6 +33,7 @@ class MushroomInfo {
         science: ValueWithCitation<string>[],
         agriculture: ValueWithCitation<string>[],
         learnMore: Citation[],
+        latinSubInfo?: string,
         ) {
             this.name = name;
             this.images = images;
@@ -45,6 +47,7 @@ class MushroomInfo {
             this.science = science;
             this.agriculture = agriculture
             this.learnMore = learnMore;
+            this.latinSubInfo = latinSubInfo;
         }
 
     getHistoryAndCultureValues() : string[] {

@@ -17,8 +17,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <UserProvider>
         <BasketProvider>
-          <Container disableGutters maxWidth={false} sx={{height:'100vh'}}>
-            <NavBar variation={inShop() ? NavBarVariation.SHOP : NavBarVariation.MAIN} />
+          <NavBar variation={inShop() ? NavBarVariation.SHOP : NavBarVariation.MAIN} />
+          <Container disableGutters maxWidth={false} sx={{ height: 'fit-content', minHeight: '100vh', overflow: 'hidden' }}>
             <BrowserRouter>
               {inShop() ? <ShopRoutes /> : <MainRoutes />}
             </BrowserRouter>

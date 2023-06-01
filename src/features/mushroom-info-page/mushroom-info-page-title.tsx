@@ -1,15 +1,16 @@
+import { MushroomInfo } from "./data-objects"
+
 type MushroomTitleNameProps = {
-    name: string,
-    latinName: string
+    mushroomInfo: MushroomInfo
 }
 
 const MushroomTitleName = (props: MushroomTitleNameProps) => {
     // TODO: Link to the various species and add more specific species
     return (
         <div>
-            <h1>{props.name}</h1>
-            <h2><i>{props.latinName}</i></h2>
-            <p><i>Oyster mushroom refers to various species found within the genus Pleurotus, including Pleurotus ostreatus (the pearl oyster), Pleurotus Pulminarus, ... .</i></p>
+            <h1>{props.mushroomInfo.name}</h1>
+            <h2><i>{props.mushroomInfo.latinName}</i></h2>
+            {props.mushroomInfo.latinSubInfo && <p><i>{props.mushroomInfo.latinSubInfo}</i></p>}
         </div>
     )
 }

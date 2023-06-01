@@ -11,6 +11,8 @@ const name: string = 'Oyster Mushroom';
 
 const latinName: string = 'Pleurotus';
 
+const latinSubInfo: string = 'Oyster mushroom refers to various species found within the genus Pleurotus, for example Pleurotus ostreatus (the pearl oyster mushroom), Pleurotus populinus (the aspen oyster mushroom), and Pleurotus djamor (the pink oyster mushroom).';
+
 const commonNames: string[] = [
     '(Japan) Hiratake'
 ];
@@ -72,5 +74,6 @@ export const OysterInfo: MushroomInfo = new MushroomInfo(
     historyAndCultureFacts,
     scienceFacts,
     agricultureFacts,
-    learnMore
+    learnMore,
+    latinSubInfo
 );

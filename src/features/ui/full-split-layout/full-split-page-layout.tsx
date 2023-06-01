@@ -34,8 +34,8 @@ const FullSplitPageLayout = (props: PropsWithChildren<FullSplitPageLayoutProps>)
         width: `${width}vw`,
         maxWidth: props.smallImage ? '500px' : 'none',
         maxHeight: props.smallImage ? '500px' : 'none',
-        position: lessThanMd ? 'static' : 'fixed',
-        borderRadius: (props.smallImage) ? '25px': '0'
+        borderRadius: (props.smallImage) ? '25px': '0',
+        position: (!lessThanMd && !props.smallImage) ? 'fixed' : 'static'
     }
 
     return (

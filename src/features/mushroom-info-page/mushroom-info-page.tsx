@@ -36,7 +36,7 @@ type MushroomInfoPageProps = {
 const MushroomInfoPage = (props: MushroomInfoPageProps) => {
     const citations = props.mushroomInfo.getCitations();
 
-    const titleComponent = <MushroomTitleName name={props.mushroomInfo.name} latinName={props.mushroomInfo.latinName} />;
+    const titleComponent = <MushroomTitleName mushroomInfo={props.mushroomInfo}/>;
 
     return (
         <FullSplitPageLayout titleComponent={titleComponent} imageSrc={props.mushroomInfo.images[0]}>

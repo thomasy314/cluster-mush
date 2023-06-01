@@ -1,7 +1,7 @@
 import { Container } from "@mui/material"
 
 export enum ShopMessages {
-    BULK_DISCOUNT="10% off 3 pairs of earrings | 20% off 5 pairs of earrings (Automatically applied at checkout)"
+    BULK_DISCOUNT="10% off 3 pairs of earrings (SMALLCLUSTER) | 20% off 5 pairs of earrings (LARGECLUSTER)"
 }
 
 type ShopMessageBannerType = {
