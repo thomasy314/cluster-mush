@@ -2,7 +2,7 @@ import { Container, Link } from "@mui/material"
 
 export const ReturnPolicy = () => {
     return (
-        <Container sx={{paddingBottom:"10vh"}}>
+        <Container className="legalContainer">
             <h1>Return Policy</h1>
             <h3>Last updated May 22, 2023</h3>
             <p>
@@ -47,7 +47,6 @@ export const ReturnPolicy = () => {
             <p>
                 If you have any questions concerning our return policy, please contact us at support@clustermush.com or through the <Link href="/contact">contact page</Link>.
             </p>
-            <hr />
         </ Container>
     )
 }

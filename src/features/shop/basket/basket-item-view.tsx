@@ -24,7 +24,7 @@ export const BasketItemView = (props: BasketItemViewProps) => {
                 <Link href={stringToPath(props.item.item.name)} style={{}}><p>{props.item.item.name}</p></Link>
             </Grid>
             <Grid item className="basketItemViewColumn" xs={2}>
-                <p>{props.item.item.price}</p>
+                <p>{props.item.item.price.toFixed(2)}</p>
             </Grid>
             <Grid item className="basketItemViewColumn" xs={3} md={4}>
                 <p className="basketItemViewQuantityText">{basket.getProductQuantity(props.item.item)}</p>
@@ -36,7 +36,7 @@ export const BasketItemView = (props: BasketItemViewProps) => {
                 </div>
             </Grid>
             <Grid item className="basketItemViewColumn" xs={0} md={1} display={{ xs: 'none', md: 'flex'}}>
-                <p>{props.item.item.price * basket.getProductQuantity(props.item.item)}</p>
+                <p>{(props.item.item.price * basket.getProductQuantity(props.item.item)).toFixed(2)}</p>
             </Grid>
         </Grid>
     )

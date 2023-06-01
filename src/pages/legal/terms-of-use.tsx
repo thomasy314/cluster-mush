@@ -4,7 +4,7 @@ import { completeMainUrl, completeShopUrl } from "../../routing/routing-path-hel
 
 export const TermsOfUse = () => {
     return (
-        <Container sx={{paddingBottom:"10vh"}}>
+        <Container className="legalContainer">
             <h1>TERMS OF USE</h1>
             <b>Last updated May 23, 2023</b>
             <h2>AGREEMENT TO OUR LEGAL TERMS</h2>

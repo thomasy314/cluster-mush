@@ -36,6 +36,9 @@ export const BottomNavBar = () => {
                         <br />
                         <br />
                         <Link href="/return-policy" color='primary.light'>Return Policy</Link>
+                        <br />
+                        <br />
+                        <Link href="/shipping-policy" color='primary.light'>Shipping Policy</Link>
                     </Grid>
                     <Grid item xs={12} md={4} textAlign='center' justifyContent='center'>
                         <h2 style={{ color: theme.palette.primary.light }}>Communication</h2>

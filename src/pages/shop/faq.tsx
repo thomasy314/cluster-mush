@@ -1,6 +1,6 @@
 import { Container } from "@mui/material"
 
-export const ShippingInfo = () => {
+export const FAQ = () => {
     return (
         <Container maxWidth='sm' style={{ textAlign: 'center' }}>
             <h1>Shipping</h1>

@@ -22,8 +22,8 @@ function App() {
             <BrowserRouter>
               {inShop() ? <ShopRoutes /> : <MainRoutes />}
             </BrowserRouter>
-            <BottomNavBar />
           </Container>
+          <BottomNavBar />
         </BasketProvider>
       </UserProvider>
     </ThemeProvider>

@@ -4,7 +4,7 @@ import { completeMainUrl, completeShopUrl } from "../../routing/routing-path-hel
 
 export const PrivacyPolicy = () => {
     return (
-        <Container sx={{paddingBottom: '10vh'}}>
+        <Container className="legalContainer">
             <h1>Privacy Policy</h1>
             <b>Last updated May 23, 2023</b>
             <p>

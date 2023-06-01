@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { gourmetEarringIds } from "../features/shop/item-data";
 import { AccountPage } from "../pages/account";
 import { mushroomInfoPageList } from "../pages/mushroom-info-page";
-import { Basket, ShippingInfo, Shop, ShopItemPage } from "../pages/shop";
+import { Basket, FAQ, Shop, ShopItemPage } from "../pages/shop";
 import { CommonRoutes } from "./common-routes";
 import { createUnknownPathRedirect, stringToPath } from "./routing-path-helpers";
 import { DeleteMyDataPage } from "../pages/legal";
@@ -26,7 +26,7 @@ export const ShopRoutes = () => {
             <Route path='/basket' element={<Basket />} />
             <Route path='/login' element={<AccountPage />} />
             <Route path='/account' element={<AccountPage />} />
-            <Route path='/shipping' element={<ShippingInfo />} />
+            <Route path='/faq' element={<FAQ />} />
             {shopPages}
             <Route path='/delete-my-data' element={<DeleteMyDataPage />} />
             {createUnknownPathRedirect()}
