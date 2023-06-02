@@ -16,6 +16,10 @@ export const theme = createTheme({
             fontFamily: 'eckmannpsych-Small, sans-serif',
             fontSize: 'min(10vw, 4em)',
             color: '#8BA465'
+        },
+        button: {
+            textTransform: 'none',
+            fontSize: '1em'
         }
     },
     components: {

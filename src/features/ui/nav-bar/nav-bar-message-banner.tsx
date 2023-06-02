@@ -8,7 +8,7 @@ type ShopMessageBannerType = {
     message: string
 }
 
-export const ShopMessageBanner = (props: ShopMessageBannerType) => {
+export const NavBarMessageBanner = (props: ShopMessageBannerType) => {
     return (
         <Container
             disableGutters

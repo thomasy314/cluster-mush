@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 
-import ComingShroom from '../pages/coming-shroom/coming-shroom';
 import StyleGuide from '../pages/style-guide/style-guide';
 
 import { MushroomInfoPage } from '../features/mushroom-info-page';
@@ -8,6 +7,7 @@ import { MushroomInfoPage } from '../features/mushroom-info-page';
 import { Fragment } from 'react';
 import { Navigate } from 'react-router';
 import { About } from '../pages/about/about';
+import { Home } from '../pages/home';
 import { BrowseMushroomInfoPage, mushroomCategoryList, mushroomInfoPageList } from '../pages/mushroom-info-page';
 import { browseGourmetMushroomsDesc } from '../pages/mushroom-info-page/browse-mushroom-info-pages/browse-mushroom-info-pages-strings';
 import { gourmetMushroomList } from '../pages/mushroom-info-page/definitions';
@@ -48,7 +48,7 @@ export const MainRoutes = () => {
     return (
         <Routes>
             {CommonRoutes}
-            <Route index element={<ComingShroom />} />
+            <Route index element={<Home />} />
             <Route path={MainPagePaths.STYLE_GUIDE} element={<StyleGuide />} />
             <Route path={MainPagePaths.ABOUT} element={<About />} />
             <Route path={MainPagePaths.BROWSE_GOURMET_MUSHROOMS} element={<BrowseMushroomInfoPage title='Gourmet Mushrooms' description={browseGourmetMushroomsDesc} infoList={gourmetMushroomList} />} />

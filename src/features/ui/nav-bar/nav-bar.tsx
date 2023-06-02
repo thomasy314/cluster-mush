@@ -4,7 +4,7 @@ import { NavBarLink } from './nav-bar-link';
 import { ShopNavBarContents } from './shop-nav-bar-contents';
 
 import './nav-bar.css';
-import { ShopMessageBanner, ShopMessages } from '../../shop/shop-message-banner';
+import { NavBarMessageBanner, ShopMessages } from './nav-bar-message-banner';
 import React from 'react';
 
 export enum NavBarVariation {
@@ -25,7 +25,7 @@ export const NavBar = (props: NavBarProps) => {
 
     return (
         <>
-            {props.variation === NavBarVariation.SHOP && <ShopMessageBanner message={ShopMessages.BULK_DISCOUNT} />}
+            {props.variation === NavBarVariation.SHOP && <NavBarMessageBanner message={ShopMessages.BULK_DISCOUNT} />}
             <AppBar elevation={0} id="navBarContainer">
                 <Toolbar>
                     <NavBarLink path='/'><img alt="Logo" className="navBarItem" src="/logos/logo.svg" /></NavBarLink>

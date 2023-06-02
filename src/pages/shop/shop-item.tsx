@@ -8,7 +8,7 @@ import { FullSplitPageLayout } from '../../features/ui/full-split-layout/full-sp
 
 import { useNavigate } from 'react-router-dom';
 import './shop-item.css';
-import { stringToPath } from '../../routing/routing-path-helpers';
+import { completeMainUrl, stringToPath } from '../../routing/routing-path-helpers';
 
 type ShopItemPageProps = {
     shopItemInfoId: string
@@ -62,7 +62,7 @@ export const ShopItemPage = (props: ShopItemPageProps) => {
                 <Button onClick={addToBasket}>Add to basket</Button>
                 {addedToCart && <p>Added!</p>}
                 <p><i>{selectedItem.description}</i></p>
-                <p>Learn more on the <Link href={`https://clustermush.com/${stringToPath(selectedItem.mushroom_name)}`}>Cluster Mush website!</Link></p>
+                <p>Learn more on the <Link href={`${completeMainUrl}/${stringToPath(selectedItem.mushroom_name)}`}>Cluster Mush website!</Link></p>
                 <br />
                 <hr style={{ width: '100%' }} className="shopItemDivideLine" />
                 <br />
