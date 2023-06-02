@@ -42,20 +42,20 @@ export const About = () => {
         <Container id="aboutContainer">
             <h1>About Cluster Mush</h1>
             <p><i>
-                Cluster Mush’s goal is to promote appreciation and understanding of fungi through quick educational facts and artwork.
+                Cluster Mush’s goal is to promote appreciation and understanding of fungi through fungal art and education.
             </i></p>
             <Grid container justifyContent='center'>
                 {imageList}
             </Grid>
             <p>
-                Cluster Mush was created at the start of 2023 as a way to create more excitement and understanding for fungi which have been frequently overlooked in western history. The entire idea is for people to find fungal related art that then relays people to the website where they can learn more about the fungi they purchased. By doing this, people can spread interest about mushrooms through their new artwork and also educate others who ask about it.
+                Cluster Mush was created in March of 2023 to promote appreciation and understanding of our funki fungi friends through artwork and education. The idea is to grab people’s attention through creative and unique fungal-related art and then relay them to the website where they can learn about the fungi they purchased. By doing this, people can spread interest in mushrooms through their new artwork and educate others who ask about it.
             </p>
             <h2>About Me</h2>
             <Grid container justifyContent='center'>
                 <img id="tomAboutImage" alt="Tom the mushroom man" src={tomImg} />
             </Grid>
             <p>
-                My name is Thomas Young and in the summer of 2022 I fell in love with the amazing world of Fungi. Since then, I have spent my free time reading, learning, and engaging mushrooms in all the possible ways I can. I created Cluster Mush so that I can combine my passion for mushroom, education, and art into a single place. By doing so, I hope to help show everyone how much value mushrooms bring while also creating unique and interesting artwork to reflect this.
+                My name is Thomas Young and in the summer of 2022, I fell in love with the amazing world of Fungi. Since then, I have spent my free time reading, learning, and engaging mushrooms in all the possible ways I can. I created Cluster Mush to combine my passion for education and art while I explore and learn about the fantastic world of fungi. By doing so, I hope to show everyone how much value mushrooms bring while creating unique artwork to reflect beauty.
             </p>
             <SocialIcons />
         </Container>

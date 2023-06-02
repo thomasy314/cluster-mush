@@ -1,9 +1,9 @@
 import { Container } from "@mui/material"
 
-export const FAQ = () => {
+export const ShopFAQ = () => {
     return (
         <Container maxWidth='sm' style={{ textAlign: 'center' }}>
-            <h1>Shipping</h1>
+            <h1>FAQ</h1>
 
             <h2>How long does it take to get my item?</h2>
             <p>Please allow 1-2 days for your item to be shipped. This is because some items are made to order and can take up to 2 business days to be created. Once shipped, it will take 1-5 business days via USPS First Class shipping.</p>
