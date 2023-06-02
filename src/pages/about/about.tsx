@@ -5,7 +5,7 @@ import portobelloImg from '../../assets/photos/commonStore/portobello.png';
 import enokiImg from '../../assets/photos/enoki/enoki.jpg';
 import shiitakeImg from '../../assets/photos/shiitake/shiitake.png';
 
-import tomImg from '../../assets/photos/people/tom.jpg';
+import tomImg from '../../assets/photos/people/tomo.jpg';
 
 import './about.css';
 
