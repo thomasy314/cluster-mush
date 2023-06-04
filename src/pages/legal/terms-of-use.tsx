@@ -293,7 +293,7 @@ export const TermsOfUse = () => {
                 <SectionTitle>7. RETURN POLICY</SectionTitle>
                 <p>
                     Please review our Return Policy posted on the Services prior to making
-                    any purchases. See the <Link href="/return-policy">Return Policy</Link> doc for more information.
+                    any purchases. See the <Link href={`${completeShopUrl}/return-policy`}>https://clustermush.com/return-policy</Link> for more information.
                 </p>
             </div>
             <div id="8-prohibited-activities">

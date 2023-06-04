@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { gourmetEarringIds } from "../features/shop/item-data";
 import { AccountPage } from "../pages/account";
-import { DeleteMyDataPage } from "../pages/legal";
+import { DeleteMyDataPage, ReturnPolicy, ShippingPolicy } from "../pages/legal";
 import { mushroomInfoPageList } from "../pages/mushroom-info-page";
 import { Basket, Shop, ShopFAQ, ShopItemPage } from "../pages/shop";
 import { CommonRoutes } from "./common-routes";
@@ -27,6 +27,8 @@ export const ShopRoutes = () => {
             <Route path='/login' element={<AccountPage />} />
             <Route path='/account' element={<AccountPage />} />
             <Route path='/shop-faq' element={<ShopFAQ />} />
+            <Route path='/return-policy' element={<ReturnPolicy />} />
+            <Route path='/shipping-policy' element={<ShippingPolicy />} />
             {shopPages}
             <Route path='/delete-my-data' element={<DeleteMyDataPage />} />
             {createUnknownPathRedirect()}

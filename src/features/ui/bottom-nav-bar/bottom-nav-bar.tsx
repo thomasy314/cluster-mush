@@ -29,11 +29,11 @@ export const BottomNavBar = () => {
                     <Grid className="bottomNavBarSection" item xs={12} md={4}>
                         <h2 style={{ color: theme.palette.primary.light }}>Information</h2>
                         <Link className="bottomNavBarInfoLink" href={`${completeMainUrl}/about`} color='primary.light'>About Cluster Mush</Link>
-                        <Link className="bottomNavBarInfoLink" href={`${completeShopUrl}/shop-faq`} color='primary.light'>Shop FAQ</Link>
                         <Link className="bottomNavBarInfoLink" href="/terms-of-use" color='primary.light'>Terms of Use</Link>
                         <Link className="bottomNavBarInfoLink" href="/privacy-policy" color='primary.light'>Privacy Policy</Link>
-                        <Link className="bottomNavBarInfoLink" href="/return-policy" color='primary.light'>Return Policy</Link>
-                        <Link className="bottomNavBarInfoLink" href="/shipping-policy" color='primary.light'>Shipping Policy</Link>
+                        <Link className="bottomNavBarInfoLink" href={`${completeShopUrl}/shop-faq`} color='primary.light'>Shop FAQ</Link>
+                        <Link className="bottomNavBarInfoLink" href={`${completeShopUrl}/return-policy`} color='primary.light'>Return Policy</Link>
+                        <Link className="bottomNavBarInfoLink" href={`${completeShopUrl}/shipping-policy`} color='primary.light'>Shipping Policy</Link>
                     </Grid>
                     <Grid className="bottomNavBarSection" item xs={12} md={4} textAlign='center' justifyContent='center'>
                         <h2 style={{ color: theme.palette.primary.light }}>Communication</h2>

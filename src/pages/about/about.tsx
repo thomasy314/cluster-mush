@@ -1,9 +1,9 @@
 import { Container, Grid } from "@mui/material";
 import { SocialIcons } from "../../features/social-media";
 
-import portobelloImg from '../../assets/photos/commonStore/portobello.png';
-import enokiImg from '../../assets/photos/enoki/enoki.jpg';
-import shiitakeImg from '../../assets/photos/shiitake/shiitake.png';
+import portobelloImg from '../../assets/photos/commonStore/portobello.jpg';
+import oysterImg from '../../assets/photos/oyster/oyster-mushroom-psms-field-tripe.jpg';
+import shiitakeImg from '../../assets/photos/shiitake/shiitake.jpg';
 
 import tomImg from '../../assets/photos/people/tomo.jpg';
 
@@ -15,12 +15,12 @@ const images = [
         image: portobelloImg
     },
     {
-        name: 'shiitake',
-        image: shiitakeImg
+        name: 'enoki',
+        image: oysterImg
     },
     {
-        name: 'enoki',
-        image: enokiImg
+        name: 'shiitake',
+        image: shiitakeImg
     }
 ]
 
