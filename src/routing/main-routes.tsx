@@ -35,7 +35,7 @@ const redirectPages = mushroomInfoPageList.map(mushInfo =>
     />
 );
 
-export enum MainPagePaths  {
+export enum MainPagePaths {
     HOME = '/home',
     STYLE_GUIDE = '/style-guide',
     ABOUT = '/about',
@@ -48,6 +48,10 @@ export const MainRoutes = () => {
     return (
         <Routes>
             {CommonRoutes}
+            <Route
+                path={`/instagram-link`}
+                element={<Navigate to={`/`} replace />}
+            />
             <Route index element={<Home />} />
             <Route path={MainPagePaths.STYLE_GUIDE} element={<StyleGuide />} />
             <Route path={MainPagePaths.ABOUT} element={<About />} />

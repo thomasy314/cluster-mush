@@ -55,7 +55,7 @@ export const About = () => {
                 <img id="tomAboutImage" alt="Tom the mushroom man" src={tomImg} />
             </Grid>
             <p>
-                My name is Thomas Young and in the summer of 2022, I fell in love with the amazing world of Fungi. Since then, I have spent my free time reading, learning, and engaging mushrooms in all the possible ways I can. I created Cluster Mush to combine my passion for education and art while I explore and learn about the fantastic world of fungi. By doing so, I hope to show everyone how much value mushrooms bring while creating unique artwork to reflect beauty.
+                My name is Thomas Young and in the spring of 2022, I fell in love with the amazing world of Fungi. Since then, I have spent my free time reading, learning, and engaging mushrooms in all the possible ways I can. I created Cluster Mush to combine my passion for education and art while I explore and learn about the fantastic world of fungi. By doing so, I hope to show everyone how much value mushrooms bring while creating unique artwork to reflect beauty.
             </p>
             <SocialIcons />
         </Container>
