@@ -49,7 +49,7 @@ export const MainNavBarContents = () => {
                         open={drawerOpen}
                         onClose={() => setDrawerOpen(false)}
                     >
-                        <div id='navBarDrawer'>
+                        <div className='navBarDrawer'>
                             <h2 className="navBarDrawerTitle">Mushrooms</h2>
                             {mushroomSidebarLinks}
                             <hr className="navBarDrawerDivider" />

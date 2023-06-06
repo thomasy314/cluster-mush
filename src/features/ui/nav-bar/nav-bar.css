@@ -5,11 +5,12 @@
     position: -webkit-sticky;
 }
 
-#navBarDrawer {
+.navBarDrawer {
     padding: 1rem;
     display: flex;
     flex-direction: column;
     text-align: right;
+    width: 50vw;
 }
 
 .navBarDrawerTitle {
