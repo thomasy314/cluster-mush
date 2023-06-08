@@ -9,7 +9,7 @@ export const pathToString = (val: string): string => {
 }
 
 export const isLocalHost = (): boolean => {
-    return !window.location.hostname.includes('clustermush');
+    return !window.location.hostname.includes('clustermush') && !window.location.hostname.includes('cluster-mush');
 }
 
 export const completeMainUrl = isLocalHost() ? 'http://www.localhost:3000' : 'https://www.clustermush.com';
