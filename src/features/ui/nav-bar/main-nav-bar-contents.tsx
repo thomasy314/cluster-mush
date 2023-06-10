@@ -18,7 +18,7 @@ export const MainNavBarContents = () => {
 
     const mushroomSidebarLinks =
         mushroomInfoPageList.map(infoPage =>
-            <NavBarLink key={infoPage.name} path={`/${infoPage.getCommonNamePath()}`}>{infoPage.name}</NavBarLink>
+            <NavBarLink key={infoPage.name} path={`/${infoPage.getCommonNamePath()}`}  textAlign='left'><p>{infoPage.name}</p></NavBarLink>
         );
 
     const mushroomDropdownLinks = (
