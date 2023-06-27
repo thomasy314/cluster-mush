@@ -12,22 +12,23 @@ const name: string = 'Enoki'
 const latinName: string = 'Flammulina filiformis'
 
 const commonNames: string[] = [
-    '(China) 金針菇 (jīnzhēngū, "old needle mushroom)',
+    '(China) 金針菇 (jīnzhēngū, "Old Needle mushroom)',
     '(China) 金菇 (jīngū, "Gold mushroom)',
     '(India) Futu',
-    '(Korea) 팽이버섯 (Paengi Beoseot, "Mushroom planted near catalpa)',
-    '(Vietnam) nấm kim châm ("Golden needle mushroom")',
-    'Velvet foot',
-    'Winter Mushroom'
+    '(Korea) 팽이버섯 (Paengi Beoseot, "mushroom planted near catalpa")',
+    '(Vietnam) nấm kim châm ("Golden Needle mushroom")',
+    'Velvet Foot',
+    'Winter mushroom',
+    'See You Tomorrow mushroom'
 ];
 
-const etymology: string = 'The word “Enoki” refers to the Enoki tree or Chinese hackberry tree that it is often found growing on.';
+const etymology: string = 'The word "Enoki" refers to the Enoki tree, or Chinese Hackberry tree, that is often found growing on.';
 
 const location: string = 'Found in eastern and southern parts of Asia with it being most popular in East Asian countries like China, Japan, and Korea.';
 
 const ecologicalGroup: EcologicalGroup = EcologicalGroup.SAPROPHYTIC;
 
-const edible: string = 'Yes! The mushroom has a crisp texture and peppery taste when eaten raw. It is very popular in soup as it lends a great texture without an overpowering flavor.';
+const edible: string = 'Yes! This mushroom boasts a crisp texture and a subtle peppery taste. It is highly favored in soups for its ability to enhance the overall texture without overwhelming the flavors.';
 
 // Citations
 const enokiMushroomBreeding: Citation = new Citation('Sharma, V. P., Barh, A., Bairwa, R., Annepu, S. K., Kumari, B., & Kamal, S. (2021). Enoki Mushroom (Flammulina velutipes (Curtis) Singer) Breeding. Springer EBooks, 423–441. https://doi.org/10.1007/978-3-030-66969-0_11', 'https://doi.org/10.1007/978-3-030-66969-0_11');
@@ -37,16 +38,16 @@ const enokiHarvestVideo: Citation = new Citation('Southwest Mushrooms. (2021, Fe
 const mushOfTheMonthEnoki: Citation = new Citation('Volk, T. (n.d.).Flammulina velutipes, aka winter mushroom, velvet stem, velvet foot, enoki, enokitake, Tom Volk’s Fungus of the Month for March 1997. (n.d.). https://botit.botany.wisc.edu/toms_fungi/march97.html', 'https://botit.botany.wisc.edu/toms_fungi/march97.html')
 
 const historyAndCultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Records show Enoki being first cultivated in China as far back as the 8th century.', [enokiMushroomBreeding])
+    new ValueWithCitation('Records show Enoki were first cultivated in China as far back as the 8th century C.E.', [enokiMushroomBreeding])
 ];
 
 const scienceFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Up until 2018, The Enoki was considered to be the same species as its European and North American counterpart: Flammulina velutipes also referred to as the Velvet Foot.', [phylogenyAndSpeciesDelimination])
+    new ValueWithCitation('Enoki mushrooms were initially classified as a single species called Flammulina velutipes. However, in 2018, it was revealed that F. velutipes refers to the European species, while the species cultivated in Asia is now known as Flammulina filiformis.', [phylogenyAndSpeciesDelimination])
 ];
 
 const agricultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Cultivated Enoki vary wildly in appearance from those found in nature. Cultivated Enoki are tall, with very small caps, and are white with an orange/yellow tint. Wild Enoki are short, have wide caps, and have a bright orange coloration. This difference is caused by genetics and a decrease in oxygen and light during cultivation, leading to elongation and whitening', [theTwoEnoki, enokiHarvestVideo, enokiMushroomBreeding]),
-    new ValueWithCitation('A decrease in temperature is one of the triggers that tell Enoki to start fruiting (aka growing mushrooms). Because of this, Enoki can be found during the winter months when it is too cold for other mushrooms to grow.', [enokiHarvestVideo, mushOfTheMonthEnoki])
+    new ValueWithCitation('Wild Enoki look vastly different from their cultivated counterparts. Cultivated Enoki mushrooms are characterized by their tall stature, small caps, and white appearance with a subtle orange or yellow tint. On the other hand, wild Enoki mushrooms are shorter, possess wider caps, and display a vibrant orange coloration. These variations in appearance are primarily attributed to genetic factors as well as reduced oxygen and light exposure during the cultivation process.', [theTwoEnoki, enokiHarvestVideo, enokiMushroomBreeding]),
+    new ValueWithCitation('One of the stimuli that signals Enoki mushrooms to initiate fruiting (or mushroom growth) is a significant drop in temperature. As a result, Enoki mushrooms are commonly observed during the winter months when the conditions are too cold for many other mushrooms. This unique characteristic has earned Enoki the nickname "The Winter mushroom."', [enokiHarvestVideo, mushOfTheMonthEnoki])
 ];
 
 const learnMore: Citation[] = [
