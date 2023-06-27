@@ -20,13 +20,13 @@ const commonNames: string[] = [
     '(Fully Grown) Portobello'
 ];
 
-const etymology: React.ReactNode = <><br/><br/><u>Portobello</u>:  It is unclear where the name Portobello comes from. Many say it is named after a famous road in London, some say it is the Italian word “pratarolo” meaning meadow, and some say that it is just a marketing name</>
+const etymology: React.ReactNode = <><br/><br/><u>Portobello</u>:  It is unclear where the name Portobello comes from. Many say it is named after a famous road in London, some say it is the Italian word “pratarolo” meaning meadow mushroom, and some say that it is just a marketing name.</>
 
 const location: string = 'The common store mushroom is native to Europe, Asia, and North America.'
 
 const ecologicalGroup: EcologicalGroup = EcologicalGroup.SAPROPHYTIC;
 
-const edible: string = 'Yes! The mushroom has a rich and savory umami flavor and dense firm texture. This flavor is then intensified when cooked. When cooking the mature version of this mushroom, the portobello, it is popular to remove the gills as they can be bitter and add a dark brown coloration to the food.'
+const edible: string = 'Yes! The mushroom has a rich and savory umami flavor and dense, firm texture. This flavor is intensified when cooked. Some people remove the gills from the Portobello as they can be bitter and cause a slimy texture, while others prefer keeping the gills intact for a stronger flavor.'
 
 // Citations
 const mushOfTheMonthAgric: Citation = new Citation('Volk, T., & Ivors, K. (n.d.). Agaricus bisporus, the white button pizza mushroom,  portabella, portobello, portabello, portobella, crimini, Tom Volk’s Fungus of the Month for April 2001. https://botit.botany.wisc.edu/toms_fungi/apr2001.html', 'https://botit.botany.wisc.edu/toms_fungi/apr2001.html');
@@ -37,17 +37,17 @@ const nyTimesAfterThePortobello: Citation = new Citation('O’Neill, M. (1998, N
 const wildAboutMushroomSf: Citation = new Citation('Wild About Mushrooms: Button Mushroom. (n.d.). https://www.mssf.org/cookbook/button.html', 'https://www.mssf.org/cookbook/button.html');
 
 const historyAndCultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Up until the mid 1990s, the only variety of the store mushroom consumers wanted were Champignon, AKA the immature white variety. This was because of their more elegant white aesthetic.', [usda1996Report, washingtonPostMushBoom, nyTimesAfterThePortobello]),
-    new ValueWithCitation('The common store mushroom was first cultivated in the early 1700’s in France.', [wildAboutMushroomSf]),
-    new ValueWithCitation('In 1926, a Pennsylvania mushroom farmer found a clump of mushrooms with white caps in their mushroom bed. This mushroom would later be given the name Champignon or Button mushroom. Cultures were grown from this mutation and now most Champignon grown are ancestors of those mushrooms.', [wildAboutMushroomSf])
+    new ValueWithCitation('The Common Store mushroom was first cultivated in the early 1700\'s in France.', [wildAboutMushroomSf]),
+    new ValueWithCitation('Up until the mid 1990s, the only variety of the Common Store mushroom consumers wanted were Champignon, the immature white variety, because of their elegant, white aesthetic.', [usda1996Report, washingtonPostMushBoom, nyTimesAfterThePortobello]),
 ];
 
 const scienceFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('The Common Store Mushroom is composed of the three mushrooms that you will most likely find in a western grocery store: Cremini, Champignon, and Portobello.', [mushOfTheMonthAgric])
+    new ValueWithCitation('The Common Store mushroom refers to the three mushrooms you will most likely find in a western grocery store: Cremini, Champignon, and Portobello.', [mushOfTheMonthAgric]),
+    new ValueWithCitation('The Common Store mushroom is a secondary decomposer, meaning it consumes already decomposed materials, such as compost or the material broken down by other mushrooms.', [mushOfTheMonthAgric]),
 ];
 
 const agricultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('The Common Store Mushroom is a secondary decomposer meaning it consumes already decomposed materials, such as compost or the substance left over by a previous mushroom.', [mushOfTheMonthAgric]),
+    new ValueWithCitation('In 1926, A Pennsylvania mushroom farmer found a clump of mushrooms with white caps growing in their mushroom bed. This fungi would later be given the name "Champignon" or "Button mushroom." Cultures were grown from this mutation, and now most Champignon grown today are descendants of those mushrooms.', [wildAboutMushroomSf]),
     new ValueWithCitation('As of 2022, The Common Store mushroom accounts for 91% of the mushrooms grown in the United States, but only 40% worldwide.', [usda2022Report, mushOfTheMonthAgric])
 ];
 
