@@ -33,7 +33,7 @@ const mushroomExpert: Citation = new Citation('MushroomExpert.Com. (n.d.). Grifo
 const mushOfTheMonthMaitake: Citation = new Citation('Volk, T. (n.d.).Grifola frondosa, the hen of the woods, sheepshead or maitake-- Tom Volk’s Fungus of the Month for November 2006. (n.d.). http://botit.botany.wisc.edu/toms_fungi/nov2006.html', 'http://botit.botany.wisc.edu/toms_fungi/nov2006.html');
 
 const historyAndCultureFacts: ValueWithCitation<string>[] = [
-    new ValueWithCitation('Due to a more challenging cultivation process, Maitakes only started being cultivated in the mid 1980\'s in Japan.', [historyOfMaitake, mushOfTheMonthMaitake]),
+    new ValueWithCitation('Due to a more challenging cultivation process, Maitakes only started being artificially cultivated in the mid 1980\'s in Japan.', [historyOfMaitake, mushOfTheMonthMaitake]),
     new ValueWithCitation('Maitake have been used in East Asian cultures as medicine for millennia. Specifically, it is employed to improve spleen and stomach ailments, calm nerves, and bolster the immune system.', [mushOfTheMonthMaitake])
 ];
 
