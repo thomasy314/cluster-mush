@@ -1,1 +1,0 @@
-export { default as MushroomInfoPage } from './mushroom-info-page';
