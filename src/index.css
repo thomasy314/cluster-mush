@@ -1,4 +1,18 @@
-:root {
+@import "tailwindcss";
+
+@theme {
+  --color-olive-500: #8ba465;
+  --font-eckmannpsych-lg: eckmannpsych-large;
+  --font-eckmannpsych-md: eckmannpsych-medium;
+  --font-eckmannpsych-sm: eckmannpsych-small;
+  --font-hoss-round: hoss-round;
+}
+
+* {
+  font-family: hoss-round;
+}
+
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +79,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
