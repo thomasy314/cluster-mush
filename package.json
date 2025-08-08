@@ -1,56 +1,29 @@
 {
   "name": "cluster-mush",
-  "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@mui/icons-material": "^5.11.11",
-    "@mui/material": "^5.11.14",
-    "@stripe/firestore-stripe-payments": "^0.0.6",
-    "@stripe/stripe-js": "^1.52.1",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^29.5.0",
-    "@types/node": "^18.15.11",
-    "@types/react-router-dom": "^5.3.3",
-    "firebase": "^9.20.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.0.3",
-    "validator": "^13.9.0",
-    "web-vitals": "^2.1.4"
-  },
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint src --ext .ts"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.1",
-    "@types/uuid": "^9.0.1",
-    "@types/validator": "^13.7.17",
-    "react-router-dom": "^6.11.0",
-    "react-scripts": "5.0.1"
+    "@eslint/js": "^9.32.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "eslint": "^9.32.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.39.0",
+    "vite": "^7.1.0"
   }
 }
