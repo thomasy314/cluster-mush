@@ -2,13 +2,16 @@
 
 @theme {
   --color-olive-500: #8ba465;
+  --color-eggshell-500: #f8f6f1;
   --font-eckmannpsych-lg: eckmannpsych-large;
   --font-eckmannpsych-md: eckmannpsych-medium;
   --font-eckmannpsych-sm: eckmannpsych-small;
   --font-hoss-round: hoss-round;
 }
 
-* {
+html {
+  @apply text-olive-500;
+  @apply bg-eggshell-500;
   font-family: hoss-round;
 }
 
