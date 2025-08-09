@@ -6,7 +6,7 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter basename="/cluster-mush">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="*" element={<Navigate to="/" replace />} />
